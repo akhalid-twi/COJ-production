@@ -3,6 +3,17 @@ import plotly.express as px
 import streamlit as st
 import plotly.graph_objects as go
 
+# Define a function to apply row-wise styling
+def highlight_status(row):
+    color = ''
+    if row['Status'] == 'Success':
+        color = 'background-color: lightgreen'
+    elif row['Status'] == 'Failed':
+        color = 'background-color: lightcoral'
+    elif row['Status'] == 'Running':
+        color = 'background-color: lightyellow'
+    return [color] * len(row)
+    
 # Load the CSV file
 csv_file = "erdc_baseline_simulation_summary.csv"
 df = pd.read_csv(csv_file)
@@ -19,9 +30,15 @@ running_df = df[df["Status"] == "Running"].copy()
 success_df["SUs"] = pd.to_numeric(success_df["SUs"], errors='coerce')
 
 # Display the full data table
-st.subheader("Simulation Results Table")
-st.dataframe(df)
+# st.subheader("Simulation Results Table")
+# st.dataframe(df)
 
+# Apply styling
+styled_df = df.style.apply(highlight_status, axis=1)
+
+# Display the styled dataframe
+st.subheader("Simulation Results Table")
+st.dataframe(styled_df)
 
 # Interactive bar chart of SU usage
 st.subheader("Service Units (SUs) Used per Successful Simulation")
