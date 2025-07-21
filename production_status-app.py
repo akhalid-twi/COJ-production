@@ -101,9 +101,29 @@ fig_fail_success.update_layout(
 st.plotly_chart(fig_fail_success, use_container_width=True)
 
 # Pie chart of success vs failure
-st.subheader("Simulation Status Distribution")
+
+# Count status values
 status_counts = df["Status"].value_counts().reset_index()
 status_counts.columns = ["Status", "Count"]
-fig_pie = px.pie(status_counts, names="Status", values="Count", title=" Failure vs SuccessDistribution")
+
+# Define custom color mapping
+color_map = {
+    "Success": "lightgreen",
+    "Failed": "lightcoral",
+    "Running": "lightyellow"
+}
+
+# Create pie chart with custom colors
+fig_pie = px.pie(
+    status_counts,
+    names="Status",
+    values="Count",
+    title="Failure vs Success Distribution",
+    color="Status",
+    color_discrete_map=color_map
+)
+
+st.subheader("Simulation Status Distribution")
 st.plotly_chart(fig_pie, use_container_width=True)
+
 
