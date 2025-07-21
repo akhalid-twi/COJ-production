@@ -60,14 +60,14 @@ fig_completion.add_trace(go.Bar(
     x=[completed_count],
     name="Completed",
     orientation='h',
-    marker=dict(color='green')
+    marker=dict(color='lightgreen')
 ))
 fig_completion.add_trace(go.Bar(
     y=["Simulations"],
     x=[running_count],
     name="Running",
     orientation='h',
-    marker=dict(color='orange')
+    marker=dict(color='lightyellow')
 ))
 fig_completion.update_layout(
     barmode='stack',
