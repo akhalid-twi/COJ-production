@@ -1,6 +1,7 @@
 import pandas as pd
 import plotly.express as px
 import streamlit as st
+import plotly.graph_objects as go
 
 # Load the CSV file
 csv_file = "erdc_baseline_simulation_summary.csv"
@@ -66,9 +67,12 @@ st.plotly_chart(fig_pie)
 
 
 #%%
-import pandas as pd
-import plotly.graph_objects as go
 
+# Simulated counts
+completed_count = len(success_df) + len(failed_df)
+running_count = len(running_df)
+failed_count = len(failed_df)
+successful_count = len(success_df)
 
 # Horizontal stacked bar: Completed vs Running
 st.subheader("Completed vs Running Simulations (Stacked)")
