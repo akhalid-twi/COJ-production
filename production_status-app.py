@@ -32,3 +32,5 @@ status_counts = df["Status"].value_counts().reset_index()
 status_counts.columns = ["Status", "Count"]
 fig_pie = px.pie(status_counts, names="Status", values="Count", title="Success vs Failure Distribution")
 st.plotly_chart(fig_pie)
+
+
