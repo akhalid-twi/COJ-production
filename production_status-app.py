@@ -47,6 +47,10 @@ st.subheader("Available Plan to Review")
 notebook_url = "https://github.com/akhalid-twi/COJ-production/blob/main/results_S0132_notebook.ipynb"
 st.markdown(f'<a href="{notebook_url}" target="_blank">🔗 View Notebook for S0132</a>', unsafe_allow_html=True)
 
+st.subheader("Available Plan to Review")
+
+html_url = "https://akhalid-twi.github.io/COJ-production/S0138.html"
+st.markdown(f'<a href="{html_url}" target="_blank">🔗 View HTML Report for S0138</a>', unsafe_allow_html=True)
 
 
 # Interactive bar chart of SU usage
