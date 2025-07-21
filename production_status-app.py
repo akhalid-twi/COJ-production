@@ -39,6 +39,14 @@ styled_df = df.style.apply(highlight_status, axis=1)
 st.subheader("Simulation Results Table")
 st.dataframe(styled_df, use_container_width=True)
 
+
+# Available Plan to Review
+st.subheader("Available Plan to Review")
+notebook_url = "https://github.com/akhalid-twi/COJ-production/results_S0132_notebook.ipynb"
+st.markdown(f"🔗 View Notebook for S0132", unsafe_allow_html=True)
+
+
+
 # Interactive bar chart of SU usage
 st.subheader("Service Units (SUs) Used per Successful Simulation")
 st.markdown(f"**Total SUs Used:** {total_sus:,}")
