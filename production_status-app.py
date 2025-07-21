@@ -38,12 +38,12 @@ styled_df = df.style.apply(highlight_status, axis=1)
 
 # Display the styled dataframe
 st.subheader("Simulation Results Table")
-st.dataframe(styled_df)
+st.dataframe(styled_df, use_container_width=True)
 
 # Interactive bar chart of SU usage
 st.subheader("Service Units (SUs) Used per Successful Simulation")
 fig_su = px.bar(success_df, x="Directory", y="SUs", color="SUs", title="SUs per Successful Run")
-st.plotly_chart(fig_su)
+st.plotly_chart(fig_su, use_container_width=True)
 
 
 # Simulated counts
@@ -74,7 +74,7 @@ fig_completion.update_layout(
     xaxis_title="Count",
     height=300
 )
-st.plotly_chart(fig_completion)
+st.plotly_chart(fig_completion, use_container_width=True)
 
 # Horizontal stacked bar: Failed vs Successful
 st.subheader("Failed vs Successful Simulations (Stacked)")
@@ -98,12 +98,12 @@ fig_fail_success.update_layout(
     xaxis_title="Count",
     height=300
 )
-st.plotly_chart(fig_fail_success)
+st.plotly_chart(fig_fail_success, use_container_width=True)
 
 # Pie chart of success vs failure
 st.subheader("Simulation Status Distribution")
 status_counts = df["Status"].value_counts().reset_index()
 status_counts.columns = ["Status", "Count"]
 fig_pie = px.pie(status_counts, names="Status", values="Count", title=" Failure vs SuccessDistribution")
-st.plotly_chart(fig_pie)
+st.plotly_chart(fig_pie, use_container_width=True)
 
