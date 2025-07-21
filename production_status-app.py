@@ -41,9 +41,9 @@ st.dataframe(styled_df, use_container_width=True)
 
 
 # Available Plan to Review
-st.subheader("Available Plan to Review")
+
 notebook_url = "https://github.com/akhalid-twi/COJ-production/results_S0132_notebook.ipynb"
-st.markdown(f"🔗 View Notebook for S0132", unsafe_allow_html=True)
+st.markdown(f'<a href="{notebook_url}" target="_blank">🔗 View Notebook for S0132</a>', unsafe_allow_html=True)
 
 
 
