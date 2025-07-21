@@ -69,12 +69,9 @@ st.plotly_chart(fig_pie)
 import pandas as pd
 import plotly.graph_objects as go
 
-# Simulated counts based on user's CSV data
-completed_count = 39  # Success
-running_count = 24
-failed_count = 0
 
-# Simulate horizontal stacked bar for Completed vs Running
+# Horizontal stacked bar: Completed vs Running
+st.subheader("Completed vs Running Simulations (Stacked)")
 fig_completion = go.Figure()
 fig_completion.add_trace(go.Bar(
     y=["Simulations"],
@@ -91,14 +88,14 @@ fig_completion.add_trace(go.Bar(
     marker=dict(color='orange')
 ))
 fig_completion.update_layout(
-    title="Completed vs Running Simulations (Horizontal Stacked)",
     barmode='stack',
     xaxis_title="Count",
-    yaxis_title="",
     height=300
 )
+st.plotly_chart(fig_completion)
 
-# Simulate horizontal stacked bar for Failed vs Successful
+# Horizontal stacked bar: Failed vs Successful
+st.subheader("Failed vs Successful Simulations (Stacked)")
 fig_fail_success = go.Figure()
 fig_fail_success.add_trace(go.Bar(
     y=["Simulations"],
@@ -109,28 +106,17 @@ fig_fail_success.add_trace(go.Bar(
 ))
 fig_fail_success.add_trace(go.Bar(
     y=["Simulations"],
-    x=[completed_count],
+    x=[successful_count],
     name="Successful",
     orientation='h',
     marker=dict(color='blue')
 ))
 fig_fail_success.update_layout(
-    title="Failed vs Successful Simulations (Horizontal Stacked)",
     barmode='stack',
     xaxis_title="Count",
-    yaxis_title="",
     height=300
 )
-
-# Show the figures
-fig_completion.show()
-fig_fail_success.show()
-
-
-
-
-
-
+st.plotly_chart(fig_fail_success)
 
 
 
