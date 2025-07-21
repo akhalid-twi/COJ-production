@@ -42,6 +42,7 @@ st.dataframe(styled_df, use_container_width=True)
 
 # Interactive bar chart of SU usage
 st.subheader("Service Units (SUs) Used per Successful Simulation")
+st.markdown(f"**Total SUs Used:** {total_sus:,}")
 fig_su = px.bar(success_df, x="Directory", y="SUs", color="SUs", title="SUs per Successful Run")
 st.plotly_chart(fig_su, use_container_width=True)
 
