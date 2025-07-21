@@ -49,3 +49,15 @@ if fail_success_data["Count"].sum() > 0:
 else:
     st.info("No data available for Failed vs Successful simulations.")
 
+
+# Interactive bar chart of SU usage
+st.subheader("Service Units (SUs) Used per Successful Simulation")
+fig_su = px.bar(success_df, x="Directory", y="SUs", color="SUs", title="SUs per Successful Run")
+st.plotly_chart(fig_su)
+
+# Pie chart of success vs failure
+st.subheader("Simulation Status Distribution")
+status_counts = df["Status"].value_counts().reset_index()
+status_counts.columns = ["Status", "Count"]
+fig_pie = px.pie(status_counts, names="Status", values="Count", title="Success vs Failure Distribution")
+st.plotly_chart(fig_pie)
