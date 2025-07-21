@@ -1,3 +1,4 @@
+Directory,Status,Duration,SUs,Failure Reason,Vol Error (AF),Vol Error (%),Max WSEL Err,Start Time,End Time,Failure Info
 S0113,Success,6h 15m 0s,21,,18697.,0.3184,0.11,Jul 21 02:11,Jul 21 08:26,
 S0114,Success,6h 57m 7s,21,,20148.,0.3456,0.16,Jul 21 02:11,Jul 21 09:08,
 S0115,Success,9h 45m 12s,30,,32946.,0.4353,2.57,Jul 21 02:19,Jul 21 12:04,
