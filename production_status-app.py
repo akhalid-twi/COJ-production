@@ -78,26 +78,31 @@ st.plotly_chart(fig_completion, use_container_width=True)
 
 # Horizontal stacked bar: Failed vs Successful
 st.subheader("Failed vs Successful Simulations (Stacked)")
+
+# Create horizontal stacked bar chart with updated colors
 fig_fail_success = go.Figure()
 fig_fail_success.add_trace(go.Bar(
     y=["Simulations"],
     x=[failed_count],
     name="Failed",
     orientation='h',
-    marker=dict(color='red')
+    marker=dict(color='lightcoral')  # Red for Failed
 ))
 fig_fail_success.add_trace(go.Bar(
     y=["Simulations"],
     x=[successful_count],
     name="Successful",
     orientation='h',
-    marker=dict(color='blue')
+    marker=dict(color='lightgreen')  # Green for Successful
 ))
 fig_fail_success.update_layout(
     barmode='stack',
     xaxis_title="Count",
     height=300
 )
+
+# fig_fail_success.show()
+
 st.plotly_chart(fig_fail_success, use_container_width=True)
 
 # Pie chart of success vs failure
