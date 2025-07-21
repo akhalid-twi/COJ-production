@@ -33,9 +33,12 @@ completion_data = pd.DataFrame({
     "Category": ["Completed", "Running"],
     "Count": [completed_count, running_count]
 })
-fig_completion = px.bar(completion_data, x="Count", y=["Category"]*2, orientation='h',
-                        color="Category", title="Total Simulations: Completed vs Running")
-st.plotly_chart(fig_completion)
+
+st.pyplot(completion_data.plot.barh(stacked=True).figure)
+
+# fig_completion = px.bar(completion_data, x="Count", y=["Category"]*2, orientation='h',
+#                         color="Category", title="Total Simulations: Completed vs Running")
+# st.plotly_chart(fig_completion)
 
 # Horizontally stacked bar chart: Failed vs Running
 st.subheader("Failed vs Running Simulations")
