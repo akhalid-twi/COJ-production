@@ -29,9 +29,8 @@ running_df = df[df["Status"] == "Running"].copy()
 # Convert SUs to numeric
 success_df["SUs"] = pd.to_numeric(success_df["SUs"], errors='coerce')
 
-# Display the full data table
-# st.subheader("Simulation Results Table")
-# st.dataframe(df)
+
+total_sus = success_df["SUs"].sum()
 
 # Apply styling
 styled_df = df.style.apply(highlight_status, axis=1)
