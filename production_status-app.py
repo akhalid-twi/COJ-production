@@ -5,18 +5,6 @@ import plotly.graph_objects as go
 import datetime
 import os
 
-# Get the last modified time of the file
-try:
-    modified_timestamp = os.path.getmtime(csv_file)
-    modified_datetime = datetime.datetime.fromtimestamp(modified_timestamp)
-    current_datetime = datetime.datetime.now()
-    file_age = current_datetime - modified_datetime
-
-    print(f"The file '{csv_file}' was last modified on: {modified_datetime}")
-    print(f"The file is {file_age.days} days old.")
-except FileNotFoundError:
-    print(f"The file '{csv_file}' does not exist in the current directory.")
-
 # Define a function to apply row-wise styling
 def highlight_status(row):
     color = ''
@@ -31,6 +19,20 @@ def highlight_status(row):
 # Load the CSV file
 csv_file = "erdc_baseline_simulation_summary.csv"
 df = pd.read_csv(csv_file)
+
+
+# Get the last modified time of the file
+try:
+    modified_timestamp = os.path.getmtime(csv_file)
+    modified_datetime = datetime.datetime.fromtimestamp(modified_timestamp)
+    current_datetime = datetime.datetime.now()
+    file_age = current_datetime - modified_datetime
+
+    print(f"The file '{csv_file}' was last modified on: {modified_datetime}")
+    print(f"The file is {file_age.days} days old.")
+except FileNotFoundError:
+    print(f"The file '{csv_file}' does not exist in the current directory.")
+
 
 # Streamlit app title
 st.title("ERDC Baseline Model Simulation: Production Dashboard")
