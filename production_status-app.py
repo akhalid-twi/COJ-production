@@ -2,6 +2,8 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 import plotly.graph_objects as go
+import datetime
+
 
 # Define a function to apply row-wise styling
 def highlight_status(row):
@@ -20,6 +22,8 @@ df = pd.read_csv(csv_file)
 
 # Streamlit app title
 st.title("ERDC Baseline Simulation Dashboard")
+st.subheader(f"Total Simulations: {len(df)}/505")
+
 
 # Filter simulations by status
 success_df = df[df["Status"] == "Success"].copy()
