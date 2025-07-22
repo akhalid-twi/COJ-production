@@ -15,7 +15,8 @@ output_dir_html.mkdir(parents=True, exist_ok=True)
 # Get list of storm IDs
 storm_ids = [d for d in os.listdir(base_plan_dir) if (base_plan_dir / d).is_dir()]
 
-storm_ids = ['S0134']
+storm_ids = storm_ids[:50]
+#storm_ids = ['S0134']
 
 print(f"Found storm IDs: {storm_ids}")
 
