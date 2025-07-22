@@ -44,7 +44,7 @@ st.markdown(f"Last updated: {str(modified_datetime)[:-6]}")
 total_simulations = 505
 completed_simulations = len(df) 
 
-st.subheader(f"Total Simulations: {completed_simulations}/{total_simulations}")
+st.subheader(f"Simulation Count: {completed_simulations}/{total_simulations}")
 
 
 progress_percent = int((completed_simulations / total_simulations) * 100)
