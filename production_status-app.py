@@ -40,7 +40,15 @@ st.subheader(f" Scenario: ERDC Baseline Conditions")
 
 
 st.markdown(f"Last updated: {str(modified_datetime)[:-6]}")
-st.subheader(f"Total Simulations: {len(df)}/505")
+
+total_simulations = 505
+completed_simulations = len(df) 
+
+st.subheader(f"Total Simulations: {completed_simulations}/{total_simulations}")
+
+# Calculate progress as a float between 0 and 1
+progress = completed_simulations / total_simulations
+st.progress(progress)
 
 
 
