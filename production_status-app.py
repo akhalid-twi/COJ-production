@@ -46,9 +46,23 @@ completed_simulations = len(df)
 
 st.subheader(f"Total Simulations: {completed_simulations}/{total_simulations}")
 
-# Calculate progress as a float between 0 and 1
-progress = completed_simulations / total_simulations
-st.progress(progress)
+
+progress_percent = int((completed_simulations / total_simulations) * 100)
+
+progress_text = f"Processing simulations... {progress_percent}% complete"
+my_bar = st.progress(progress_percent, text=progress_text)
+
+# Optional: Add a status message
+if progress_percent < 25:
+    st.info("🚧 Just getting started...")
+elif progress_percent < 75:
+    st.warning("🔄 In progress...")
+else:
+    st.success("✅ Almost done!")
+
+# Optional: Rerun button
+st.button("🔁 Refresh Progress")
+
 
 
 
