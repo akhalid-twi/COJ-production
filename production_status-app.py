@@ -22,16 +22,16 @@ df = pd.read_csv(csv_file)
 
 
 # Get the last modified time of the file
-try:
-    modified_timestamp = os.path.getmtime(csv_file)
-    modified_datetime = datetime.datetime.fromtimestamp(modified_timestamp)
-    current_datetime = datetime.datetime.now()
-    file_age = current_datetime - modified_datetime
+#try:
+modified_timestamp = os.path.getmtime(csv_file)
+modified_datetime = datetime.datetime.fromtimestamp(modified_timestamp)
+current_datetime = datetime.datetime.now()
+file_age = current_datetime - modified_datetime
 
-    print(f"The file '{csv_file}' was last modified on: {modified_datetime}")
-    print(f"The file is {file_age.days} days old.")
-except FileNotFoundError:
-    print(f"The file '{csv_file}' does not exist in the current directory.")
+#print(f"The file '{csv_file}' was last modified on: {modified_datetime}")
+#print(f"The file is {file_age.days} days old.")
+#except FileNotFoundError:
+#    print(f"The file '{csv_file}' does not exist in the current directory.")
 
 
 # Streamlit app title
@@ -39,7 +39,7 @@ st.title("ERDC Baseline Model Simulation: Production Dashboard")
 st.subheader(f"Total Simulations: {len(df)}/505")
 
 
-st.markdown(f"Last updated: {modified_datetime}")
+st.markdown(f"Last updated: {modified_datetime[:-4]}")
 
 # Filter simulations by status
 success_df = df[df["Status"] == "Success"].copy()
