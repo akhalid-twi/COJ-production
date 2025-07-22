@@ -60,8 +60,8 @@ elif progress_percent < 75:
 else:
     st.success("✅ Almost done!")
 
-# Optional: Rerun button
-st.button("🔁 Refresh Progress")
+# # Optional: Rerun button
+# st.button("🔁 Refresh Progress")
 
 
 
