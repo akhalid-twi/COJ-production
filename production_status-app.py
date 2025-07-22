@@ -35,11 +35,14 @@ file_age = current_datetime - modified_datetime
 
 
 # Streamlit app title
-st.title("Production Dashboard\nScenario: ERDC Baseline Conditions: ")
-st.subheader(f"Total Simulations: {len(df)}/505")
+st.title("COJ Production Dashboard")
+st.subheader(f" Scenario: ERDC Baseline Conditions")
 
 
 st.markdown(f"Last updated: {str(modified_datetime)[:-6]}")
+st.subheader(f"Total Simulations: {len(df)}/505")
+
+
 
 # Filter simulations by status
 success_df = df[df["Status"] == "Success"].copy()
