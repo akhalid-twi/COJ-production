@@ -39,7 +39,7 @@ st.title("ERDC Baseline Model Simulation: Production Dashboard")
 st.subheader(f"Total Simulations: {len(df)}/505")
 
 
-st.markdown(f"Last updated: {str(modified_datetime)[:-4]}")
+st.markdown(f"Last updated: {str(modified_datetime)[:-6]}")
 
 # Filter simulations by status
 success_df = df[df["Status"] == "Success"].copy()
