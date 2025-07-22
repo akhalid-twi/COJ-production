@@ -47,7 +47,6 @@ st.subheader("Available QC files to Review")
 notebook_url = "https://github.com/akhalid-twi/COJ-production/blob/a6fc0713035084895f43efde2e3915ecd67960e5/example_qc/results_S0155_notebook.ipynb"
 st.markdown(f'<a href="{notebook_url}" target="_blank">🔗 View Notebook for S0155</a>', unsafe_allow_html=True)
 
-
 # Direct raw URL for download
 download_url = "blob:https://github.com/67f2dc3e-d689-4737-80ce-11de315ba43f"
 
@@ -56,8 +55,6 @@ st.markdown(
     f'<a href="{download_url}" download target="_blank">⬇️ Download Notebook for S0155</a>',
     unsafe_allow_html=True
 )
-
-
 
 # Interactive bar chart of SU usage
 st.subheader("Service Units (SUs) Used per Successful Simulation")
