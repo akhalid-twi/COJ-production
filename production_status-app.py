@@ -5,6 +5,18 @@ import plotly.graph_objects as go
 import datetime
 
 
+# Get the last modified time of the file
+try:
+    modified_timestamp = os.path.getmtime(csv_file)
+    modified_datetime = datetime.datetime.fromtimestamp(modified_timestamp)
+    current_datetime = datetime.datetime.now()
+    file_age = current_datetime - modified_datetime
+
+    print(f"The file '{csv_file}' was last modified on: {modified_datetime}")
+    print(f"The file is {file_age.days} days old.")
+except FileNotFoundError:
+    print(f"The file '{csv_file}' does not exist in the current directory.")
+
 # Define a function to apply row-wise styling
 def highlight_status(row):
     color = ''
@@ -21,9 +33,11 @@ csv_file = "erdc_baseline_simulation_summary.csv"
 df = pd.read_csv(csv_file)
 
 # Streamlit app title
-st.title("ERDC Baseline Simulation Dashboard")
+st.title("ERDC Baseline Model Simulation: Production Dashboard")
 st.subheader(f"Total Simulations: {len(df)}/505")
 
+
+st.subheader(f"{csv_file} was last modified on: {modified_datetime}")
 
 # Filter simulations by status
 success_df = df[df["Status"] == "Success"].copy()
@@ -40,7 +54,7 @@ total_sus = success_df["SUs"].sum()
 styled_df = df.style.apply(highlight_status, axis=1)
 
 # Display the styled dataframe
-st.subheader("Simulation Results Table")
+st.subheader("Status Table")
 st.dataframe(styled_df, use_container_width=True)
 
 
