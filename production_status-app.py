@@ -51,7 +51,7 @@ st.markdown(f'<a href="{notebook_url}" target="_blank">🔗 View Notebook for S0
 st.subheader("Available QC files to Review")
 
 # Direct download link (use 'raw' instead of 'blob')
-download_url = "https://github.com/akhalid-twi/COJ-production/raw/a6fc0713035084895f43efde2e3915ecd67960e5/example_qc/results_S0155_notebook.ipynb"
+download_url = "https://github.com/akhalid-twi/COJ-production/blob/a6fc0713035084895f43efde2e3915ecd67960e5/example_qc/results_S0155_notebook.html"
 
 # View link (for GitHub UI)
 view_url = "https://github.com/akhalid-twi/COJ-production/blob/a6fc0713035084895f43efde2e3915ecd67960e5/example_qc/results_S0155_notebook.ipynb"
