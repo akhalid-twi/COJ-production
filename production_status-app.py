@@ -5,6 +5,17 @@ import plotly.graph_objects as go
 import datetime
 import os
 
+# Load the CSV file
+csv_file = "erdc_baseline_simulation_summary_updated.csv"
+df = pd.read_csv(csv_file)
+
+# Rename columns to match expected names in the dashboard
+df.columns = [
+    "Directory", "Status", "Duration", "SUs", "Failure Reason", "Vol Error (AF)", "Vol Error (%)", "Max WSEL Err",
+    "Start Time", "End Time", "Failure Info", "Max WSE", "Max Depth", "Max Velocity", "Max Volume",
+    "Max Flow Balance", "Max Wind", "Mean BC", "Max BC"
+]
+
 # Define a function to apply row-wise styling
 def highlight_status(row):
     color = ''
@@ -15,10 +26,6 @@ def highlight_status(row):
     elif row['Status'] == 'Running':
         color = 'background-color: lightyellow'
     return [color] * len(row)
-
-# Load the CSV file
-csv_file = "erdc_baseline_simulation_summary_updated.csv"
-df = pd.read_csv(csv_file)
 
 # Get the last modified time of the file
 modified_timestamp = os.path.getmtime(csv_file)
@@ -91,14 +98,6 @@ st.plotly_chart(fig_su, use_container_width=True)
 styled_df = df.style.apply(highlight_status, axis=1)
 st.subheader("Status Table")
 st.dataframe(styled_df, use_container_width=True)
-
-# Available Plan to Review
-st.subheader("Available QC files to Review")
-notebook_url = "https://github.com/akhalid-twi/COJ-production/blob/a6fc0713035084895f43efde2e3915ecd67960e5/example_qc/results_S0155_notebook.ipynb"
-download_url = "https://raw.githubusercontent.com/akhalid-twi/COJ-production/a6fc0713035084895f43efde2e3915ecd67960e5/example_qc/results_S0155_notebook.html"
-
-st.markdown(f'<a href="{notebook_url}" target="_blank">🔗 View Notebook for S0155 (code blocks are not hidden)</a>', unsafe_allow_html=True)
-st.markdown(f'<a href="{download_url}" download target="_blank">⬇️ Download HTML Report for S0155</a>', unsafe_allow_html=True)
 
 # Simulated counts
 completed_count = len(success_df) + len(failed_df)

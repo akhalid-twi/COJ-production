@@ -27,7 +27,7 @@ root_dir = "/ocean/projects/ees250010p/shared/02_simulations/scenarios/"
 scenario_name = "erdc_baseline"
 
 base_dir = f"{root_dir}/{scenario_name}"
-output_csv = f"{scenario_name}_simulation_summary_updated.csv"
+output_csv = f"{scenario_name}_simulation_summary_updated2.csv"
 slurm_log_dir = f"{root_dir}/_logs/erdc_baseline/slurmout"
 
 headers = [
@@ -81,7 +81,7 @@ print(f'Last Updated: {time.ctime()}')
 epsg_code_default = 6438
 model1_name = 'COJ'
 
-for folder in tqdm.tqdm(sorted(os.listdir(base_dir)[::10]), desc='Processing simulation folders'):
+for folder in tqdm.tqdm(sorted(os.listdir(base_dir)), desc='Processing simulation folders'):
     folder_path = os.path.join(base_dir, folder)
     if not os.path.isdir(folder_path):
         continue
