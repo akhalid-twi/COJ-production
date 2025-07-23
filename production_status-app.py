@@ -17,7 +17,7 @@ def highlight_status(row):
     return [color] * len(row)
 
 # Load the CSV file
-csv_file = "erdc_baseline_simulation_summary_parallel.csv"
+csv_file = "erdc_baseline_simulation_summary_full.csv"
 df = pd.read_csv(csv_file)
 
 # Rename columns to remove units for internal use, but keep units for display
@@ -210,6 +210,20 @@ for col, title in metrics_with_units.items():
             mode='lines',
             line=dict(color='black', dash='dash'),
             name='Mean'
+        ))
+
+        # Dummy traces for legend
+        fig.add_trace(go.Bar(
+            x=[None],
+            y=[None],
+            marker_color='crimson',
+            name='Above Mean'
+        ))
+        fig.add_trace(go.Bar(
+            x=[None],
+            y=[None],
+            marker_color='steelblue',
+            name='Below Mean'
         ))
         fig.update_layout(
             title=title,

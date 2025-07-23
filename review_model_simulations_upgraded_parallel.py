@@ -19,7 +19,7 @@ read_wind_data = False
 root_dir = "/ocean/projects/ees250010p/shared/02_simulations/scenarios/"
 scenario_name = "erdc_baseline"
 base_dir = f"{root_dir}/{scenario_name}"
-output_csv = f"{scenario_name}_simulation_summary_parallel.csv"
+output_csv = f"{scenario_name}_simulation_summary_full.csv"
 slurm_log_dir = f"{root_dir}/_logs/erdc_baseline/slurmout"
 epsg_code_default = "EPSG:4326"
 
