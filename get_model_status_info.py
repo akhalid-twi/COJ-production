@@ -1,20 +1,9 @@
 import os
 import csv
+import re
 import math
 import glob
-import re
-import time
-import h5py
-import numpy as np
-import pandas as pd
-import geopandas as gpd
-from shapely.geometry import Point, Polygon
 from datetime import datetime
-import notebook_utilities as nu
-import tqdm
-
-# Toggle wind data reading
-read_wind_data = False  # Set to True or False to skip wind data processing
 
 # ANSI color codes
 GREEN = '\033[92m'
@@ -27,15 +16,13 @@ root_dir = "/ocean/projects/ees250010p/shared/02_simulations/scenarios/"
 scenario_name = "erdc_baseline"
 
 base_dir = f"{root_dir}/{scenario_name}"
-output_csv = f"{scenario_name}_simulation_summary_updated2.csv"
-slurm_log_dir = f"{root_dir}/_logs/erdc_baseline/slurmout"
+output_csv = f"{scenario_name}_simulation_basic_summary.csv"
+slurm_log_dir = "{root_dir}/_logs/erdc_baseline/slurmout"
 
 headers = [
     "Directory", "Status", "Duration", "SUs", "Failure Reason",
     "Vol Error (AF)", "Vol Error (%)", "Max WSEL Err",
-    "Start Time", "End Time", "Failure Info",
-    "Max WSE (ft)", "Max Depth (ft)", "Max Velocity (ft/s)", "Max Volume (ft^3)",
-    "Max Flow Balance (ft^3/s)", "Max Wind (ft/s)", "Mean BC (ft)", "Max BC (ft)"
+    "Start Time", "End Time", "Failure Info"
 ]
 
 rows = []
@@ -53,7 +40,6 @@ def format_time(raw_time):
         return dt.strftime("%b %d %H:%M")
     except:
         return raw_time
-
 def duration_to_hours(duration_str):
     if duration_str == "N/A":
         return 0.0
@@ -76,19 +62,13 @@ def infer_status(log_lines, start_time, end_time):
         return "Running"
     return "Failed"
 
-print(f'Last Updated: {time.ctime()}')
-
-epsg_code_default = 6438
-model1_name = 'COJ'
-
-for folder in tqdm.tqdm(sorted(os.listdir(base_dir)), desc='Processing simulation folders'):
+for folder in sorted(os.listdir(base_dir)):
     folder_path = os.path.join(base_dir, folder)
     if not os.path.isdir(folder_path):
         continue
 
     log_file = os.path.join(folder_path, f"log_{folder}.txt")
     time_file = os.path.join(folder_path, "time_log.txt")
-    plan1_dir = os.path.join(folder_path, 'COJCOMPOUNDCOMPUTET.p01.tmp.hdf')
 
     status = "Unknown"
     duration = "N/A"
@@ -99,11 +79,8 @@ for folder in tqdm.tqdm(sorted(os.listdir(base_dir)), desc='Processing simulatio
     end_time = "N/A"
     failure_info = ""
     failure_reason = ""
-    su = 0
+    su = 0  # Default SU
     log_lines = []
-
-    max_wse = max_depth = max_vel = max_vol = max_flow = max_wind = mean_bc = max_bc = "N/A"
-
     if os.path.exists(log_file):
         with open(log_file, 'r') as f:
             log_lines = f.readlines()
@@ -144,6 +121,7 @@ for folder in tqdm.tqdm(sorted(os.listdir(base_dir)), desc='Processing simulatio
         running_count += 1
     else:
         failure_count += 1
+        # Check SLURM log for failure reason
         slurm_log_pattern = os.path.join(slurm_log_dir, f"*_{folder}_run.log")
         matched_logs = glob.glob(slurm_log_pattern)
         if matched_logs:
@@ -154,74 +132,12 @@ for folder in tqdm.tqdm(sorted(os.listdir(base_dir)), desc='Processing simulatio
                 elif "CANCELLED" in slurm_content and "DUE TO TIME LIMIT" in slurm_content:
                     failure_reason = "Time limit reached"
 
-    try:
-        data1 = nu.load_data(plan1_dir)
-        mdl_name1 = nu.get_model_info(data1)
-        available_results = nu.list_hdf_result_fields(data1, mdl_name1)
-
-        df_wse = nu.extract_result_field(data1, mdl_name1, 'Water Surface')
-        fdepth = df_wse - df_wse.iloc[0]
-        max_wse = round(df_wse.max().max(), 2)
-        max_depth = round(fdepth.max().max(), 2)
-
-        x, y, model_prj_epsg, epsg_code, cell_surface_area = nu.extract_geometry(data1, mdl_name1)
-        model_gdf = nu.create_geodataframe(x, y, epsg_code, cell_surface_area)
-
-        model_perimeter = pd.DataFrame(data1['Geometry/2D Flow Areas/PERIMTER1/Perimeter'][:])
-        model_perimeter.columns = ['x', 'y']
-        geometry = [Point(xy) for xy in zip(model_perimeter['x'], model_perimeter['y'])]
-        model_boundary = gpd.GeoDataFrame(model_perimeter, geometry=geometry, crs=epsg_code_default)
-        polygon = Polygon(geometry)
-        model_boundary = gpd.GeoDataFrame(index=[0], geometry=[polygon], crs=epsg_code_default)
-        model_boundary_buffer_back = model_boundary.copy()
-        model_boundary_buffer_back['geometry'] = model_boundary_buffer_back['geometry'].buffer(-5280 * 1)
-        model_gdf_inner = gpd.clip(model_gdf, model_boundary_buffer_back)
-
-        if 'Cell Velocity - Velocity X' in available_results:
-            df_velx = nu.extract_result_field(data1, mdl_name1, 'Cell Velocity - Velocity X')
-            df_vely = nu.extract_result_field(data1, mdl_name1, 'Cell Velocity - Velocity Y')
-            df_vel = np.sqrt(df_velx**2 + df_vely**2)
-            model_gdf['max_vel'] = df_vel.max()
-            model_gdf_inner['max_vel'] = model_gdf['max_vel'].loc[model_gdf_inner.index]
-            max_vel = round(model_gdf_inner['max_vel'].max(), 2)
-
-        if 'Cell Volume' in available_results:
-            df_vol = nu.extract_result_field(data1, mdl_name1, 'Cell Volume')
-            max_vol = round(df_vol.max().max(), 2)
-
-        if 'Cell Flow Balance' in available_results:
-            df_flow = nu.extract_result_field(data1, mdl_name1, 'Cell Flow Balance')
-            max_flow = round(df_flow.max().max(), 2)
-
-        if read_wind_data:
-            try:
-                _, _, windx, windy = nu.extract_event_field(data1, 'Wind')
-                df_wind = np.sqrt(windx**2 + windy**2)
-                max_wind = round(np.nanmax(df_wind), 2)
-            except:
-                max_wind = "N/A"
-        else:
-            max_wind = "N/A"
-
-        try:
-            _, bc = nu.extract_event_field(data1, 'Boundary Conditions')
-            bc[bc < -100] = np.nan
-            mean_bc = round(np.nanmean(bc), 2)
-            max_bc = round(np.nanmax(bc), 2)
-        except:
-            mean_bc = max_bc = "N/A"
-
-    except Exception as e:
-        print(f"Error processing HDF for {folder}: {e}")
-
     clean_failure_info = " ".join(failure_info.strip().split())
 
     rows.append([
         folder, status, duration, su, failure_reason,
         vol_error_af, vol_error_pct, max_wsel_err,
-        start_time, end_time, clean_failure_info,
-        max_wse, max_depth, max_vel, max_vol, max_flow,
-        max_wind, mean_bc, max_bc
+        start_time, end_time, clean_failure_info
     ])
 
 # Write to CSV
@@ -230,6 +146,22 @@ with open(output_csv, 'w', newline='') as f:
     writer.writerow(headers)
     writer.writerows(rows)
 
-print(f"Summary written to {output_csv}")
+# Print table header
+print(f"{'Directory':<15} {'Status':<10} {'Duration':<12} {'SUs':<5} {'Failure Reason':<20} {'Vol Error (AF)':<15} {'Vol Error (%)':<15} {'Max WSEL Err':<15} {'Start Time':<15} {'End Time':<15} {'Failure Info'}")
 
+# Print each row with truncated failure info
+for row in rows:
+    color = GREEN if row[1] == "Success" else RED if row[1] == "Failed" else YELLOW
+    truncated_info = (row[10][:60] + '...') if len(row[10]) > 63 else row[10]
+    print(f"{color}{row[0]:<15} {row[1]:<10} {row[2]:<12} {row[3]:<5} {row[4]:<20} {row[5]:<15} {row[6]:<15} {row[7]:<15} {row[8]:<15} {row[9]:<15} {truncated_info}{RESET}")
+
+# Print summary
+print("\n" + "="*50)
+print("Summary:")
+print(f"Total models run: {len(rows)}")
+print(f"{GREEN}Successful: {success_count}{RESET}")
+print(f"{YELLOW}Running: {running_count}{RESET}")
+print(f"{RED}Failed: {failure_count}{RESET}")
+print(f"Total SUs used; 4 cpus per task, 8GB min required (successful only): {total_su}")
+print("="*50)
 
