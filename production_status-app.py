@@ -187,10 +187,10 @@ metrics_with_units = {
 
 }
 
-for col, title in metrics_with_units.items():
-    if col in df.columns:
-        fig = px.bar(df, x="Directory", y=col, title=title, labels={col: title})
-        st.plotly_chart(fig, use_container_width=True)
+#for col, title in metrics_with_units.items():
+#    if col in df.columns:
+#        fig = px.bar(df, x="Directory", y=col, title=title, labels={col: title})
+#        st.plotly_chart(fig, use_container_width=True)
 
 for col, title in metrics_with_units.items():
     if col in df.columns:
