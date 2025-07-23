@@ -202,7 +202,7 @@ for col, title in metrics_with_units.items():
             x=df["Directory"],
             y=df[col],
             marker_color=colors,
-            name=col
+            #name=col
         ))
         fig.add_trace(go.Scatter(
             x=df["Directory"],
