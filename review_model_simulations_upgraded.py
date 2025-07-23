@@ -13,6 +13,9 @@ from datetime import datetime
 import notebook_utilities as nu
 import tqdm
 
+# Toggle wind data reading
+read_wind_data = False  # Set to True or False to skip wind data processing
+
 # ANSI color codes
 GREEN = '\033[92m'
 RED = '\033[91m'
@@ -31,8 +34,8 @@ headers = [
     "Directory", "Status", "Duration", "SUs", "Failure Reason",
     "Vol Error (AF)", "Vol Error (%)", "Max WSEL Err",
     "Start Time", "End Time", "Failure Info",
-    "Max WSE", "Max Depth", "Max Velocity", "Max Volume", "Max Flow Balance",
-    "Max Wind", "Mean BC", "Max BC"
+    "Max WSE (ft)", "Max Depth (ft)", "Max Velocity (ft/s)", "Max Volume (ft^3)",
+    "Max Flow Balance (ft^3/s)", "Max Wind (ft/s)", "Mean BC (ft)", "Max BC (ft)"
 ]
 
 rows = []
@@ -78,7 +81,7 @@ print(f'Last Updated: {time.ctime()}')
 epsg_code_default = 6438
 model1_name = 'COJ'
 
-for folder in tqdm.tqdm(sorted(os.listdir(base_dir)[::5]),desc='Processing simulation folders'):
+for folder in tqdm.tqdm(sorted(os.listdir(base_dir)[::10]), desc='Processing simulation folders'):
     folder_path = os.path.join(base_dir, folder)
     if not os.path.isdir(folder_path):
         continue
@@ -161,11 +164,26 @@ for folder in tqdm.tqdm(sorted(os.listdir(base_dir)[::5]),desc='Processing simul
         max_wse = round(df_wse.max().max(), 2)
         max_depth = round(fdepth.max().max(), 2)
 
+        x, y, model_prj_epsg, epsg_code, cell_surface_area = nu.extract_geometry(data1, mdl_name1)
+        model_gdf = nu.create_geodataframe(x, y, epsg_code, cell_surface_area)
+
+        model_perimeter = pd.DataFrame(data1['Geometry/2D Flow Areas/PERIMTER1/Perimeter'][:])
+        model_perimeter.columns = ['x', 'y']
+        geometry = [Point(xy) for xy in zip(model_perimeter['x'], model_perimeter['y'])]
+        model_boundary = gpd.GeoDataFrame(model_perimeter, geometry=geometry, crs=epsg_code_default)
+        polygon = Polygon(geometry)
+        model_boundary = gpd.GeoDataFrame(index=[0], geometry=[polygon], crs=epsg_code_default)
+        model_boundary_buffer_back = model_boundary.copy()
+        model_boundary_buffer_back['geometry'] = model_boundary_buffer_back['geometry'].buffer(-5280 * 1)
+        model_gdf_inner = gpd.clip(model_gdf, model_boundary_buffer_back)
+
         if 'Cell Velocity - Velocity X' in available_results:
             df_velx = nu.extract_result_field(data1, mdl_name1, 'Cell Velocity - Velocity X')
             df_vely = nu.extract_result_field(data1, mdl_name1, 'Cell Velocity - Velocity Y')
             df_vel = np.sqrt(df_velx**2 + df_vely**2)
-            max_vel = round(df_vel.max().max(), 2)
+            model_gdf['max_vel'] = df_vel.max()
+            model_gdf_inner['max_vel'] = model_gdf['max_vel'].loc[model_gdf_inner.index]
+            max_vel = round(model_gdf_inner['max_vel'].max(), 2)
 
         if 'Cell Volume' in available_results:
             df_vol = nu.extract_result_field(data1, mdl_name1, 'Cell Volume')
@@ -175,15 +193,23 @@ for folder in tqdm.tqdm(sorted(os.listdir(base_dir)[::5]),desc='Processing simul
             df_flow = nu.extract_result_field(data1, mdl_name1, 'Cell Flow Balance')
             max_flow = round(df_flow.max().max(), 2)
 
-        #_, _, windx, windy = nu.extract_event_field(data1, 'Wind')
-        #df_wind = np.sqrt(windx**2 + windy**2)
-        #max_wind = round(np.nanmax(df_wind), 2)
-        max_wind = np.nan
+        if read_wind_data:
+            try:
+                _, _, windx, windy = nu.extract_event_field(data1, 'Wind')
+                df_wind = np.sqrt(windx**2 + windy**2)
+                max_wind = round(np.nanmax(df_wind), 2)
+            except:
+                max_wind = "N/A"
+        else:
+            max_wind = "N/A"
 
-        _, bc = nu.extract_event_field(data1, 'Boundary Conditions')
-        bc[bc < -100] = np.nan
-        mean_bc = round(np.nanmean(bc), 2)
-        max_bc = round(np.nanmax(bc), 2)
+        try:
+            _, bc = nu.extract_event_field(data1, 'Boundary Conditions')
+            bc[bc < -100] = np.nan
+            mean_bc = round(np.nanmean(bc), 2)
+            max_bc = round(np.nanmax(bc), 2)
+        except:
+            mean_bc = max_bc = "N/A"
 
     except Exception as e:
         print(f"Error processing HDF for {folder}: {e}")
