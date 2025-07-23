@@ -79,13 +79,13 @@ for col in column_renames.values():
 
 # Plot each metric with units in y-axis label
 metrics_with_units = {
-    "Max WSE": "Maximum Water Surface Elevation (ft)",
+#    "Max WSE": "Maximum Water Surface Elevation (ft)",
     "Max Depth": "Maximum Flood Depth (ft)",
     "Max Velocity": "Maximum Velocity (ft/s)",
     "Max Volume": "Maximum Volume (ft³)",
     "Max Flow Balance": "Maximum Flow Balance (ft³/s)",
     "Max Wind": "Maximum Wind Speed (ft/s)",
-    "Mean BC": "Mean Downstream Boundary Condition (ft)",
+#    "Mean BC": "Mean Downstream Boundary Condition (ft)",
     "Max BC": "Maximum Downstream Boundary Condition (ft)"
 }
 
