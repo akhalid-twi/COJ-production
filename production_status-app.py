@@ -191,3 +191,39 @@ for col, title in metrics_with_units.items():
     if col in df.columns:
         fig = px.bar(df, x="Directory", y=col, title=title, labels={col: title})
         st.plotly_chart(fig, use_container_width=True)
+
+
+
+
+
+
+
+
+
+for col, title in metrics.items():
+    if col in df.columns:
+        mean_val = df[col].mean()
+        colors = ['crimson' if val > mean_val else 'steelblue' for val in df[col]]
+
+        fig = go.Figure()
+        fig.add_trace(go.Bar(
+            x=df["Directory"],
+            y=df[col],
+            marker_color=colors,
+            name=col
+        ))
+        fig.add_trace(go.Scatter(
+            x=df["Directory"],
+            y=[mean_val] * len(df),
+            mode='lines',
+            line=dict(color='black', dash='dash'),
+            name='Mean'
+        ))
+        fig.update_layout(
+            title=title,
+            xaxis_title="Directory",
+            yaxis_title=title,
+            showlegend=True
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
