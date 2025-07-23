@@ -17,7 +17,7 @@ def highlight_status(row):
     return [color] * len(row)
 
 # Load the CSV file
-csv_file = "erdc_baseline_simulation_summary_full.csv"
+csv_file = "updated_erdc_baseline_simulation_summary_full.csv"
 df = pd.read_csv(csv_file)
 
 # Rename columns to remove units for internal use, but keep units for display

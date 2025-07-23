@@ -1,0 +1,28 @@
+import pandas as pd
+
+# File paths
+basic_file = "erdc_baseline_simulation_basic_summary.csv"
+full_file = "erdc_baseline_simulation_summary_full.csv"
+output_file = "updated_erdc_baseline_simulation_summary_full.csv"
+
+# Load both CSV files
+df_basic = pd.read_csv(basic_file)
+df_full = pd.read_csv(full_file)
+
+# Identify new rows in basic that are not in full based on 'Directory'
+new_rows = df_basic[~df_basic['Directory'].isin(df_full['Directory'])].copy()
+
+# Add missing columns from full to new_rows with NaN values
+for col in df_full.columns:
+    if col not in new_rows.columns:
+        new_rows.loc[:, col] = pd.NA
+
+# Reorder columns to match df_full exactly
+new_rows = new_rows[df_full.columns]
+
+# Concatenate and save
+df_updated = pd.concat([df_full, new_rows], ignore_index=True)
+df_updated.to_csv(output_file, index=False)
+
+print(f"✅ Appended {len(new_rows)} new rows. Updated file saved as: {output_file}")
+
