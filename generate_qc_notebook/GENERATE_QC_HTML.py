@@ -14,11 +14,13 @@ output_dir_html.mkdir(parents=True, exist_ok=True)
 
 # Get list of storm IDs
 storm_ids = [d for d in os.listdir(base_plan_dir) if (base_plan_dir / d).is_dir()]
-
 storm_ids = storm_ids[:50]
-#storm_ids = ['S0134']
+#storm_ids = ['S0992']
 
 print(f"Found storm IDs: {storm_ids}")
+
+# List to keep track of failed storm IDs
+failed_storms = []
 
 # Loop through each storm ID
 for storm_id in storm_ids:
@@ -26,22 +28,37 @@ for storm_id in storm_ids:
     output_notebook = output_dir_nb / f"results_{storm_id}_notebook.ipynb"
     output_html = output_dir_html / f"results_{storm_id}_notebook.html"
 
-    # Run papermill
-    subprocess.run([
-        "papermill",
-        "review_plan_file.ipynb",
-        str(output_notebook),
-        "-p", "stormID", storm_id,
-        "-p", "plan1_dir", str(plan_path)
-    ], check=True)
+    try:
+        # Run papermill
+        subprocess.run([
+            "papermill",
+            "review_plan_file.ipynb",
+            str(output_notebook),
+            "-p", "stormID", storm_id,
+            "-p", "plan1_dir", str(plan_path),
+            #"--log-output"
+        ], check=True)
 
-    # Convert to HTML without code and save in output_dir_html
-    subprocess.run([
-        "jupyter", "nbconvert",
-        "--to", "html",
-        "--no-input",
-        "--output-dir", str(output_dir_html),
-        "--output", f"results_{storm_id}_notebook.html",
-        str(output_notebook)
-    ], check=True)
+        # Convert to HTML without code and save in output_dir_html
+        subprocess.run([
+            "jupyter", "nbconvert",
+            "--to", "html",
+            "--no-input",
+            "--output-dir", str(output_dir_html),
+            "--output", f"results_{storm_id}_notebook.html",
+            str(output_notebook)
+        ], check=True)
+
+    except subprocess.CalledProcessError:
+        print(f"❌ Failed to process storm ID: {storm_id}")
+        failed_storms.append(storm_id)
+
+# Write failed storm IDs to a text file
+failed_file = output_dir / "failed_storms.txt"
+with open(failed_file, "w") as f:
+    for storm_id in failed_storms:
+        f.write(f"{storm_id}\n")
+
+print(f"⚠️ Failed storm IDs: {failed_storms}")
+print(f"📄 List written to: {failed_file}")
 
