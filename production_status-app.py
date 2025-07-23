@@ -69,31 +69,6 @@ running_df = df[df["Status"] == "Running"].copy()
 success_df["SUs"] = pd.to_numeric(success_df["SUs"], errors='coerce')
 total_sus = success_df["SUs"].sum()
 
-# Hydrodynamic and forcing plots
-st.subheader("Hydrodynamic Model Outputs and Forcings")
-
-# Convert relevant columns to numeric
-for col in column_renames.values():
-    if col in df.columns:
-        df[col] = pd.to_numeric(df[col], errors='coerce')
-
-# Plot each metric with units in y-axis label
-metrics_with_units = {
-#    "Max WSE": "Maximum Water Surface Elevation (ft)",
-    "Max Depth": "Maximum Flood Depth (ft)",
-    "Max Velocity": "Maximum Velocity (ft/s)",
-    "Max Volume": "Maximum Volume (ft³)",
-    "Max Flow Balance": "Maximum Flow Balance (ft³/s)",
-    "Max Wind": "Maximum Wind Speed (ft/s)",
-#    "Mean BC": "Mean Downstream Boundary Condition (ft)",
-    "Max BC": "Maximum Downstream Boundary Condition (ft)"
-}
-
-for col, title in metrics_with_units.items():
-    if col in df.columns:
-        fig = px.bar(df, x="Directory", y=col, title=title, labels={col: title})
-        st.plotly_chart(fig, use_container_width=True)
-
 # SU usage plot
 st.subheader("Service Units (SUs) Used per Successful Simulation")
 st.markdown(f"**Total SUs Used:** {total_sus:,}")
@@ -106,12 +81,15 @@ st.subheader("Status Table")
 st.dataframe(styled_df, use_container_width=True)
 
 # Available Plan to Review
+
+'''
 st.subheader("Available QC files to Review")
 notebook_url = "https://github.com/akhalid-twi/COJ-production/blob/a6fc0713035084895f43efde2e3915ecd67960e5/example_qc/results_S0155_notebook.ipynb"
 download_url = "https://raw.githubusercontent.com/akhalid-twi/COJ-production/a6fc0713035084895f43efde2e3915ecd67960e5/example_qc/results_S0155_notebook.html"
 
 st.markdown(f'<a href="{notebook_url}" target="_blank">🔗 View Notebook for S0155 (code blocks are not hidden)</a>', unsafe_allow_html=True)
 st.markdown(f'<a href="{download_url}" download target="_blank">⬇️ Download HTML Report for S0155</a>', unsafe_allow_html=True)
+'''
 
 # Simulated counts
 completed_count = len(success_df) + len(failed_df)
@@ -187,3 +165,29 @@ st.subheader("Simulation Status Distribution")
 st.plotly_chart(fig_pie, use_container_width=True)
 
 
+# Hydrodynamic and forcing plots
+st.subheader("Hydrodynamic Model Outputs and Forcings")
+
+# Convert relevant columns to numeric
+for col in column_renames.values():
+    if col in df.columns:
+        df[col] = pd.to_numeric(df[col], errors='coerce')
+
+# Plot each metric with units in y-axis label
+metrics_with_units = {
+#    "Max WSE": "Maximum Water Surface Elevation (ft)",
+    "Max Depth": "Maximum Flood Depth (ft)",
+    "Max Velocity": "Maximum Velocity (ft/s)",
+    "Max Volume": "Maximum Volume (ft³)",
+    "Max Flow Balance": "Maximum Flow Balance (ft³/s)",
+#    "Max Wind": "Maximum Wind Speed (ft/s)",
+#    "Mean BC": "Mean Downstream Boundary Condition (ft)",
+    "Max BC": "Maximum Downstream Boundary Condition (ft)",
+    "Max Wind": "Maximum Wind Speed (ft/s)",
+
+}
+
+for col, title in metrics_with_units.items():
+    if col in df.columns:
+        fig = px.bar(df, x="Directory", y=col, title=title, labels={col: title})
+        st.plotly_chart(fig, use_container_width=True)
