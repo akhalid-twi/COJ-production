@@ -16,7 +16,7 @@ import notebook_utilities as nu
 
 # Configuration
 cpu_count = 16
-read_wind_data = False
+read_wind_data = True #False
 root_dir = "/ocean/projects/ees250010p/shared/02_simulations/scenarios/"
 scenario_name = "erdc_baseline"
 base_dir = f"{root_dir}/{scenario_name}"

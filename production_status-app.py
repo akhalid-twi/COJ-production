@@ -236,15 +236,15 @@ for col, title in metrics_with_units.items():
 #--------------------------
 # correlation metrics
 #--------------------------
-# success_df_clean = success_df.copy()
-# for cols in ['SUs','Max Wind','Max WSE','Failure Info','Failure Reason','Mean BC']:
-#     del success_df_clean[cols]
+success_df_clean = success_df.copy()
+for cols in ['SUs','Max Wind','Max WSE','Failure Info','Failure Reason','Mean BC']:
+     del success_df_clean[cols]
 
-# corr_matrix = success_df_clean.select_dtypes(include='number').corr()
-# fig_corr = go.Figure(data=go.Heatmap(
-#     z=corr_matrix.values,
-#     x=corr_matrix.columns,
-#     y=corr_matrix.columns,
-#     colorscale='Viridis'
-# ))
-# st.plotly_chart(fig_corr, use_container_width=True)
+corr_matrix = success_df_clean.select_dtypes(include='number').corr()
+fig_corr = go.Figure(data=go.Heatmap(
+     z=corr_matrix.values,
+     x=corr_matrix.columns,
+     y=corr_matrix.columns,
+     colorscale='Viridis'
+ ))
+st.plotly_chart(fig_corr, use_container_width=True)
