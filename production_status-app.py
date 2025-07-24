@@ -100,7 +100,7 @@ fig_completion.add_trace(go.Bar(
 fig_completion.update_layout(
     barmode='stack',
     xaxis_title="Count",
-    height=250
+    height=225
 )
 st.plotly_chart(fig_completion, use_container_width=True)
 
