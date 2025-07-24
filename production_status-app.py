@@ -95,12 +95,12 @@ fig_completion.add_trace(go.Bar(
     x=[running_count],
     name="Running",
     orientation='h',
-    marker=dict(color='lightyellow')
+    marker=dict(color='lightorange')
 ))
 fig_completion.update_layout(
     barmode='stack',
     xaxis_title="Count",
-    height=150
+    height=200
 )
 st.plotly_chart(fig_completion, use_container_width=True)
 
@@ -112,7 +112,7 @@ status_counts.columns = ["Status", "Count"]
 color_map = {
     "Success": "lightgreen",
     "Failed": "lightcoral",
-    "Running": "lightyellow"
+    "Running": "lightorange"
 }
 fig_pie = px.pie(
     status_counts,
