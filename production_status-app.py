@@ -237,8 +237,13 @@ for col, title in metrics_with_units.items():
 # correlation metrics
 #--------------------------
 success_df_clean = success_df.copy()
-for cols in ['SUs','Max Wind','Max WSE','Failure Info','Failure Reason','Mean BC']:
+for cols in ['SUs','Max WSE','Failure Info','Failure Reason','Mean BC']:
      del success_df_clean[cols]
+
+st.subheader("Correlation Metrics")
+
+# rearrange columns
+success_df_clean = success_df_clean[['Vol Error (%)','Vol Error (AF)','Max BC','Max Wind','Max Depth','Max Velocity','Max Volume','Max Flow Balance']]
 
 corr_matrix = success_df_clean.select_dtypes(include='number').corr()
 fig_corr = go.Figure(data=go.Heatmap(
@@ -248,3 +253,4 @@ fig_corr = go.Figure(data=go.Heatmap(
      colorscale='Viridis'
  ))
 st.plotly_chart(fig_corr, use_container_width=True)
+
