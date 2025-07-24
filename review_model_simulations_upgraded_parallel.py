@@ -15,6 +15,7 @@ import tqdm
 import notebook_utilities as nu
 
 # Configuration
+cpu_count = 16
 read_wind_data = False
 root_dir = "/ocean/projects/ees250010p/shared/02_simulations/scenarios/"
 scenario_name = "erdc_baseline"
@@ -203,7 +204,7 @@ if __name__ == "__main__":
     folders = sorted([f for f in os.listdir(base_dir) if os.path.isdir(os.path.join(base_dir, f))])
     rows = []
 
-    with ProcessPoolExecutor(max_workers=2) as executor:
+    with ProcessPoolExecutor(max_workers=cpu_count) as executor:
         futures = {executor.submit(process_folder, folder): folder for folder in folders}
         for future in tqdm.tqdm(as_completed(futures), total=len(futures), desc="Processing"):
             try:
