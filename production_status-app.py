@@ -13,7 +13,7 @@ def highlight_status(row):
     elif row['Status'] == 'Failed':
         color = 'background-color: lightcoral'
     elif row['Status'] == 'Running':
-        color = 'background-color: lightyellow'
+        color = 'background-color: lightblue'
     return [color] * len(row)
 
 # Load the CSV file
@@ -95,7 +95,7 @@ fig_completion.add_trace(go.Bar(
     x=[running_count],
     name="Running",
     orientation='h',
-    marker=dict(color='lightorange')
+    marker=dict(color='lightblue')
 ))
 fig_completion.update_layout(
     barmode='stack',
@@ -112,7 +112,7 @@ status_counts.columns = ["Status", "Count"]
 color_map = {
     "Success": "lightgreen",
     "Failed": "lightcoral",
-    "Running": "lightorange"
+    "Running": "lightblue"
 }
 fig_pie = px.pie(
     status_counts,
