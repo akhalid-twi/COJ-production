@@ -12,17 +12,24 @@ df_full = pd.read_csv(full_file)
 # Identify new rows in basic that are not in full based on 'Directory'
 new_rows = df_basic[~df_basic['Directory'].isin(df_full['Directory'])].copy()
 
-# Add missing columns from full to new_rows with NaN values
-for col in df_full.columns:
-    if col not in new_rows.columns:
-        new_rows.loc[:, col] = pd.NA
+# If no new rows, skip appending
+if new_rows.empty:
+    print("No new rows to append. Files are already in sync.")
+    df_full.to_csv(output_file,index=False)
+    print(f'Full summary file renamed to updated.')
+else:
+    # Add missing columns from full to new_rows with NaN values
+    for col in df_full.columns:
+        if col not in new_rows.columns:
+            new_rows[col] = pd.NA
 
-# Reorder columns to match df_full exactly
-new_rows = new_rows[df_full.columns]
+    # Reorder columns to match df_full exactly
+    new_rows = new_rows[df_full.columns]
 
-# Concatenate and save
-df_updated = pd.concat([df_full, new_rows], ignore_index=True)
-df_updated.to_csv(output_file, index=False)
+    # Concatenate and save
+    df_updated = pd.concat([df_full, new_rows], ignore_index=True)
+    df_updated.to_csv(output_file, index=False)
 
-print(f"✅ Appended {len(new_rows)} new rows. Updated file saved as: {output_file}")
+    print(f"Appended {len(new_rows)} new rows. Updated file saved as: {output_file}")
+
 
