@@ -122,7 +122,7 @@ fig_completion.update_layout(
 st.plotly_chart(fig_completion, use_container_width=True)
 
 # Horizontal stacked bar: Failed vs Successful
-st.subheader("Failed vs Successful Simulations (Stacked)")
+#st.subheader("Failed vs Successful Simulations (Stacked)")
 fig_fail_success = go.Figure()
 fig_fail_success.add_trace(go.Bar(
     y=["Simulations"],
@@ -143,7 +143,7 @@ fig_fail_success.update_layout(
     xaxis_title="Count",
     height=300
 )
-st.plotly_chart(fig_fail_success, use_container_width=True)
+#st.plotly_chart(fig_fail_success, use_container_width=True)
 
 # Pie chart of success vs failure
 status_counts = df["Status"].value_counts().reset_index()
