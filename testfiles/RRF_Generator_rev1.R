@@ -5,8 +5,8 @@
 rm(list=ls(all=TRUE)) # clean the workspace and variables
 
 # set working directory
-setwd("C:/Users/ra1055/OneDrive - Princeton University/Desktop/Scripts_TCGenerator_rev/") 
-
+#setwd("C:/Users/ra1055/OneDrive - Princeton University/Desktop/Scripts_TCGenerator_rev/") 
+setwd("/home/WATER/akhalid/Rainfall_generator")
 ##################
 # Folders Info
 #################
@@ -28,16 +28,53 @@ setwd("C:/Users/ra1055/OneDrive - Princeton University/Desktop/Scripts_TCGenerat
 # By default, we set this number to 3 
 #############################################################################################################
 
+
 #############################
 # Libraries and R packages
 #############################
-library(tidyverse)
+
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+
+# installing new
+
+#install.packages("timechange")
+
+#loading libraries
+#library(tidyverse)
+suppressPackageStartupMessages(library(tidyverse))
 library(raster)
 library(reshape2)
 library(pracma) #for 'meshgrid' function
 library(geodist) # for geodist function
 library(ncdf4) # creating netcdf files
 library(sf) #library included to evaluate if a TC track "cuts" through a region
+
+
+# Load command line arguments
+args <- commandArgs(trailingOnly = TRUE)
+
+# Parse arguments
+storm_subset <- NULL
+subset_file <- NULL
+for (i in seq(1, length(args), by = 2)) {
+  if (args[i] == "--stormsubset") {
+    storm_subset <- args[i + 1]
+  } else if (args[i] == "--file") {
+    subset_file <- args[i + 1]
+  }
+}
+
+# Source the subset file
+source(subset_file)
+
+# Get the subset variable dynamically
+subset_values <- get(storm_subset)
+
+# Print or use the subset
+print(paste("Using storm subset:", storm_subset))
+print(subset_values)
+
+
 ###################################
 # (1) Global inputs and Parameters
 ###################################
@@ -114,7 +151,7 @@ nsim = 2000 # (do not change)
 
 # 1.7. number of TC rainfall fields generated for each TC 
 # numbers between 1 and 2000 can be selected
-gg.nsim = 3 #(adjust, 1-2000)
+gg.nsim = 500 #(adjust, 1-2000)
 order.sim.t <- array(NA,c(nsim,gg.nsim))
 ############################
 # 1.8. creating directories to save outputs
@@ -132,7 +169,7 @@ dir.create("Results_Rainfall_Fields/nc_files/")
 # col10: POCI: pressure of the outermost closed isobar (required, in mb)
 # col11: PRESS.MIN: minimum pressure (required, in mb)
 #TC.char_raw <- data.frame(read.csv("Inputs/Inputs_TCGenerator.csv"))
-TC.char_raw <- data.frame(read.csv("Inputs/Inputs_TCGenerator.csv"))
+TC.char_raw <- data.frame(read.csv("Inputs/Inputs_TCGenerator_0818_AK.csv"))
 colnames(TC.char_raw) <- c("STORM_ID","NAME","MONTH","DAY","TIME","YEAR","LAT","LON","RMW","POCI","PRESS.MIN")
 
 ##################################################################################################
@@ -140,11 +177,15 @@ colnames(TC.char_raw) <- c("STORM_ID","NAME","MONTH","DAY","TIME","YEAR","LAT","
 # Compute the azimuth (i.e., TC direction)
 # Compute IPET rainfall
 ##################################################################################################  
-TC.ID.t <- unique(TC.char_raw$STORM_ID) # you can have more than one storm in the TC track and characteristics input file
+#TC.ID.t <- unique(TC.char_raw$STORM_ID) # you can have more than one storm in the TC track and characteristics input file
+
+TC.ID.t <- subset_values # this allows to provide these values using the command line
+
 TCrain.sim <- list()
 TCrain.sim_hr <- list()
 count_igr <- 0 # count the number of groups in the TC file. We highlight that one TC can have more than one group
 df.TC.char <- data.frame(TC.order=NA, TC.year=NA, TC.name=NA, TC.group=NA, rainfall.total.IPET=NA,press.min=NA,v.tran=NA, AZ=NA)
+
 
 for(iTC in 1:length(TC.ID.t)){
       
@@ -157,6 +198,11 @@ for(iTC in 1:length(TC.ID.t)){
   db.TC1 <- data.frame(NAME=db.TC$NAME, YEAR=db.TC$YEAR, MONTH=db.TC$MONTH, DAY=db.TC$DAY, TIME=db.TC$TIME,
                        LON=db.TC$LON, LAT=db.TC$LAT, RMW=db.TC$RMW,POCI=db.TC$POCI, PRESS.MIN=db.TC$PRESS.MIN)
       
+  
+  print("=================================")
+  print(paste("Storm ID:", TC.ID,"   [",iTC,"/",length(TC.ID.t),"]"))
+  print("=================================")
+
   # I first screen the TC that has no required variables
   if(all(db.TC1$RMW == -99) ) next
   if(all(db.TC1$POCI == -99) ) next
@@ -755,14 +801,21 @@ for(iTC in 1:length(TC.ID.t)){
     
     # Inputs and variables
     number.sim <- c(1:nsim)
-    order.sim <- sample(number.sim, gg.nsim, replace=F) # Randomly select 3 simulation results
+    order.sim <- sample(number.sim, gg.nsim, replace=F) # Randomly select 3 simulation results # commented out [AK:09262025]
     order.sim.t[count_igr,] <- order.sim
+
+    # added by Arslaan for progress capture [AK:09262025]
+    counter <- 1
+    total_sims <- length(order.sim)
+
     
     df.fin <- list()
     n.gen <- 0
     for(isim in order.sim){
       
-      print(isim)
+      #print(isim)  [AK:09262025]
+      print(paste("Random ID:", isim, "Progress:",counter, "/",total_sims)) #  [AK:09262025]
+      counter <- counter + 1      
       
       df.simfield.mix.select <- df.simfield.mix %>% dplyr::select("lon","lat",paste0("sim",isim))
       colnames(df.simfield.mix.select) <- c("lon","lat","rand.comp")
@@ -827,7 +880,7 @@ for(iTC in 1:length(TC.ID.t)){
       ncatt_put(ncout, 0, "crs", "EPSG:4326")
       ncatt_put(ncout, 0, "spatial_ref", "GEOGCS['WGS 84',DATUM['WGS_1984',SPHEROID['WGS 84',6378137,298.257223563]],PRIMEM['Greenwich',0],UNIT['degree',0.0174532925199433]]")
       
-      print(ncout)
+      #print(ncout) [AK: 09262025]
 
       # close the file, writing data to disk
       nc_close(ncout)
