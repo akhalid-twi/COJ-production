@@ -18,6 +18,8 @@ def highlight_status(row):
 
 # Load the CSV file
 csv_file = "updated_erdc_baseline_simulation_summary_full.csv"
+csv_file = "a_optimal_sample_base_simulation_basic_summary.csv"
+
 df = pd.read_csv(csv_file)
 
 # Rename columns to remove units for internal use, but keep units for display
@@ -41,10 +43,10 @@ file_age = current_datetime - modified_datetime
 
 # Streamlit app title
 st.title("COJ Production Dashboard")
-st.subheader(f" Scenario: ERDC Baseline Conditions")
+st.subheader(f" Scenario: Optimal Sample BASE Conditions")
 st.markdown(f"Last updated: {str(modified_datetime)[:-6]}")
 
-total_simulations = 505
+total_simulations = 10000
 completed_simulations = len(df)
 st.subheader(f"Simulation Count: {completed_simulations}/{total_simulations}")
 
