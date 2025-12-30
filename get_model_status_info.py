@@ -1,3 +1,4 @@
+
 import os
 import csv
 import re
@@ -10,25 +11,35 @@ GREEN = '\033[92m'
 RED = '\033[91m'
 YELLOW = '\033[93m'
 RESET = '\033[0m'
+BLUE = '\033[94m'
+
 
 # Base directory containing simulation folders
 root_dir = "/ocean/projects/ees250010p/shared/02_simulations/scenarios/"
-scenario_name = "erdc_baseline"
+scenario_name = "a_optimal_sample_base"  # Change as needed
 
 base_dir = f"{root_dir}/{scenario_name}"
 output_csv = f"{scenario_name}_simulation_basic_summary.csv"
-slurm_log_dir = "{root_dir}/_logs/erdc_baseline/slurmout"
+slurm_log_dir = f"/ocean/projects/ees250010p/shared/02_simulations/_logs/{scenario_name}/slurmout"  # FIXED f-string
+slurm_log_err_dir = f"{slurm_log_dir}/stdout"
+
 
 headers = [
     "Directory", "Status", "Duration", "SUs", "Failure Reason",
     "Vol Error (AF)", "Vol Error (%)", "Max WSEL Err",
-    "Start Time", "End Time", "Failure Info"
+    "Start Time", "End Time", "Failure Info",
+    "Max WSE (ft)", "Max Depth (ft)", "Max Velocity (ft/s)",
+    "Max Volume (ft^3)", "Max Flow Balance (ft^3/s)",
+    "Max Wind (ft/s)", "Mean BC (ft)", "Max BC (ft)"
 ]
+
+
 
 rows = []
 success_count = 0
 failure_count = 0
 running_count = 0
+out_of_time_count = 0
 total_su = 0  # Track total SUs only for successful runs
 
 def format_time(raw_time):
@@ -40,6 +51,7 @@ def format_time(raw_time):
         return dt.strftime("%b %d %H:%M")
     except:
         return raw_time
+
 def duration_to_hours(duration_str):
     if duration_str == "N/A":
         return 0.0
@@ -67,8 +79,28 @@ for folder in sorted(os.listdir(base_dir)):
     if not os.path.isdir(folder_path):
         continue
 
-    log_file = os.path.join(folder_path, f"log_{folder}.txt")
+    # Find log file
+    log_file = None
+    for filename in os.listdir(folder_path):
+        if filename.startswith("log_") and filename.endswith(".txt"):
+            log_file = os.path.join(folder_path, filename)
+
+
     time_file = os.path.join(folder_path, "time_log.txt")
+
+
+    # If log file doesn't exist, determine if run is pending, running, or failed initialization
+    if not log_file:
+        if os.path.exists(time_file):
+            status = "Running"
+        else:
+            status = "Pending"
+    
+        rows.append([
+            folder, status, "N/A", 0, "", "N/A", "N/A", "N/A",
+            "N/A", "N/A", ""
+        ])
+        continue
 
     status = "Unknown"
     duration = "N/A"
@@ -77,11 +109,22 @@ for folder in sorted(os.listdir(base_dir)):
     max_wsel_err = "N/A"
     start_time = "N/A"
     end_time = "N/A"
+
+    max_wse = "N/A"
+    max_depth = "N/A"
+    max_velocity = "N/A"
+    max_volume = "N/A"
+    max_flow_balance = "N/A"
+    max_wind = "N/A"
+    mean_bc = "N/A"
+    max_bc = "N/A"
+
     failure_info = ""
     failure_reason = ""
     su = 0  # Default SU
     log_lines = []
-    if os.path.exists(log_file):
+
+    if log_file and os.path.exists(log_file):
         with open(log_file, 'r') as f:
             log_lines = f.readlines()
             for line in log_lines:
@@ -109,6 +152,31 @@ for folder in sorted(os.listdir(base_dir)):
 
     status = infer_status(log_lines, start_time, end_time)
 
+    # Check SLURM logs for failure reason or time limit
+    slurm_log_pattern = os.path.join(slurm_log_dir, f"*_{folder}_run.log")
+    
+    matched_logs = glob.glob(slurm_log_pattern)
+    #print(slurm_log_pattern,matched_logs)
+    if matched_logs:
+        #print(matched_logs)
+        filename = os.path.basename(matched_logs[0])  # e.g., job1234_SS0736_PP350_SM1_BF1_Base_run.log
+        prefix = filename.split(f"_{folder}_run.log")[0]  # Extract part before folder 
+        
+        slurm_err_file = os.path.join(slurm_log_err_dir, f"output_{prefix}.out")
+        if os.path.isfile(slurm_err_file)==False:continue
+
+        #with open(matched_logs[0], 'r') as f:
+        with open(slurm_err_file, 'r') as f:
+
+            slurm_content = f.read()
+            if "Out Of Memory" in slurm_content or "oom-kill" in slurm_content:
+                failure_reason = "Out of Memory"
+            elif "CANCELLED" in slurm_content and "DUE TO TIME LIMIT" in slurm_content:
+                failure_reason = "Time limit reached"
+                if status == "Running":  # Override Running
+                    status = "Incomplete-Slurm timeout"
+
+    # Update counters and compute SUs
     if status == "Success":
         success_count += 1
         failure_info = ""
@@ -119,25 +187,21 @@ for folder in sorted(os.listdir(base_dir)):
         total_su += su
     elif status == "Running":
         running_count += 1
+    elif status == "Out of Time Limit":
+        out_of_time_count += 1
     else:
         failure_count += 1
-        # Check SLURM log for failure reason
-        slurm_log_pattern = os.path.join(slurm_log_dir, f"*_{folder}_run.log")
-        matched_logs = glob.glob(slurm_log_pattern)
-        if matched_logs:
-            with open(matched_logs[0], 'r') as f:
-                slurm_content = f.read()
-                if "Out Of Memory" in slurm_content or "oom-kill" in slurm_content:
-                    failure_reason = "Out of Memory"
-                elif "CANCELLED" in slurm_content and "DUE TO TIME LIMIT" in slurm_content:
-                    failure_reason = "Time limit reached"
 
     clean_failure_info = " ".join(failure_info.strip().split())
+
 
     rows.append([
         folder, status, duration, su, failure_reason,
         vol_error_af, vol_error_pct, max_wsel_err,
-        start_time, end_time, clean_failure_info
+        start_time, end_time, clean_failure_info,
+        max_wse, max_depth, max_velocity,
+        max_volume, max_flow_balance, max_wind,
+        mean_bc, max_bc
     ])
 
 # Write to CSV
@@ -147,13 +211,26 @@ with open(output_csv, 'w', newline='') as f:
     writer.writerows(rows)
 
 # Print table header
-print(f"{'Directory':<15} {'Status':<10} {'Duration':<12} {'SUs':<5} {'Failure Reason':<20} {'Vol Error (AF)':<15} {'Vol Error (%)':<15} {'Max WSEL Err':<15} {'Start Time':<15} {'End Time':<15} {'Failure Info'}")
+print(f"{'Directory':<15} {'Status':<18} {'Duration':<12} {'SUs':<5} {'Failure Reason':<20} {'Vol Error (AF)':<15} {'Vol Error (%)':<15} {'Max WSEL Err':<15} {'Start Time':<15} {'End Time':<15} {'Failure Info'}")
 
 # Print each row with truncated failure info
 for row in rows:
-    color = GREEN if row[1] == "Success" else RED if row[1] == "Failed" else YELLOW
+
+    #color = GREEN if row[1] == "Success" else RED if row[1] in ["Failed", "Incomplete-Slurm timeout"] else YELLOW
+
+
+    if row[1] == "Success":
+        color = GREEN
+    elif row[1] == "Failed" or row[1] == "Incomplete-Slurm timeout":
+        color = RED
+    elif row[1] == "Pending":
+        color = BLUE
+    else:
+        color = YELLOW  # Running
+
+
     truncated_info = (row[10][:60] + '...') if len(row[10]) > 63 else row[10]
-    print(f"{color}{row[0]:<15} {row[1]:<10} {row[2]:<12} {row[3]:<5} {row[4]:<20} {row[5]:<15} {row[6]:<15} {row[7]:<15} {row[8]:<15} {row[9]:<15} {truncated_info}{RESET}")
+    print(f"{color}{row[0]:<15} {row[1]:<18} {row[2]:<12} {row[3]:<5} {row[4]:<20} {row[5]:<15} {row[6]:<15} {row[7]:<15} {row[8]:<15} {row[9]:<15} {truncated_info}{RESET}")
 
 # Print summary
 print("\n" + "="*50)
@@ -162,6 +239,7 @@ print(f"Total models run: {len(rows)}")
 print(f"{GREEN}Successful: {success_count}{RESET}")
 print(f"{YELLOW}Running: {running_count}{RESET}")
 print(f"{RED}Failed: {failure_count}{RESET}")
-print(f"Total SUs used; 4 cpus per task, 8GB min required (successful only): {total_su}")
+print(f"{RED}Incomplete-Slurm timeout: {out_of_time_count}{RESET}")
+print(f"Total SUs used; ~4 to 5 cpus per task, 8GB min required (successful only): {total_su}")
 print("="*50)
 
