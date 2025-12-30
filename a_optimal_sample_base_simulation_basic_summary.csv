@@ -1,5 +1,5 @@
 Directory,Status,Duration,SUs,Failure Reason,Vol Error (AF),Vol Error (%),Max WSEL Err,Start Time,End Time,Failure Info,Max WSE (ft),Max Depth (ft),Max Velocity (ft/s),Max Volume (ft^3),Max Flow Balance (ft^3/s),Max Wind (ft/s),Mean BC (ft),Max BC (ft)
-SS0114_PP017_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0114_PP017_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0114_PP058_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:06,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0114_PP096_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:53,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0114_PP167_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:52,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -8,9 +8,9 @@ SS0114_PP287_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:50,N/A,,N/A,N/A,N
 SS0114_PP339_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:52,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0114_PP380_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:52,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0114_PP458_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:53,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0115_PP059_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0115_PP059_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:29,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0118_PP348_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 00:06,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0119_PP014_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0119_PP014_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:27,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0119_PP083_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:21,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0119_PP105_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:23,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0119_PP247_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:22,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -32,7 +32,7 @@ SS0128_PP158_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:50,N/A,,N/A,N/A,N
 SS0128_PP252_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:51,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0128_PP279_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:51,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0128_PP332_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:51,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0128_PP356_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0128_PP356_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:27,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0128_PP375_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:52,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0128_PP423_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:51,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0130_PP025_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:17,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -44,10 +44,10 @@ SS0136_PP021_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:23,N/A,,N/A,N/A,N
 SS0136_PP047_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:55,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0136_PP059_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:52,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0136_PP105_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:55,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0136_PP192_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0136_PP192_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:27,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0136_PP226_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:56,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0136_PP302_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:52,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0136_PP359_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0136_PP359_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:30,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0136_PP367_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:07,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0136_PP418_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:53,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0136_PP456_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:53,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -63,11 +63,11 @@ SS0143_PP444_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:46,N/A,,N/A,N/A,N
 SS0144_PP051_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0144_PP096_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0144_PP155_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:03,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0144_PP206_SM5_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0144_PP206_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:34,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0144_PP320_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0144_PP353_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:05,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0144_PP377_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:19,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0144_PP420_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0144_PP420_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:31,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0144_PP427_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0144_PP444_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:18,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0146_PP007_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:15,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -82,12 +82,12 @@ SS0146_PP403_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:04,N/A,,N/A,N/A,N
 SS0146_PP469_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:20,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0147_PP054_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0147_PP202_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:16,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0148_PP149_SM5_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0148_PP149_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:26,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0152_PP034_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:51,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0152_PP069_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0152_PP069_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:26,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0152_PP083_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:54,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0152_PP106_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:53,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0152_PP107_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:21,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS0152_PP107_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:21,N/A,Maximum iteration location Cell WSEL ERROR ITERATIONS,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0152_PP235_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:23,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0152_PP249_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:20,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0152_PP340_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:10,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -114,18 +114,18 @@ SS0167_PP300_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:58,N/A,,N/A,N/A,N
 SS0168_PP140_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:01,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0168_PP255_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:26,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0168_PP316_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:26,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0170_PP161_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0170_PP161_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:33,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0170_PP334_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:15,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0170_PP461_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0170_PP486_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS0178_PP018_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0178_PP018_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:29,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0178_PP113_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0178_PP251_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0178_PP271_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:16,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0178_PP315_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:16,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0178_PP330_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0178_PP369_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS0178_PP480_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0178_PP480_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:30,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0178_PP497_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0181_PP244_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:09,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0183_PP318_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:23,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -133,8 +133,8 @@ SS0191_PP473_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:29,N/A,,N/A,N/A,N
 SS0192_PP107_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0192_PP120_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:06,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0192_PP187_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:04,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0192_PP255_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS0192_PP268_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0192_PP255_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:33,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS0192_PP268_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:33,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0192_PP354_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0192_PP361_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:17,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0192_PP374_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:06,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -151,7 +151,7 @@ SS0421_PP359_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:57,N/A,,N/A,N/A,N
 SS0421_PP377_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:25,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0423_PP023_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0423_PP191_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS0423_PP191_SM5_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0423_PP191_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:30,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0423_PP197_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:13,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0423_PP259_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:12,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0423_PP493_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:16,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -177,19 +177,19 @@ SS0433_PP383_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:10,N/A,,N/A,N/A,N
 SS0433_PP497_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:04,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0435_PP032_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:09,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0436_PP003_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:04,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0436_PP010_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0436_PP010_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0436_PP044_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:10,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0436_PP049_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:04,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0436_PP128_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:10,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0436_PP168_SM5_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS0436_PP178_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0436_PP168_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:27,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS0436_PP178_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:30,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0436_PP182_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:07,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0436_PP190_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:57,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0436_PP209_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0436_PP209_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0436_PP214_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:57,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0436_PP239_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:58,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0436_PP244_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS0436_PP248_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0436_PP244_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:30,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS0436_PP248_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:25,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0436_PP270_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:03,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0436_PP295_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:11,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0436_PP335_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:58,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -205,19 +205,19 @@ SS0443_PP427_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:39,N/A,,N/A,N/A,N
 SS0443_PP442_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:24,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0446_PP335_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0449_PP216_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:23,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0451_PP042_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0451_PP042_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:27,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0451_PP059_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 29 23:02,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0451_PP061_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0451_PP061_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:25,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0451_PP199_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:09,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0451_PP220_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:20,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0451_PP256_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:54,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0451_PP302_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:10,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0451_PP322_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0451_PP322_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0451_PP356_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:54,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0451_PP362_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:58,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0451_PP366_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:55,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0451_PP422_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:09,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0451_PP429_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0451_PP429_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:25,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0451_PP431_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:58,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0451_PP434_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:56,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0451_PP455_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:02,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -231,7 +231,7 @@ SS0453_PP358_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0453_PP391_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:21,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0453_PP476_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0453_PP493_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:05,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0458_PP141_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:13,N/A,Maximum iteration location Cell WSEL ERROR ITERATIONS,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS0458_PP141_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:13,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0458_PP190_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:17,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0458_PP214_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:07,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0458_PP247_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
@@ -244,7 +244,7 @@ SS0458_PP360_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:13,N/A,,N/A,N/A,N
 SS0458_PP486_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:06,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0460_PP043_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:03,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0460_PP121_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:57,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0460_PP170_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:21,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS0460_PP170_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:21,N/A,Maximum iteration location Cell WSEL ERROR ITERATIONS,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0460_PP214_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:17,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0460_PP290_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:24,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0460_PP397_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 29 23:03,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -272,14 +272,14 @@ SS0465_PP273_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:37,N/A,,N/A,N/A,N
 SS0465_PP302_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:04,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0465_PP338_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:48,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0468_PP051_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:07,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0468_PP182_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS0468_PP294_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0468_PP182_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:27,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS0468_PP294_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:27,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0469_PP085_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:42,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0472_PP309_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:08,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0479_PP052_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:21,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0479_PP073_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0479_PP073_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:32,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0479_PP089_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:55,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0479_PP095_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0479_PP095_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0479_PP129_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:24,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0479_PP165_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:16,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0479_PP239_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:50,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -291,12 +291,12 @@ SS0479_PP378_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 29 23:02,N/A,,N/A,N/A,N
 SS0479_PP397_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:52,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0479_PP443_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:58,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0479_PP489_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:51,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0483_PP131_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS0485_PP002_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS0485_PP019_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0483_PP131_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS0485_PP002_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:25,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS0485_PP019_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0485_PP033_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0485_PP120_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS0485_PP174_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0485_PP174_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0485_PP185_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:19,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0485_PP221_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:14,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0485_PP228_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:17,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -325,7 +325,7 @@ SS0711_PP071_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:14,N/A,,N/A,N/A,N
 SS0711_PP089_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0711_PP421_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0711_PP459_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:12,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0715_PP127_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0715_PP127_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:25,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0716_PP066_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:36,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0716_PP090_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:36,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0716_PP093_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:50,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -367,13 +367,13 @@ SS0723_PP492_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:45,N/A,,N/A,N/A,N
 SS0723_PP492_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:46,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0724_PP034_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:07,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0728_PP002_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:10,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0728_PP285_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0728_PP285_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:25,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0728_PP303_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:22,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0728_PP443_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0730_PP116_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:54,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0734_PP266_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:26,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0735_PP029_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:08,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0735_PP033_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0735_PP033_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0735_PP071_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:02,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0735_PP074_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:19,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0735_PP152_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:08,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -381,11 +381,11 @@ SS0735_PP240_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:09,N/A,,N/A,N/A,N
 SS0736_PP350_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 29 23:02,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0738_PP112_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:04,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0741_PP276_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:27,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0743_PP166_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0743_PP166_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:25,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0743_PP212_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:15,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0743_PP254_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:09,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0743_PP490_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:25,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0744_PP246_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0744_PP246_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:33,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0747_PP184_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:09,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0747_PP280_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:58,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0749_PP360_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:14,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -400,7 +400,7 @@ SS0752_PP266_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:44,N/A,,N/A,N/A,N
 SS0752_PP312_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:32,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0752_PP321_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:33,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0752_PP432_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:01,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0759_PP106_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0759_PP106_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0759_PP116_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:52,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0759_PP138_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:58,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0759_PP319_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:20,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -421,14 +421,14 @@ SS0768_PP179_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 29 23:02,N/A,,N/A,N/A,N
 SS0768_PP365_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:02,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0768_PP454_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:19,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0768_PP480_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 29 23:02,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0768_PP491_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:24,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS0768_PP491_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:24,N/A,Maximum iteration location Cell WSEL ERROR ITERATIONS,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0775_PP306_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:21,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0775_PP319_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:57,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0776_PP284_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:57,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0776_PP322_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:08,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0776_PP335_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:08,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0980_PP103_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS0980_PP309_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0980_PP309_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:29,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0981_PP037_SM5_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0981_PP190_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:08,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0982_PP006_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:38,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -447,8 +447,8 @@ SS0989_PP176_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:24,N/A,,N/A,N/A,N
 SS0989_PP195_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:13,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0989_PP308_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:01,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0989_PP317_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:15,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0989_PP333_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS0989_PP359_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:22,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS0989_PP333_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS0989_PP359_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:22,N/A,Maximum iteration location Cell WSEL ERROR ITERATIONS,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0989_PP384_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:24,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0989_PP421_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:02,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0989_PP444_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:53,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -456,41 +456,41 @@ SS0989_PP445_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:02,N/A,,N/A,N/A,N
 SS0989_PP479_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 29 23:02,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0989_PP491_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:53,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP009_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:59,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0990_PP014_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0990_PP014_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:33,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP017_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:17,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP060_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:07,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP062_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:14,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP072_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:17,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP082_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:14,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0990_PP088_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0990_PP088_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:33,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP098_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS0990_PP126_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS0990_PP133_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0990_PP126_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:32,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS0990_PP133_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:32,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP138_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:59,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP141_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:02,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP145_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 29 23:02,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP156_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 29 23:02,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP159_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 29 23:02,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0990_PP166_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS0990_PP168_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS0990_PP177_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0990_PP166_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS0990_PP168_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:33,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS0990_PP177_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:27,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP189_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:04,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP201_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:58,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP218_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:14,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP222_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:20,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP241_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:13,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP247_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:59,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0990_PP251_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0990_PP251_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:34,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP273_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:12,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP294_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0990_PP309_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:00,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP321_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:14,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0990_PP340_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0990_PP340_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:27,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP352_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:59,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP378_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:00,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP386_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:00,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP393_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:59,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0990_PP417_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0990_PP417_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP418_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:00,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP430_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:59,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0990_PP437_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:00,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -503,7 +503,7 @@ SS0997_PP029_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0997_PP030_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0997_PP033_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:10,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0997_PP036_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS0997_PP045_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0997_PP045_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:25,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0997_PP059_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:18,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0997_PP065_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:10,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0997_PP081_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:09,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -516,7 +516,7 @@ SS0997_PP131_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:10,N/A,,N/A,N/A,N
 SS0997_PP132_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0997_PP140_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 29 23:02,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0997_PP143_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS0997_PP159_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0997_PP159_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:25,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0997_PP160_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0997_PP163_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0997_PP167_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
@@ -532,7 +532,7 @@ SS0997_PP316_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0997_PP323_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0997_PP326_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 29 23:02,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0997_PP328_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:24,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS0997_PP331_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS0997_PP331_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:26,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS0997_PP362_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0997_PP389_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS0997_PP413_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:25,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -558,20 +558,20 @@ SS1004_PP496_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:37,N/A,,N/A,N/A,N
 SS1013_PP062_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:24,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1013_PP428_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:59,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1018_PP020_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:53,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1018_PP071_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS1018_PP072_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS1018_PP085_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1018_PP071_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS1018_PP072_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:26,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS1018_PP085_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:29,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1018_PP086_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:07,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1018_PP094_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1018_PP094_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1018_PP123_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:22,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1018_PP172_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:57,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1018_PP174_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:08,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1018_PP232_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:55,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1018_PP258_SM5_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1018_PP258_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:26,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1018_PP260_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:09,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1018_PP287_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1018_PP287_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:25,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1018_PP401_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:02,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1018_PP413_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1018_PP413_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:25,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1018_PP424_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:58,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1018_PP440_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:22,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1018_PP459_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:55,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -580,9 +580,9 @@ SS1018_PP484_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:18,N/A,,N/A,N/A,N
 SS1023_PP493_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:55,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1025_PP013_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:22,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1025_PP020_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:16,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1025_PP038_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1025_PP038_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:34,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1025_PP048_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS1025_PP060_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1025_PP060_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:33,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1025_PP090_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:01,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1025_PP109_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS1025_PP149_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:01,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -601,20 +601,20 @@ SS1038_PP125_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:54,N/A,,N/A,N/A,N
 SS1038_PP162_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:21,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1038_PP220_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:09,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1038_PP228_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:10,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1038_PP257_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1038_PP257_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:27,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1038_PP301_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:54,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1038_PP307_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:01,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1038_PP342_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:23,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1038_PP370_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1038_PP370_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:27,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1038_PP387_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:09,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1038_PP405_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1038_PP405_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:29,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1038_PP426_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:00,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1038_PP443_SM5_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS1038_PP491_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS1039_PP035_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1038_PP443_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:26,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS1038_PP491_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:29,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS1039_PP035_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:29,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1039_PP143_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:14,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1039_PP146_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:15,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1039_PP171_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1039_PP171_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:29,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1039_PP291_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:16,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1039_PP299_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:23,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1039_PP316_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:16,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -623,7 +623,7 @@ SS1039_PP340_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:16,N/A,,N/A,N/A,N
 SS1039_PP342_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:15,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1039_PP383_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:15,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1039_PP392_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS1039_PP458_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1039_PP458_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:29,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1044_PP181_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:59,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1046_PP344_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:18,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1046_PP389_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:41,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -635,16 +635,16 @@ SS1055_PP142_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:40,N/A,,N/A,N/A,N
 SS1057_PP357_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:52,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1059_PP122_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS1059_PP196_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:25,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1059_PP213_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:19,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS1059_PP213_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:19,N/A,Maximum iteration location Cell WSEL ERROR ITERATIONS,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1059_PP217_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS1059_PP237_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS1059_PP339_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1059_PP237_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:29,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS1059_PP339_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:29,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1059_PP363_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:21,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1059_PP369_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS1059_PP401_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS1059_PP427_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS1059_PP467_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS1059_PP500_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1059_PP500_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:29,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1060_PP272_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:23,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1060_PP334_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:48,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1060_PP447_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:24,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -662,7 +662,7 @@ SS1244_PP487_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:14,N/A,,N/A,N/A,N
 SS1244_PP488_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:53,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1244_PP500_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:43,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1245_PP095_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS1245_PP137_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:14,N/A,Maximum iteration location Cell WSEL ERROR ITERATIONS,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS1245_PP137_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:14,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1245_PP185_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:11,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1245_PP211_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:15,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1245_PP274_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:15,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -691,12 +691,12 @@ SS1261_PP125_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:17,N/A,,N/A,N/A,N
 SS1261_PP140_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:57,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1261_PP149_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:55,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1261_PP278_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:56,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1261_PP280_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1261_PP280_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:27,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1261_PP312_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:02,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1261_PP361_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1261_PP361_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:31,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1261_PP365_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:57,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1261_PP386_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS1261_PP393_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1261_PP386_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:27,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS1261_PP393_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:31,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1261_PP402_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:56,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1261_PP424_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:58,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1261_PP449_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:56,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -704,7 +704,7 @@ SS1261_PP460_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:11,N/A,,N/A,N/A,N
 SS1261_PP463_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:59,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1261_PP481_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:11,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1261_PP485_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:57,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1261_PP485_SM5_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1261_PP485_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:26,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1265_PP322_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:51,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1268_PP064_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:03,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1269_PP072_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:57,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -720,26 +720,26 @@ SS1269_PP399_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:53,N/A,,N/A,N/A,N
 SS1269_PP432_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:56,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1269_PP480_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:55,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1275_PP230_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:10,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1275_PP283_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1275_PP283_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:29,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1282_PP354_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:46,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1284_PP065_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:54,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1284_PP202_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:51,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1284_PP320_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:02,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1284_PP363_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:59,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1284_PP421_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:07,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1312_PP071_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1312_PP071_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:31,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1313_PP274_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1317_PP012_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:00,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1317_PP055_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:22,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1317_PP063_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:59,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1317_PP071_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS1317_PP157_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1317_PP071_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:30,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS1317_PP157_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1317_PP203_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:15,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1317_PP209_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1317_PP209_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:29,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1317_PP214_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:15,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1317_PP277_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:59,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1317_PP341_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:14,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1317_PP379_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1317_PP379_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:32,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1317_PP403_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:14,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1320_PP181_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:15,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1324_PP024_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:10,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -769,7 +769,7 @@ SS1332_PP408_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:09,N/A,,N/A,N/A,N
 SS1333_PP148_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:56,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1333_PP305_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:58,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1333_PP314_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:05,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1339_PP078_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1339_PP078_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:30,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1340_PP118_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:05,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1443_PP051_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:17,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1447_PP058_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 29 23:02,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -782,7 +782,7 @@ SS1448_PP088_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:04,N/A,,N/A,N/A,N
 SS1448_PP123_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:53,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1448_PP131_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:00,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1448_PP142_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:07,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1448_PP148_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:21,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS1448_PP148_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:21,N/A,Maximum iteration location Cell WSEL ERROR ITERATIONS,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1448_PP191_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:20,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1448_PP196_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:49,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1448_PP205_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:23,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -869,11 +869,11 @@ SS1469_PP212_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:10,N/A,,N/A,N/A,N
 SS1469_PP258_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:09,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1469_PP378_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:08,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1469_PP441_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS1475_PP027_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS1475_PP033_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1475_PP027_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS1475_PP033_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1475_PP039_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:58,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1475_PP301_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:04,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1475_PP311_SM5_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1475_PP311_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:34,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1475_PP347_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:13,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1475_PP389_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:02,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1475_PP409_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:59,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -891,7 +891,7 @@ SS1476_PP111_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:55,N/A,,N/A,N/A,N
 SS1476_PP114_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:21,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1476_PP118_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:05,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1476_PP136_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:03,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1476_PP149_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1476_PP149_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:26,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1476_PP159_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:21,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1476_PP164_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:51,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1476_PP170_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 29 23:03,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -910,13 +910,13 @@ SS1488_PP482_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:20,N/A,,N/A,N/A,N
 SS1489_PP001_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:08,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1489_PP030_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:58,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1489_PP069_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:03,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1489_PP193_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS1489_PP250_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1489_PP193_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS1489_PP250_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:30,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1489_PP278_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:11,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1489_PP319_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:58,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1489_PP463_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:56,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1489_PP474_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS1489_PP491_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1489_PP474_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:31,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS1489_PP491_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:30,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1490_PP105_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:37,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1490_PP234_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:21,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1490_PP244_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:59,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -924,16 +924,16 @@ SS1490_PP261_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:32,N/A,,N/A,N/A,N
 SS1490_PP277_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:22,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1490_PP333_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:56,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1490_PP358_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:21,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1583_PP438_SM5_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1583_PP438_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:27,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1586_PP240_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:20,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1587_PP235_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:01,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1588_PP022_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS1588_PP064_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:19,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1588_PP089_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1588_PP089_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:34,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1588_PP122_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:05,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1588_PP157_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:21,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1588_PP254_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:17,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1588_PP348_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1588_PP348_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:33,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1588_PP412_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS1588_PP443_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:12,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1588_PP469_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:21,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -948,21 +948,21 @@ SS1596_PP389_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:13,N/A,,N/A,N/A,N
 SS1596_PP467_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:15,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1602_PP068_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:26,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1602_PP295_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:02,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1604_PP015_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS1604_PP037_SM5_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1604_PP015_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:29,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS1604_PP037_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:27,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1604_PP086_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:56,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1604_PP098_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1604_PP098_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:27,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1604_PP159_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:59,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1604_PP179_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1604_PP179_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:32,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1604_PP186_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:04,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1604_PP275_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1604_PP275_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:29,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1604_PP293_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 29 23:02,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1604_PP305_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:13,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1604_PP321_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:55,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1604_PP394_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:10,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1604_PP417_SM5_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1604_PP417_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:27,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1604_PP442_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:08,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1604_PP474_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1604_PP474_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:29,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1609_PP470_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:09,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1612_PP026_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:54,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1612_PP044_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:55,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
@@ -986,17 +986,17 @@ SS1620_PP338_SM4_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS1620_PP380_SM1_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
 SS1620_PP395_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:12,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1620_PP442_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS1620_PP486_SM2_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
-SS1623_PP233_SM5_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1620_PP486_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:26,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+SS1623_PP233_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:31,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1627_PP381_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:53,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1628_PP094_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:16,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1628_PP116_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:24,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1628_PP171_SM3_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1628_PP171_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1628_PP218_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:25,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1628_PP228_SM4_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:55,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1628_PP356_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:25,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1628_PP396_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:06,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
-SS1628_PP436_SM5_BF1_Base,Initializing,N/A,0,,N/A,N/A,N/A,N/A,N/A,
+SS1628_PP436_SM5_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:28,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1628_PP454_SM2_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:22,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1628_PP467_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 15:55,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
 SS1631_PP165_SM1_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,Dec 30 16:09,N/A,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
