@@ -9,6 +9,7 @@ from datetime import datetime
 # ANSI color codes
 GREEN = '\033[92m'
 RED = '\033[91m'
+MAGENTA = '\033[95m'
 YELLOW = '\033[93m'
 RESET = '\033[0m'
 BLUE = '\033[94m'
@@ -39,6 +40,7 @@ rows = []
 success_count = 0
 failure_count = 0
 running_count = 0
+pending_count = 0
 out_of_time_count = 0
 total_su = 0  # Track total SUs only for successful runs
 
@@ -94,7 +96,13 @@ for folder in sorted(os.listdir(base_dir)):
         if os.path.exists(time_file):
             status = "Running"
         else:
-            status = "Pending"
+            status = "Initializing"
+
+            if status == "Initializing":
+                pending_count += 1
+            else:
+                running_count += 1
+
     
         rows.append([
             folder, status, "N/A", 0, "", "N/A", "N/A", "N/A",
@@ -157,24 +165,27 @@ for folder in sorted(os.listdir(base_dir)):
     
     matched_logs = glob.glob(slurm_log_pattern)
     #print(slurm_log_pattern,matched_logs)
+
     if matched_logs:
-        #print(matched_logs)
-        filename = os.path.basename(matched_logs[0])  # e.g., job1234_SS0736_PP350_SM1_BF1_Base_run.log
-        prefix = filename.split(f"_{folder}_run.log")[0]  # Extract part before folder 
-        
+        filename = os.path.basename(matched_logs[0])
+        prefix = filename.split(f"_{folder}_run.log")[0]
+
         slurm_err_file = os.path.join(slurm_log_err_dir, f"output_{prefix}.out")
-        if os.path.isfile(slurm_err_file)==False:continue
 
-        #with open(matched_logs[0], 'r') as f:
-        with open(slurm_err_file, 'r') as f:
+        # SAFELY handle missing slurm file
+        if not os.path.isfile(slurm_err_file):
+            slurm_content = ""   # No logfile yet (job pending or running)
+        else:
+            with open(slurm_err_file, 'r') as f:
+                slurm_content = f.read()
 
-            slurm_content = f.read()
-            if "Out Of Memory" in slurm_content or "oom-kill" in slurm_content:
-                failure_reason = "Out of Memory"
-            elif "CANCELLED" in slurm_content and "DUE TO TIME LIMIT" in slurm_content:
-                failure_reason = "Time limit reached"
-                if status == "Running":  # Override Running
-                    status = "Incomplete-Slurm timeout"
+        # Process failure cases
+        if "Out Of Memory" in slurm_content or "oom-kill" in slurm_content:
+            failure_reason = "Out of Memory"
+        elif "CANCELLED" in slurm_content and "DUE TO TIME LIMIT" in slurm_content:
+            failure_reason = "Time limit reached"
+            if status == "Running":
+                status = "Incomplete-Slurm timeout"
 
     # Update counters and compute SUs
     if status == "Success":
@@ -187,6 +198,10 @@ for folder in sorted(os.listdir(base_dir)):
         total_su += su
     elif status == "Running":
         running_count += 1
+
+    elif status == "Initializing":
+        pending_count += 1
+
     elif status == "Out of Time Limit":
         out_of_time_count += 1
     else:
@@ -223,7 +238,7 @@ for row in rows:
         color = GREEN
     elif row[1] == "Failed" or row[1] == "Incomplete-Slurm timeout":
         color = RED
-    elif row[1] == "Pending":
+    elif row[1] == "Initializing":
         color = BLUE
     else:
         color = YELLOW  # Running
@@ -238,8 +253,9 @@ print("Summary:")
 print(f"Total models run: {len(rows)}")
 print(f"{GREEN}Successful: {success_count}{RESET}")
 print(f"{YELLOW}Running: {running_count}{RESET}")
+print(f"{BLUE}Initializing: {pending_count}{RESET}")
 print(f"{RED}Failed: {failure_count}{RESET}")
-print(f"{RED}Incomplete-Slurm timeout: {out_of_time_count}{RESET}")
+print(f"{MAGENTA}Incomplete-Slurm timeout: {out_of_time_count}{RESET}")
 print(f"Total SUs used; ~4 to 5 cpus per task, 8GB min required (successful only): {total_su}")
 print("="*50)
 

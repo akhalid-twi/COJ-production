@@ -10,7 +10,9 @@ python update_csv.py
 datetime=$(date +"%m/%d @ %I:%M%p")
 
 # Upload the new CSV with a dynamic commit message
-git add updated_erdc_baseline_simulation_summary_full.csv
+#git add updated_erdc_baseline_simulation_summary_full.csv
+
+git add a_optimal_sample_base_simulation_basic_summary.csv
 git commit -m "updated production log $datetime"
 git push
 
