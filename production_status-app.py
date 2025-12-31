@@ -197,6 +197,7 @@ csv_file2 = "a_optimal_sample_base_simulation_summary_full.csv"
 @st.cache_data(ttl=60)   # refresh every 60 seconds
 def load_data2(path):
     return pd.read_csv(path)
+
 df2= load_data2(rf'{root_dirr}/{csv_file2}')
 
 
@@ -209,8 +210,11 @@ column_renames = {
     "Max Flow Balance (ft^3/s)": "Max Flow Balance",
     "Max Wind (ft/s)": "Max Wind",
     "Mean BC (ft)": "Mean BC",
-    "Max BC (ft)": "Max BC"
+    "Max BC (ft)": "Max BC",
+    "Max Cum PRCP (inc)": "Max Cumulative Precipitation Depth"
 }
+
+
 df2.rename(columns=column_renames, inplace=True)
 
 # Status table
@@ -251,6 +255,8 @@ metrics_with_units = {
 #    "Mean BC": "Mean Downstream Boundary Condition (ft)",
 #    "Max BC": "Maximum Downstream Boundary Condition (ft)",
 #    "Max Wind": "Maximum Wind Speed (ft/s)",
+    "Max Cumm Prcp": "Maximum Cumulative PRCP Depth (inc)",
+
 
 }
 
@@ -313,7 +319,7 @@ for cols in ['SUs','Max WSE','Failure Info','Failure Reason','Mean BC','Max BC',
 st.subheader("Correlation Metrics")
 
 # rearrange columns
-success_df_clean = success_df_clean[['Vol Error (%)','Vol Error (AF)','Max Depth','Max Velocity','Max Volume','Max Flow Balance']]
+success_df_clean = success_df_clean[['Vol Error (%)','Vol Error (AF)','Max Depth','Max Velocity','Max Volume','Max Flow Balance','Max Cumulative Precipitation Depth']]
 
 corr_matrix = success_df_clean.select_dtypes(include='number').corr()
 fig_corr = go.Figure(data=go.Heatmap(
