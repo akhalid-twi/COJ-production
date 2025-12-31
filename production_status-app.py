@@ -155,8 +155,33 @@ st.markdown(f"**Total SUs Used:** {total_sus:,}")
 fig_su = px.bar(success_df, x="Directory", y="SUs", color="SUs", title="SUs per Successful Run")
 st.plotly_chart(fig_su, use_container_width=True)
 
+#------------------------------
+# Status Table
+#------------------------------
+
+#csv_file = "updated_erdc_baseline_simulation_summary_full.csv"
+csv_file2 = "a_optimal_sample_base_simulation_summary_full.csv"
+
+
+st.cache_data.clear()
+df2 = pd.read_csv(rf'{root_dirr}/{csv_file2}')
+
+
+# Rename columns to remove units for internal use, but keep units for display
+column_renames = {
+    "Max WSE (ft)": "Max WSE",
+    "Max Depth (ft)": "Max Depth",
+    "Max Velocity (ft/s)": "Max Velocity",
+    "Max Volume (ft^3)": "Max Volume",
+    "Max Flow Balance (ft^3/s)": "Max Flow Balance",
+    "Max Wind (ft/s)": "Max Wind",
+    "Mean BC (ft)": "Mean BC",
+    "Max BC (ft)": "Max BC"
+}
+df2.rename(columns=column_renames, inplace=True)
+
 # Status table
-styled_df = df.style.apply(highlight_status, axis=1)
+styled_df = df2.style.apply(highlight_status, axis=1)
 st.subheader("Status Table")
 st.dataframe(styled_df, use_container_width=True)
 
@@ -179,8 +204,8 @@ st.subheader("Hydrodynamic Model Outputs and Forcings")
 
 # Convert relevant columns to numeric
 for col in column_renames.values():
-    if col in df.columns:
-        df[col] = pd.to_numeric(df[col], errors='coerce')
+    if col in df2.columns:
+        df2[col] = pd.to_numeric(df2[col], errors='coerce')
 
 # Plot each metric with units in y-axis label
 metrics_with_units = {
@@ -191,8 +216,8 @@ metrics_with_units = {
     "Max Flow Balance": "Maximum Flow Balance (ft³/s)",
 #    "Max Wind": "Maximum Wind Speed (ft/s)",
 #    "Mean BC": "Mean Downstream Boundary Condition (ft)",
-    "Max BC": "Maximum Downstream Boundary Condition (ft)",
-    "Max Wind": "Maximum Wind Speed (ft/s)",
+#    "Max BC": "Maximum Downstream Boundary Condition (ft)",
+#    "Max Wind": "Maximum Wind Speed (ft/s)",
 
 }
 
@@ -202,19 +227,19 @@ metrics_with_units = {
 #        st.plotly_chart(fig, use_container_width=True)
 
 for col, title in metrics_with_units.items():
-    if col in df.columns:
-        mean_val = df[col].mean()
-        colors = ['crimson' if val > mean_val else 'steelblue' for val in df[col]]
+    if col in df2.columns:
+        mean_val = df2[col].mean()
+        colors = ['crimson' if val > mean_val else 'steelblue' for val in df2[col]]
         fig = go.Figure()
         fig.add_trace(go.Bar(
-            x=df["Directory"],
-            y=df[col],
+            x=df2["Directory"],
+            y=df2[col],
             marker_color=colors,
             name=col
         ))
         fig.add_trace(go.Scatter(
-            x=df["Directory"],
-            y=[mean_val] * len(df),
+            x=df2["Directory"],
+            y=[mean_val] * len(df2),
             mode='lines',
             line=dict(color='black', dash='dash'),
             name='Mean'
@@ -242,19 +267,20 @@ for col, title in metrics_with_units.items():
 
 
 
-
-
 #--------------------------
 # correlation metrics
 #--------------------------
+
+success_df = df2[df2["Status"] == "Success"].copy()
+
 success_df_clean = success_df.copy()
-for cols in ['SUs','Max WSE','Failure Info','Failure Reason','Mean BC']:
+for cols in ['SUs','Max WSE','Failure Info','Failure Reason','Mean BC','Max BC','Max Wind']:
      del success_df_clean[cols]
 
 st.subheader("Correlation Metrics")
 
 # rearrange columns
-success_df_clean = success_df_clean[['Vol Error (%)','Vol Error (AF)','Max BC','Max Wind','Max Depth','Max Velocity','Max Volume','Max Flow Balance']]
+success_df_clean = success_df_clean[['Vol Error (%)','Vol Error (AF)','Max Depth','Max Velocity','Max Volume','Max Flow Balance']]
 
 corr_matrix = success_df_clean.select_dtypes(include='number').corr()
 fig_corr = go.Figure(data=go.Heatmap(
