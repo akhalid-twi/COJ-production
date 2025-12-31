@@ -45,8 +45,11 @@ column_renames = {
     "Max Flow Balance (ft^3/s)": "Max Flow Balance",
     "Max Wind (ft/s)": "Max Wind",
     "Mean BC (ft)": "Mean BC",
-    "Max BC (ft)": "Max BC"
+    "Max BC (ft)": "Max BC",
+    "Max Cum PRCP (inc)": "Max Cumm Prcp",
 }
+
+
 df.rename(columns=column_renames, inplace=True)
 
 # Get the last modified time of the file
@@ -94,11 +97,24 @@ running_count = len(running_df)
 failed_count = len(failed_df)
 successful_count = len(success_df)
 
+
+waiting_count = total_simulations - (completed_count + running_count)
+waiting_count = max(0, waiting_count)
+
+
 #------------------------------
 # Horizontal stacked bar: Completed vs Running
 #------------------------------
 st.subheader("Completed vs Running Simulations (Stacked)")
+
+
+completed_count = len(success_df) + len(failed_df)
+running_count = len(running_df)
+waiting_count = total_simulations - (completed_count + running_count)
+waiting_count = max(waiting_count, 0)  # avoid negative
+
 fig_completion = go.Figure()
+
 fig_completion.add_trace(go.Bar(
     y=["Simulations"],
     x=[completed_count],
@@ -106,18 +122,30 @@ fig_completion.add_trace(go.Bar(
     orientation='h',
     marker=dict(color='lightgreen')
 ))
+
 fig_completion.add_trace(go.Bar(
     y=["Simulations"],
     x=[running_count],
     name="Running",
     orientation='h',
-    marker=dict(color='lightblue')
+    marker=dict(color='skyblue')
 ))
+
+fig_completion.add_trace(go.Bar(
+    y=["Simulations"],
+    x=[waiting_count],
+    name="Waiting",
+    orientation='h',
+    marker=dict(color='lightgray')
+))
+
 fig_completion.update_layout(
     barmode='stack',
     xaxis_title="Count",
+    xaxis=dict(range=[0, total_simulations]),
     height=225
 )
+
 st.plotly_chart(fig_completion, use_container_width=True)
 
 #------------------------------
