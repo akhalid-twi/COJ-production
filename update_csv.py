@@ -1,9 +1,12 @@
 import pandas as pd
 
+scenario = 'erdc_baseline'
+scenario = 'a_optimal_sample_base'
+
 # File paths
-basic_file = "erdc_baseline_simulation_basic_summary.csv"
-full_file = "erdc_baseline_simulation_summary_full.csv"
-output_file = "updated_erdc_baseline_simulation_summary_full.csv"
+basic_file = f"{scenario}_simulation_basic_summary.csv"
+full_file = f"{scenario}_simulation_summary_full.csv"
+output_file = f"updated_{scenario}_simulation_summary_full.csv"
 
 # Load both CSV files
 df_basic = pd.read_csv(basic_file)
