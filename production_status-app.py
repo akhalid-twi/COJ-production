@@ -29,8 +29,13 @@ root_dirr = r'https://raw.githubusercontent.com/akhalid-twi/COJ-production/refs/
 csv_file = "a_optimal_sample_base_simulation_basic_summary.csv"
 
 
-st.cache_data.clear()
-df = pd.read_csv(rf'{root_dirr}/{csv_file}')
+@st.cache_data
+def load_data(path):
+    return pd.read_csv(path)
+
+df= load_data(rf'{root_dirr}/{csv_file}')
+
+#df = pd.read_csv(rf'{root_dirr}/{csv_file}')
 
 
 # Rename columns to remove units for internal use, but keep units for display
@@ -161,6 +166,9 @@ st.plotly_chart(fig_su, use_container_width=True)
 
 #csv_file = "updated_erdc_baseline_simulation_summary_full.csv"
 csv_file2 = "a_optimal_sample_base_simulation_summary_full.csv"
+
+
+
 
 
 st.cache_data.clear()
