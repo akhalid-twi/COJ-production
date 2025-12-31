@@ -29,13 +29,11 @@ root_dirr = r'https://raw.githubusercontent.com/akhalid-twi/COJ-production/refs/
 csv_file = "a_optimal_sample_base_simulation_basic_summary.csv"
 
 
-@st.cache_data
+@st.cache_data(ttl=60)   # refresh every 60 seconds
 def load_data(path):
     return pd.read_csv(path)
-
 df= load_data(rf'{root_dirr}/{csv_file}')
 
-#df = pd.read_csv(rf'{root_dirr}/{csv_file}')
 
 
 # Rename columns to remove units for internal use, but keep units for display
@@ -168,11 +166,10 @@ st.plotly_chart(fig_su, use_container_width=True)
 csv_file2 = "a_optimal_sample_base_simulation_summary_full.csv"
 
 
-
-
-
-st.cache_data.clear()
-df2 = pd.read_csv(rf'{root_dirr}/{csv_file2}')
+@st.cache_data(ttl=60)   # refresh every 60 seconds
+def load_data2(path):
+    return pd.read_csv(path)
+df2= load_data2(rf'{root_dirr}/{csv_file2}')
 
 
 # Rename columns to remove units for internal use, but keep units for display

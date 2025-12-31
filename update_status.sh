@@ -4,7 +4,7 @@
 python get_model_status_info.py
 
 # add a code to check differences in the _full file and the _summary file to add
-#python update_csv.py
+python update_csv.py
 
 # Get the current date and time
 datetime=$(date +"%m/%d @ %I:%M%p")
