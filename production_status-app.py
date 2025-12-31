@@ -30,7 +30,7 @@ csv_file = "a_optimal_sample_base_simulation_basic_summary.csv"
 
 
 st.cache_data.clear()
-df = load_data(rf'{root_dirr}/{csv_file}')
+df = pd.read_csv(rf'{root_dirr}/{csv_file}')
 
 
 # Rename columns to remove units for internal use, but keep units for display
