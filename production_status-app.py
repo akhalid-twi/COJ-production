@@ -28,10 +28,7 @@ scenario_title = "Optimal Sample BASE"
 csv_file = "a_optimal_sample_base_simulation_basic_summary.csv"
 
 
-@st.cache_data
-def load_data(path):
-    return pd.read_csv(path)
-
+st.cache_data.clear()
 df = load_data(csv_file)
 
 
