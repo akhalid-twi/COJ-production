@@ -16,11 +16,24 @@ def highlight_status(row):
         color = 'background-color: lightblue'
     return [color] * len(row)
 
+#scenario name
+scenario = "erdc_baseline"
+scenario_title = "ERDC BASELINE"
+
+scenario = "a_optimal_sample_base"
+scenario_title = "Optimal Sample BASE"
+
 # Load the CSV file
-csv_file = "updated_erdc_baseline_simulation_summary_full.csv"
+#csv_file = "updated_erdc_baseline_simulation_summary_full.csv"
 csv_file = "a_optimal_sample_base_simulation_basic_summary.csv"
 
-df = pd.read_csv(csv_file)
+
+@st.cache_data
+def load_data(path):
+    return pd.read_csv(path)
+
+df = load_data(csv_file)
+
 
 # Rename columns to remove units for internal use, but keep units for display
 column_renames = {
@@ -43,7 +56,7 @@ file_age = current_datetime - modified_datetime
 
 # Streamlit app title
 st.title("COJ Production Dashboard")
-st.subheader(f" Scenario: Optimal Sample BASE Conditions")
+st.subheader(f" Scenario: {scenario_title} Conditions")
 st.markdown(f"Last updated: {str(modified_datetime)[:-6]}")
 
 total_simulations = 10000
@@ -194,7 +207,6 @@ for col, title in metrics_with_units.items():
     if col in df.columns:
         mean_val = df[col].mean()
         colors = ['crimson' if val > mean_val else 'steelblue' for val in df[col]]
-
         fig = go.Figure()
         fig.add_trace(go.Bar(
             x=df["Directory"],
@@ -209,7 +221,6 @@ for col, title in metrics_with_units.items():
             line=dict(color='black', dash='dash'),
             name='Mean'
         ))
-
         # Dummy traces for legend
         fig.add_trace(go.Bar(
             x=[None],

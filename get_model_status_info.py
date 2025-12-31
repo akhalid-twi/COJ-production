@@ -17,9 +17,13 @@ BLUE = '\033[94m'
 
 # Base directory containing simulation folders
 root_dir = "/ocean/projects/ees250010p/shared/02_simulations/scenarios/"
+output_dir = "/ocean/projects/ees250010p/shared/02_simulations/outputs/"
 scenario_name = "a_optimal_sample_base"  # Change as needed
 
 base_dir = f"{root_dir}/{scenario_name}"
+base_dir_outputs = f"{output_dir}/{scenario_name}"
+
+
 output_csv = f"{scenario_name}_simulation_basic_summary.csv"
 slurm_log_dir = f"/ocean/projects/ees250010p/shared/02_simulations/_logs/{scenario_name}/slurmout"  # FIXED f-string
 slurm_log_err_dir = f"{slurm_log_dir}/stdout"
@@ -77,7 +81,20 @@ def infer_status(log_lines, start_time, end_time):
     return "Failed"
 
 for folder in sorted(os.listdir(base_dir)):
-    folder_path = os.path.join(base_dir, folder)
+
+
+    dmmy_file = os.path.join(base_dir, folder, "dmy.dss")
+
+    if os.path.isfile(dmmy_file):
+        folder_path = os.path.join(base_dir_outputs, f"clean_{folder}")
+    else:
+        folder_path = os.path.join(base_dir, folder)
+
+        if len(os.listdir(folder_path)) <=2:
+            folder_path = os.path.join(base_dir_outputs, f"clean_{folder}")
+
+
+
     if not os.path.isdir(folder_path):
         continue
 

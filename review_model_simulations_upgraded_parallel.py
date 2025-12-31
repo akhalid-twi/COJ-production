@@ -13,15 +13,17 @@ from datetime import datetime
 from concurrent.futures import ProcessPoolExecutor, as_completed
 import tqdm
 import notebook_utilities as nu
+import warnings; warnings.filterwarnings('ignore')
+
 
 # Configuration
-cpu_count = 16
-read_wind_data = True #False
-root_dir = "/ocean/projects/ees250010p/shared/02_simulations/scenarios/"
-scenario_name = "erdc_baseline"
+cpu_count = 16 # use the following code to run this python code; --mem=128000 --ntasks=64 --time=2:00:00 --partition RM-small,RM-shared
+read_wind_data = False #False #True 
+root_dir = "/ocean/projects/ees250010p/shared/02_simulations/outputs/"
+scenario_name = "a_optimal_sample_base"
 base_dir = f"{root_dir}/{scenario_name}"
 output_csv = f"{scenario_name}_simulation_summary_full.csv"
-slurm_log_dir = f"{root_dir}/_logs/erdc_baseline/slurmout"
+slurm_log_dir = f"{root_dir}/_logs/{scenario_name}/slurmout"
 epsg_code_default = "EPSG:4326"
 
 headers = [
@@ -69,9 +71,10 @@ def process_folder(folder):
     if not os.path.isdir(folder_path):
         return None
 
-    log_file = os.path.join(folder_path, f"log_{folder}.txt")
+    folder_stormID = folder.split('clean_')[1]
+    log_file = os.path.join(folder_path, f"log_{folder_stormID}.txt")
     time_file = os.path.join(folder_path, "time_log.txt")
-    plan1_dir = os.path.join(folder_path, 'COJCOMPOUNDCOMPUTET.p01.tmp.hdf')
+    plan1_dir = os.path.join(folder_path, 'COJCOMPOUNDCOMPUTET.p01.tmp.filtered.hdf')
 
     status = "Unknown"
     duration = "N/A"
