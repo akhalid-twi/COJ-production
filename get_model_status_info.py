@@ -35,7 +35,7 @@ headers = [
     "Start Time", "End Time", "Failure Info",
     "Max WSE (ft)", "Max Depth (ft)", "Max Velocity (ft/s)",
     "Max Volume (ft^3)", "Max Flow Balance (ft^3/s)",
-    "Max Wind (ft/s)", "Mean BC (ft)", "Max BC (ft)"
+    "Max Wind (ft/s)", "Mean BC (ft)", "Max BC (ft)", "Max Cum PRCP (inc)"
 ]
 
 
@@ -143,6 +143,7 @@ for folder in sorted(os.listdir(base_dir)):
     max_wind = "N/A"
     mean_bc = "N/A"
     max_bc = "N/A"
+    max_prcp = "N/A"
 
     failure_info = ""
     failure_reason = ""
@@ -233,8 +234,9 @@ for folder in sorted(os.listdir(base_dir)):
         start_time, end_time, clean_failure_info,
         max_wse, max_depth, max_velocity,
         max_volume, max_flow_balance, max_wind,
-        mean_bc, max_bc
+        mean_bc, max_bc,max_prcp
     ])
+
 
 # Write to CSV
 with open(output_csv, 'w', newline='') as f:

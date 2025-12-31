@@ -31,7 +31,7 @@ headers = [
     "Vol Error (AF)", "Vol Error (%)", "Max WSEL Err",
     "Start Time", "End Time", "Failure Info",
     "Max WSE (ft)", "Max Depth (ft)", "Max Velocity (ft/s)", "Max Volume (ft^3)",
-    "Max Flow Balance (ft^3/s)", "Max Wind (ft/s)", "Mean BC (ft)", "Max BC (ft)"
+    "Max Flow Balance (ft^3/s)", "Max Wind (ft/s)", "Mean BC (ft)", "Max BC (ft)", "Max Cum PRCP (inc)"
 ]
 
 def format_time(raw_time):
@@ -88,7 +88,7 @@ def process_folder(folder):
     su = 0
     log_lines = []
 
-    max_wse = max_depth = max_vel = max_vol = max_flow = max_wind = mean_bc = max_bc = "N/A"
+    max_wse = max_depth = max_vel = max_vol = max_flow = max_wind = mean_bc = max_bc = max_prcp = "N/A"
 
     if os.path.exists(log_file):
         with open(log_file, 'r') as f:
@@ -173,6 +173,11 @@ def process_folder(folder):
             df_flow = nu.extract_result_field(data1, mdl_name1, 'Cell Flow Balance')
             max_flow = round(df_flow.max().max(), 2)
 
+        if 'Cell Cumulative Precipitation Depth' in available_results:
+            df_prcp = nu.extract_result_field(data1, mdl_name1, 'Cell Cumulative Precipitation Depth')
+            max_prcp = round(df_prcp.max().max(), 2)
+
+
         if read_wind_data:
             try:
                 _, _, windx, windy = nu.extract_event_field(data1, 'Wind')
@@ -194,12 +199,45 @@ def process_folder(folder):
 
     clean_failure_info = " ".join(failure_info.strip().split())
 
+    # write a summary file so when HDFs are deleted we can still get the info they were containing
+    summary_file = os.path.join(folder_path, 'hdf_summary.txt')
+
+    if os.path.isfile(summary_file)==False:
+
+    #if os.path.isdir(folder_path)==True:
+
+        information_key = [
+            folder, status, duration, su, failure_reason,
+            vol_error_af, vol_error_pct, max_wsel_err,
+            start_time, end_time, clean_failure_info,
+            max_wse, max_depth, max_vel, max_vol, max_flow,
+            max_wind, mean_bc, max_bc, max_prcp
+        ]
+
+        # Column names in the same order as your row list
+        keys = [
+            "folder", "status", "duration", "su", "failure_reason",
+            "vol_error_af", "vol_error_pct", "max_wsel_err",
+            "start_time", "end_time", "clean_failure_info",
+            "max_wse", "max_depth", "max_velocity",
+            "max_volume", "max_flow_balance", "max_wind",
+            "mean_bc", "max_bc","max_cum_prcp"
+        ]
+
+        with open(summary_file, "w") as f:
+            # Convert row ? dict
+            row_dict = dict(zip(keys, information_key))
+
+            # Write dict to file in a readable format
+            f.write(str(row_dict) + "\n")
+
+
     return [
         folder, status, duration, su, failure_reason,
         vol_error_af, vol_error_pct, max_wsel_err,
         start_time, end_time, clean_failure_info,
         max_wse, max_depth, max_vel, max_vol, max_flow,
-        max_wind, mean_bc, max_bc
+        max_wind, mean_bc, max_bc, max_prcp
     ]
 
 if __name__ == "__main__":
