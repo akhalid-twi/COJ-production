@@ -212,7 +212,7 @@ for folder in sorted(os.listdir(base_dir)):
         failure_reason = ""
         hours = duration_to_hours(duration)
         rounded_hours = math.ceil(hours)
-        su = rounded_hours * 3
+        su = rounded_hours * 4 # number of cpus we are using to run the jobs
         total_su += su
     elif status == "Running":
         running_count += 1
