@@ -43,7 +43,7 @@ column_renames = {
     "Max Velocity (ft/s)": "Max Velocity",
     "Max Volume (ft^3)": "Max Volume",
     "Max Flow Balance (ft^3/s)": "Max Flow Balance",
-    "Max Wind (ft/s)": "Max Wind",
+    #"Max Wind (ft/s)": "Max Wind",
     "Mean BC (ft)": "Mean BC",
     "Max BC (ft)": "Max BC",
     "Max Cum PRCP (inc)": "Max Cumm Prcp",
@@ -191,7 +191,7 @@ st.plotly_chart(fig_su, use_container_width=True)
 #------------------------------
 
 #csv_file = "updated_erdc_baseline_simulation_summary_full.csv"
-csv_file2 = "a_optimal_sample_base_simulation_summary_full.csv"
+#csv_file2 = "a_optimal_sample_base_simulation_summary_full.csv"
 
 
 @st.cache_data(ttl=60)   # refresh every 60 seconds

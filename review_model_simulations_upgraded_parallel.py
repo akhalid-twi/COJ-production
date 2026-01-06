@@ -17,7 +17,7 @@ import warnings; warnings.filterwarnings('ignore')
 
 
 # Configuration
-cpu_count = 16 # use the following code to run this python code; --mem=128000 --ntasks=64 --time=2:00:00 --partition RM-small,RM-shared
+cpu_count = 16 # use the following code to run this python code; interact --mem=128000 -n 64 -t 2:00:00
 read_wind_data = False #False #True 
 root_dir = "/ocean/projects/ees250010p/shared/02_simulations/outputs/"
 scenario_name = "a_optimal_sample_base"
@@ -121,7 +121,7 @@ def process_folder(folder):
     if status == "Success":
         hours = duration_to_hours(duration)
         rounded_hours = math.ceil(hours)
-        su = rounded_hours * 3
+        su = rounded_hours * 4
         failure_info = ""
         failure_reason = ""
     elif status == "Failed":
