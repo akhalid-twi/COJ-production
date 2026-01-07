@@ -194,23 +194,30 @@ st.plotly_chart(fig_su, use_container_width=True)
 ## MAX Vol Err and MAx WSEr'Vol Error (AF)', 'Vol Error (%)', 'Max WSEL Err'
 #------------------------------
 
-
 # Convert column to numeric
 df["Max WSEL Err"] = pd.to_numeric(df["Max WSEL Err"], errors='coerce')
 
-# Assign colors based on condition and status
-colors = [
-    "red" if val > 5 else ("green" if status == "SUCCESS" else "orange")
+# Create a new column for color categories
+df["Color Category"] = [
+    "Error > 5" if val > 5 else ("Success" if status == "SUCCESS" else "Other")
     for val, status in zip(df["Max WSEL Err"], df["Status"])
 ]
 
-# Create bar chart with all runs
+# Define color mapping
+color_map = {
+    "Error > 5": "red",
+    "Success": "green",
+    "Other": "orange"
+}
+
+# Create bar chart with color mapping
 fig_max_wsel_er = px.bar(
     df,
     x="Directory",
     y="Max WSEL Err",
     title="Max WSEL Err per Run (Including Failed Runs)",
-    color_discrete_sequence=colors
+    color="Color Category",
+    color_discrete_map=color_map
 )
 
 # Set y-axis range from 0 to 5
@@ -219,8 +226,6 @@ fig_max_wsel_er.update_yaxes(range=[0, 5])
 # Show chart in Streamlit
 st.subheader("Maximum Water Surface Elevation Error (All Runs)")
 st.plotly_chart(fig_max_wsel_er, use_container_width=True)
-
-
 
 #------------------------------
 # Status Table
