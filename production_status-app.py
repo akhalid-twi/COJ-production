@@ -155,7 +155,7 @@ status_counts.columns = ["Status", "Count"]
 
 color_map = {
     "SUCCESS": "#90EE90",        # Light Green (Success)
-    "Running": "#ADD8E6",        # Light Blue (In Progress)
+    "Running": "skyblue",        # Light Blue (In Progress)
     "UNSTABLE-FAILED": "#FF7F7F",# Soft Red (Unstable Failure)
     "SLURM_TIMEOUT-FAILED": "#FFA500", # Orange (Timeout)
     "DISK-FAILED": "#FFD700",    # Gold (Disk Issue)
