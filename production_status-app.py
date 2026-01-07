@@ -96,7 +96,7 @@ start_date = datetime.datetime(2026, 1, 1)
 completion_date = datetime.datetime(2026, 1, 15)
 
 # Current time
-now = datetime.now()
+now = datetime.datetime.now()
 
 # Calculate remaining time
 remaining_time = completion_date - now
