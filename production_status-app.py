@@ -8,9 +8,9 @@ import os
 # Define a function to apply row-wise styling
 def highlight_status(row):
     color = ''
-    if row['Status'] == 'Success':
+    if row['Status'] == 'SUCCESS':
         color = 'background-color: lightgreen'
-    elif row['Status'] == 'Failed':
+    elif "failed" in row['Status'].lower():
         color = 'background-color: lightcoral'
     elif row['Status'] == 'Running':
         color = 'background-color: lightblue'
@@ -86,8 +86,9 @@ else:
     st.success("✅ Completed!")
 
 # Filter simulations by status
-success_df = df[df["Status"] == "Success"].copy()
-failed_df = df[df["Status"] == "Failed"].copy()
+success_df = df[df["Status"] == "SUCCESS"].copy()
+#failed_df = df[df["Status"] == "Failed"].copy()
+failed_df = df[df["Status"].str.contains("Failed", case=False, na=False)]
 running_df = df[df["Status"] == "Running"].copy()
 
 

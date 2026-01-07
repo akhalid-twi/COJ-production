@@ -80,8 +80,8 @@ def infer_status(log_lines, start_time, end_time):
         return "Running"
     return "Failed"
 
-for folder in sorted(os.listdir(base_dir)):
 
+for folder in sorted(os.listdir(base_dir)):
 
     dmmy_file = os.path.join(base_dir, folder, "dmy.dss")
 
@@ -106,7 +106,16 @@ for folder in sorted(os.listdir(base_dir)):
 
 
     time_file = os.path.join(folder_path, "time_log.txt")
+    complete_file = os.path.join(folder_path, "completed.txt")
 
+    if os.path.isfile(complete_file):
+        status = "Completed"
+
+        rows.append([
+            folder, status, "N/A", 0, "", "N/A", "N/A", "N/A",
+            "N/A", "N/A", ""
+        ])
+        continue
 
     # If log file doesn't exist, determine if run is pending, running, or failed initialization
     if not log_file:
