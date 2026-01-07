@@ -90,10 +90,28 @@ else:
 #------------------------------
 # Show tentative completion
 #------------------------------
-st.subheader(f"Timeline")
 
-st.write(f"Production Started: 1st Jan 2026")
-st.write(f"Production Completion (projected): 15th Jan 2026")
+# Tentative dates
+start_date = datetime(2026, 1, 1)
+completion_date = datetime(2026, 1, 15)
+
+# Current time
+now = datetime.now()
+
+# Calculate remaining time
+remaining_time = completion_date - now
+
+# Display timeline
+st.subheader("Timeline")
+st.write(f"Production Started: {start_date.strftime('%d %b %Y')}")
+st.write(f"Production Completion (projected): {completion_date.strftime('%d %b %Y')}")
+
+# Countdown timer
+days = remaining_time.days
+hours, remainder = divmod(remaining_time.seconds, 3600)
+minutes, seconds = divmod(remainder, 60)
+
+st.markdown(f"### ? Time Remaining: {days} days, {hours} hrs, {minutes} mins, {seconds} secs")
 
 #------------------------------
 
