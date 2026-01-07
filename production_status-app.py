@@ -73,7 +73,15 @@ st.subheader(f"Simulation Count: {completed_simulations}/{total_simulations}")
 #------------------------------
 progress_percent = int((completed_simulations / total_simulations) * 100)
 progress_text = f"Processing simulations... {progress_percent}% complete"
+
+for i in stqdm(range(progress_percent), backend=False, frontend=True):
+    sleep(0.1)
+
+
 my_bar = st.progress(progress_percent, text=progress_text)
+
+# Default to frontend only
+
 
 # Optional: Add a status message
 if progress_percent < 25:
@@ -89,11 +97,9 @@ else:
 # Show tentative completion
 #------------------------------
 
-# Default to frontend only
-for i in stqdm(range(50), backend=False, frontend=True):
-    sleep(0.5)
 
 
+#------------------------------
 
 
 # Filter simulations by status
