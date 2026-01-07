@@ -111,7 +111,7 @@ days = remaining_time.days
 hours, remainder = divmod(remaining_time.seconds, 3600)
 minutes, seconds = divmod(remainder, 60)
 
-st.info("ðŸ” Time Remaining: {days} days, {hours} hrs")
+st.info("Time Remaining: {days} days, {hours} hrs")
 
 #------------------------------
 
