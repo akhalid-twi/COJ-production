@@ -35,7 +35,6 @@ def load_data(path):
 df= load_data(rf'{root_dirr}/{csv_file}')
 
 
-
 # Rename columns to remove units for internal use, but keep units for display
 column_renames = {
     "Max WSE (ft)": "Max WSE",
@@ -87,7 +86,6 @@ else:
 
 # Filter simulations by status
 success_df = df[df["Status"] == "SUCCESS"].copy()
-#failed_df = df[df["Status"] == "Failed"].copy()
 failed_df = df[df["Status"].str.contains("Failed", case=False, na=False)]
 running_df = df[df["Status"] == "Running"].copy()
 
@@ -154,11 +152,16 @@ st.plotly_chart(fig_completion, use_container_width=True)
 #------------------------------
 status_counts = df["Status"].value_counts().reset_index()
 status_counts.columns = ["Status", "Count"]
+
 color_map = {
-    "Success": "lightgreen",
-    "Failed": "lightcoral",
-    "Running": "lightblue"
-}
+    "SUCCESS": "#90EE90",        # Light Green (Success)
+    "Running": "#ADD8E6",        # Light Blue (In Progress)
+    "UNSTABLE-FAILED": "#FF7F7F",# Soft Red (Unstable Failure)
+    "SLURM_TIMEOUT-FAILED": "#FFA500", # Orange (Timeout)
+    "DISK-FAILED": "#FFD700",    # Gold (Disk Issue)
+    "HDF-FAILED": "#FFD700",     # Gold (HDF Issue)
+    "FAILED": "#FF6347"          #
+
 fig_pie = px.pie(
     status_counts,
     names="Status",
@@ -169,8 +172,6 @@ fig_pie = px.pie(
 )
 st.subheader("Simulation Status Distribution")
 st.plotly_chart(fig_pie, use_container_width=True)
-
-
 
 
 #------------------------------
@@ -191,7 +192,8 @@ st.plotly_chart(fig_su, use_container_width=True)
 # Status Table
 #------------------------------
 
-#csv_file = "updated_erdc_baseline_simulation_summary_full.csv"
+csv_file2 = csv_file
+
 #csv_file2 = "a_optimal_sample_base_simulation_summary_full.csv"
 
 
@@ -209,12 +211,10 @@ column_renames = {
     "Max Velocity (ft/s)": "Max Velocity",
     "Max Volume (ft^3)": "Max Volume",
     "Max Flow Balance (ft^3/s)": "Max Flow Balance",
-    "Max Wind (ft/s)": "Max Wind",
-    "Mean BC (ft)": "Mean BC",
-    "Max BC (ft)": "Max BC",
+    "Max Inflow BC (cfs)": "Mean Inflow BC",
+    "Max Stage BC (ft)": "Max Stage BC",
     "Max Cum PRCP (inc)": "Max Cumulative Precipitation Depth"
 }
-
 
 df2.rename(columns=column_renames, inplace=True)
 

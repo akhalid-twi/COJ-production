@@ -16,7 +16,3 @@ datetime=$(date +"%m/%d @ %I:%M%p")
 git add .
 git commit -m "updated production log $datetime"
 git push
-
-git add a_optimal_sample_base_simulation_basic_summary.csv
-git commit -m "updated production log $datetime"
-git push
