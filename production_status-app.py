@@ -161,6 +161,7 @@ color_map = {
     "DISK-FAILED": "#FFD700",    # Gold (Disk Issue)
     "HDF-FAILED": "#FFD700",     # Gold (HDF Issue)
     "FAILED": "#FF6347"          #
+}
 
 fig_pie = px.pie(
     status_counts,
