@@ -1,10 +1,13 @@
 #!/bin/bash
 
+conda activate s3env
 # Run the Python script to get the status update
-python get_model_status_info.py
+#python get_model_status_info.py
+
+python /ocean/projects/ees250010p/shared/03_scripts/postprocessing/review_simulation_status/get_summary_production.py
 
 # add a code to check differences in the _full file and the _summary file to add
-python update_csv.py
+#python update_csv.py
 
 # Get the current date and time
 datetime=$(date +"%m/%d @ %I:%M%p")
