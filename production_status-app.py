@@ -194,12 +194,30 @@ st.plotly_chart(fig_su, use_container_width=True)
 ## MAX Vol Err and MAx WSEr'Vol Error (AF)', 'Vol Error (%)', 'Max WSEL Err'
 #------------------------------
 
-# Convert SUs to numeric
+
+# Convert column to numeric
 df["Max WSEL Err"] = pd.to_numeric(df["Max WSEL Err"], errors='coerce')
 
-# SU usage plot
-st.subheader("Maximum Water Surface Elevation Error")
-fig_max_wsel_er = px.bar(success_df, x="Directory", y="Max WSEL Err", title="Max WSEL Err per Run")
+# Assign colors based on condition and status
+colors = [
+    "red" if val > 5 else ("green" if status == "SUCCESS" else "orange")
+    for val, status in zip(df["Max WSEL Err"], df["Status"])
+]
+
+# Create bar chart with all runs
+fig_max_wsel_er = px.bar(
+    df,
+    x="Directory",
+    y="Max WSEL Err",
+    title="Max WSEL Err per Run (Including Failed Runs)",
+    color_discrete_sequence=colors
+)
+
+# Set y-axis range from 0 to 5
+fig_max_wsel_er.update_yaxes(range=[0, 5])
+
+# Show chart in Streamlit
+st.subheader("Maximum Water Surface Elevation Error (All Runs)")
 st.plotly_chart(fig_max_wsel_er, use_container_width=True)
 
 
