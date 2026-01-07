@@ -42,9 +42,8 @@ column_renames = {
     "Max Velocity (ft/s)": "Max Velocity",
     "Max Volume (ft^3)": "Max Volume",
     "Max Flow Balance (ft^3/s)": "Max Flow Balance",
-    #"Max Wind (ft/s)": "Max Wind",
-    "Mean BC (ft)": "Mean BC",
-    "Max BC (ft)": "Max BC",
+    "Max Stage BC (ft)": "Max Stage BC",
+    "Max Inflow BC (cfs)": "Max Inflow BC",
     "Max Cum PRCP (inc)": "Max Cumm Prcp",
 }
 
@@ -250,7 +249,7 @@ column_renames = {
     "Max Velocity (ft/s)": "Max Velocity",
     "Max Volume (ft^3)": "Max Volume",
     "Max Flow Balance (ft^3/s)": "Max Flow Balance",
-    "Max Inflow BC (cfs)": "Mean Inflow BC",
+    "Max Inflow BC (cfs)": "Max Inflow BC",
     "Max Stage BC (ft)": "Max Stage BC",
     "Max Cum PRCP (inc)": "Max Cumulative Precipitation Depth"
 }
@@ -291,12 +290,9 @@ metrics_with_units = {
     "Max Velocity": "Maximum Velocity (ft/s)",
     "Max Volume": "Maximum Volume (ft³)",
     "Max Flow Balance": "Maximum Flow Balance (ft³/s)",
-#    "Max Wind": "Maximum Wind Speed (ft/s)",
-#    "Mean BC": "Mean Downstream Boundary Condition (ft)",
-#    "Max BC": "Maximum Downstream Boundary Condition (ft)",
-#    "Max Wind": "Maximum Wind Speed (ft/s)",
+#    "Max Stage BC": "Maximum Downstream Boundary Condition (ft)",
+#    "Max Inflow BC": "Maximum Inflow Boundary Condition (ft)",
     "Max Cumm Prcp": "Maximum Cumulative PRCP Depth (inc)",
-
 
 }
 
@@ -353,7 +349,7 @@ for col, title in metrics_with_units.items():
 success_df = df2[df2["Status"] == "Success"].copy()
 
 success_df_clean = success_df.copy()
-for cols in ['SUs','Max WSE','Failure Info','Failure Reason','Mean BC','Max BC','Max Wind']:
+for cols in ['SUs','Max WSE','Failure Info','Failure Reason','Max Stage BC','Max Inflow BC']:
      del success_df_clean[cols]
 
 st.subheader("Correlation Metrics")
