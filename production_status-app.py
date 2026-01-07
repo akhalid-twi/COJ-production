@@ -92,8 +92,8 @@ else:
 #------------------------------
 
 # Tentative dates
-start_date = datetime(2026, 1, 1)
-completion_date = datetime(2026, 1, 15)
+start_date = datetime.datetime(2026, 1, 1)
+completion_date = datetime.datetime(2026, 1, 15)
 
 # Current time
 now = datetime.now()
