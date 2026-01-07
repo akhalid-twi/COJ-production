@@ -4,6 +4,8 @@ import streamlit as st
 import plotly.graph_objects as go
 import datetime
 import os
+from time import sleep
+from stqdm import stqdm
 
 # Define a function to apply row-wise styling
 def highlight_status(row):
@@ -82,6 +84,17 @@ elif progress_percent < 75 and progress_percent > 99:
     st.warning("🔄 Almost there...")    
 else:
     st.success("✅ Completed!")
+
+#------------------------------
+# Show tentative completion
+#------------------------------
+
+# Default to frontend only
+for i in stqdm(range(50), backend=False, frontend=True):
+    sleep(0.5)
+
+
+
 
 # Filter simulations by status
 success_df = df[df["Status"] == "SUCCESS"].copy()
