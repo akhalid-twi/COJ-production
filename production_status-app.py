@@ -189,6 +189,21 @@ st.markdown(f"**Total SUs Used:** {total_sus:,}")
 fig_su = px.bar(success_df, x="Directory", y="SUs", color="SUs", title="SUs per Successful Run")
 st.plotly_chart(fig_su, use_container_width=True)
 
+
+#------------------------------
+## MAX Vol Err and MAx WSEr'Vol Error (AF)', 'Vol Error (%)', 'Max WSEL Err'
+#------------------------------
+
+# Convert SUs to numeric
+df["Max WSEL Err"] = pd.to_numeric(df["Max WSEL Err"], errors='coerce')
+
+# SU usage plot
+st.subheader("Maximum Water Surface Elevation Error")
+fig_max_wsel_er = px.bar(success_df, x="Directory", y="Max WSEL Err", color="Max WSEL Err", title="Max WSEL Err per Run")
+st.plotly_chart(fig_max_wsel_er, use_container_width=True)
+
+
+
 #------------------------------
 # Status Table
 #------------------------------
