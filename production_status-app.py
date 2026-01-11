@@ -82,7 +82,7 @@ if progress_percent < 25:
     st.info("🚧 Just getting started...")
 elif progress_percent < 75:
     st.warning("🔄 In progress...")
-elif progress_percent < 75 and progress_percent > 99:
+elif progress_percent > 75 and progress_percent < 99.5:
     st.warning("🔄 Almost there...")    
 else:
     st.success("✅ Completed!")
