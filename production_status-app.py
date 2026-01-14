@@ -271,49 +271,103 @@ st.plotly_chart(fig_su, use_container_width=True)
 
 
 #------------------------------
-## MAX Vol Err and MAx WSEr'Vol Error (AF)', 'Vol Error (%)', 'Max WSEL Err'
+# Error plots for key metrics
 #------------------------------
 
-# Convert column to numeric
+# Convert columns to numeric
+df["Vol Error (AF)"] = pd.to_numeric(df["Vol Error (AF)"], errors='coerce')
+df["Vol Error (%)"] = pd.to_numeric(df["Vol Error (%)"], errors='coerce')
 df["Max WSEL Err"] = pd.to_numeric(df["Max WSEL Err"], errors='coerce')
 
-# Create a new column for color categories
-df["Color Category"] = [
-    "Error > 5" if val > 5 else ("Success" if status == "SUCCESS" else "Other")
-    for val, status in zip(df["Max WSEL Err"], df["Status"])
+# Create color category based on thresholds
+def categorize_error(val, status, threshold):
+    if val > threshold:
+        return "Error > Threshold"
+    elif status == "SUCCESS":
+        return "Success"
+    else:
+        return "Other"
+
+# Apply categorization for each metric
+df["Color Category WSEL"] = [
+    categorize_error(val, status, 5) for val, status in zip(df["Max WSEL Err"], df["Status"])
+]
+df["Color Category VolAF"] = [
+    categorize_error(val, status, 50000) for val, status in zip(df["Vol Error (AF)"], df["Status"])
+]
+df["Color Category VolPct"] = [
+    categorize_error(val, status, 1.0) for val, status in zip(df["Vol Error (%)"], df["Status"])
 ]
 
 # Define color mapping
 color_map = {
-    "Error > 5": "red",
+    "Error > Threshold": "red",
     "Success": "green",
     "Other": "orange"
 }
 
-# Create bar chart with color mapping
+#------------------------------
+# Plot for Max WSEL Err
+#------------------------------
 fig_max_wsel_er = px.bar(
     df,
     x="Directory",
     y="Max WSEL Err",
-    title="Max WSEL Err per Run (Including Failed Runs)",
-    color="Color Category",
+    title="Max WSEL Error",
+    color="Color Category WSEL",
     color_discrete_map=color_map
 )
-
-# Set y-axis range from 0 to 5
-fig_max_wsel_er.update_yaxes(range=[0, 5])
-
-# Show chart in Streamlit
-st.subheader("Maximum Water Surface Elevation Error (All Runs)")
+fig_max_wsel_er.update_yaxes(range=[0, 5])  # Limit to 5 ft
+st.subheader("Max WSEL Error")
 st.plotly_chart(fig_max_wsel_er, use_container_width=True)
+
+#------------------------------
+# Plot for Vol Error (AF)
+#------------------------------
+fig_vol_af = px.bar(
+    df,
+    x="Directory",
+    y="Vol Error (AF)",
+    title="Volume Error (AF)",
+    color="Color Category VolAF",
+    color_discrete_map=color_map
+)
+fig_vol_af.update_yaxes(range=[0, 100000])  # Adjust range as needed
+st.subheader("Volume Error (AF)")
+st.plotly_chart(fig_vol_af, use_container_width=True)
+
+#------------------------------
+# Plot for Vol Error (%)
+#------------------------------
+fig_vol_pct = px.bar(
+    df,
+    x="Directory",
+    y="Vol Error (%)",
+    title="Volume Error (%)",
+    color="Color Category VolPct",
+    color_discrete_map=color_map
+)
+fig_vol_pct.update_yaxes(range=[0, 2])  # Adjust range as needed
+st.subheader("Volume Error (%)")
+st.plotly_chart(fig_vol_pct, use_container_width=True)
+
+
+
+
+
+
+
 
 #------------------------------
 # Status Table
 #------------------------------
 
-csv_file2 = csv_file
+#csv_file2 = csv_file
 
-#csv_file2 = "a_optimal_sample_base_simulation_summary_full.csv"
+csv_file2 = "run_optimal_sample_base_conditions_HDF_summary.csv"
+
+if 'Max Cumulative Precipitation Depth' in df.columns:
+    del df['Max Cumulative Precipitation Depth']
 
 
 @st.cache_data(ttl=60)   # refresh every 60 seconds
@@ -322,7 +376,16 @@ def load_data2(path):
 
 df2= load_data2(rf'{root_dirr}/{csv_file2}')
 
+df['Max WSE']=df2['max_wse']
+df['Max Depth']=df2['max_depth']
+df['Max Volume']=df2['max_volume']
+df['Max Flow Balance']=df2['max_flow_balance']
+df['Max Stage BC']=df2['max_bc_stage']
+df['Max Inflow BC']=df2['max_bc_flow']
+df['Max Cum PRCP (in)']=df2['max_cum_prcp']
 
+
+''''
 # Rename columns to remove units for internal use, but keep units for display
 column_renames = {
     "Max WSE (ft)": "Max WSE",
@@ -336,6 +399,7 @@ column_renames = {
 }
 
 df2.rename(columns=column_renames, inplace=True)
+'''
 
 # Status table
 styled_df = df2.style.apply(highlight_status, axis=1)
