@@ -463,13 +463,13 @@ for col, title in metrics_with_units.items():
             x=[None],
             y=[None],
             marker_color='crimson',
-            name='Above Mean'
+            name='Above 95%'
         ))
         fig.add_trace(go.Bar(
             x=[None],
             y=[None],
             marker_color='steelblue',
-            name='Below Mean'
+            name='Below 95%'
         ))
         fig.update_layout(
             title=title,
@@ -494,8 +494,9 @@ for cols in ['SUs','Max WSE','Failure Info','Failure Reason']:
 st.subheader("Correlation Metrics")
 print(success_df_clean.columns)
 
+
 # rearrange columns
-success_df_clean = success_df_clean[['Vol Error (%)','Vol Error (AF)','Max Depth','Max Velocity','Max Volume','Max Flow Balance','Max Cumulative Precipitation Depth']]
+success_df_clean = success_df_clean[['Vol Error (%)','Vol Error (AF)','Max Depth','Max Volume','Max Flow Balance','Max Cum PRCP (in)', 'Max Stage BC', 'Max Inflow BC']]
 
 corr_matrix = success_df_clean.select_dtypes(include='number').corr()
 fig_corr = go.Figure(data=go.Heatmap(
