@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jan 14 15:01:15 2026
+
+@author: akhalid
+"""
+
 import pandas as pd
 import plotly.express as px
 import streamlit as st
@@ -6,6 +13,23 @@ import datetime
 import os
 from time import sleep
 from stqdm import stqdm
+import requests
+from datetime import datetime, timezone
+
+# =============================================================================
+# Helper functions
+# =============================================================================
+
+def get_last_modified(repo_owner, repo_name, file_path):
+    url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/commits"
+    params = {"path": file_path, "page": 1, "per_page": 1}
+    r = requests.get(url, params=params)
+
+    if r.status_code == 200:
+        commit = r.json()[0]
+        timestamp = commit["commit"]["committer"]["date"]
+        return datetime.fromisoformat(timestamp.replace("Z", "+00:00"))
+    return None
 
 # Define a function to apply row-wise styling
 def highlight_status(row):
@@ -18,6 +42,10 @@ def highlight_status(row):
         color = 'background-color: lightblue'
     return [color] * len(row)
 
+# =============================================================================
+# File Paths
+# =============================================================================
+
 #scenario name
 scenario = "erdc_baseline"
 scenario_title = "ERDC BASELINE"
@@ -27,39 +55,67 @@ scenario_title = "Optimal Sample BASE"
 
 root_dirr = r'https://raw.githubusercontent.com/akhalid-twi/COJ-production/refs/heads/main/assets'
 
-# Load the CSV file
-#csv_file = "updated_erdc_baseline_simulation_summary_full.csv"
-csv_file = "a_optimal_sample_base_simulation_basic_summary.csv"
-csv_file2 = "a_optimal_sample_base_simulation_HDF_summary.csv"
+# =============================================================================
+# # Load the CSV file
+# =============================================================================
+
+csv_file = f"{scenario}_simulation_basic_summary.csv" # basic information
+csv_file2 = f"{scenario}_simulation_HDF_summary.csv"  # HDF extracted information
+
 
 @st.cache_data(ttl=60)   # refresh every 60 seconds
 def load_data(path):
     return pd.read_csv(path)
+
 df= load_data(rf'{root_dirr}/{csv_file}')
 
 
-# Rename columns to remove units for internal use, but keep units for display
-column_renames = {
-    "Max WSE (ft)": "Max WSE",
-    "Max Depth (ft)": "Max Depth",
-    "Max Velocity (ft/s)": "Max Velocity",
-    "Max Volume (ft^3)": "Max Volume",
-    "Max Flow Balance (ft^3/s)": "Max Flow Balance",
-    "Max Stage BC (ft)": "Max Stage BC",
-    "Max Inflow BC (cfs)": "Max Inflow BC",
-    "Max Cum PRCP (inc)": "Max Cumm Prcp",
-}
+df['_index'] = df.Directory
+df = df.set_index('_index')
 
 
-df.rename(columns=column_renames, inplace=True)
+@st.cache_data(ttl=60)   # refresh every 60 seconds
+def load_data2(path):
+    return pd.read_csv(path,index_col='folder')
 
-# Get the last modified time of the file
-modified_timestamp = os.path.getmtime(csv_file)
-modified_datetime = datetime.datetime.fromtimestamp(modified_timestamp)
-current_datetime = datetime.datetime.now()
+df2= load_data2(rf'{root_dirr}/{csv_file2}')
+
+#------------------------------
+# merging data from both csvs
+#------------------------------
+
+df['Max WSE (ft)']=df2['max_wse']
+df['Max Depth (ft)']=df2['max_depth']
+df['Max Volume (ft^3)']=df2['max_volume']
+df['Max Flow Balance (ft^3/s)']=df2['max_flow_balance']
+df['Max Stage BC (ft)']=df2['max_bc_stage']
+df['Max Inflow BC (cfs)']=df2['max_bc_flow']
+df['Max Cum PRCP (in)']=df2['max_cum_prcp']
+
+df = df.sort_values(by='Directory')
+df = df.reset_index(drop=True)
+
+
+# =============================================================================
+# # check last file modification
+# =============================================================================
+try:   
+    modified_timestamp = os.path.getmtime(rf'{root_dirr}/{csv_file}')
+    modified_datetime = datetime.fromtimestamp(modified_timestamp)
+except: 
+    modified_datetime = get_last_modified(
+        "akhalid-twi",
+        "COJ-production",
+        f"assets/{csv_file}"
+    )
+
+current_datetime = datetime.now(timezone.utc)
 file_age = current_datetime - modified_datetime
 
+# =============================================================================
 # Streamlit app title
+# =============================================================================
+
 st.title("COJ Production Dashboard")
 st.subheader(f" Scenario: {scenario_title} Conditions")
 st.markdown(f"Last updated: {str(modified_datetime)[:-6]}")
@@ -77,7 +133,6 @@ progress_text = f"Processing simulations... {progress_percent}% complete"
 my_bar = st.progress(progress_percent, text=progress_text)
 
 
-
 # Optional: Add a status message
 if progress_percent < 25:
     st.info("🚧 Just getting started...")
@@ -91,13 +146,12 @@ else:
 #------------------------------
 # Show tentative completion
 #------------------------------
-
 # Tentative dates
-start_date = datetime.datetime(2026, 1, 1)
-completion_date = datetime.datetime(2026, 1, 15)
+start_date = datetime(2026, 1, 1)
+completion_date = datetime(2026, 1, 15)
 
 # Current time
-now = datetime.datetime.now()
+now = datetime.now()
 
 # Calculate remaining time
 remaining_time = completion_date - now
@@ -114,8 +168,9 @@ minutes, seconds = divmod(remainder, 60)
 
 st.info(f"Time Remaining: {days} days, {hours} hrs")
 
-#------------------------------
-
+# =============================================================================
+# Status Count
+# =============================================================================
 
 # Filter simulations by status
 success_df = df[df["Status"] == "SUCCESS"].copy()
@@ -178,11 +233,11 @@ fig_completion.update_layout(
     height=225
 )
 
-st.plotly_chart(fig_completion, use_container_width=True)
+st.plotly_chart(fig_completion)
 
 
 #------------------------------
-# Bar chart of status categories
+# Vertical Bar chart of status categories
 #------------------------------
 st.subheader("Simulation Status Distribution")
 
@@ -224,9 +279,7 @@ fig_status.update_layout(
     yaxis=dict(range=[0, 10000])  # Set y-axis range
 )
 
-st.plotly_chart(fig_status, use_container_width=True)
-
-
+st.plotly_chart(fig_status)
 
 #------------------------------
 # Pie chart of success vs failure
@@ -253,12 +306,12 @@ fig_pie = px.pie(
     color_discrete_map=color_map
 )
 #st.subheader("Simulation Status Distribution")
-st.plotly_chart(fig_pie, use_container_width=True)
+st.plotly_chart(fig_pie)
 
 
-#------------------------------
-## SU usage
-#------------------------------
+# =============================================================================
+#  SU usage
+# =============================================================================
 
 # Convert SUs to numeric
 success_df["SUs"] = pd.to_numeric(success_df["SUs"], errors='coerce')
@@ -268,12 +321,12 @@ total_sus = success_df["SUs"].sum()
 st.subheader("Service Units (SUs) Used per Successful Simulation")
 st.markdown(f"**Total SUs Used:** {total_sus:,}")
 fig_su = px.bar(success_df, x="Directory", y="SUs", color="SUs", title="SUs per Successful Run")
-st.plotly_chart(fig_su, use_container_width=True)
+st.plotly_chart(fig_su)
 
 
-#------------------------------
+# =============================================================================
 # Error plots for key metrics
-#------------------------------
+# =============================================================================
 
 st.subheader("Error plots for key metrics")
 
@@ -282,110 +335,95 @@ df["Vol Error (AF)"] = pd.to_numeric(df["Vol Error (AF)"], errors='coerce')
 df["Vol Error (%)"] = pd.to_numeric(df["Vol Error (%)"], errors='coerce')
 df["Max WSEL Err"] = pd.to_numeric(df["Max WSEL Err"], errors='coerce')
 
-# Create color category based on thresholds
-def categorize_error(val, status, threshold):
-    if val > threshold:
-        return "Error > Threshold"
-    elif status == "SUCCESS":
-        return "Success"
+
+def categorize_by_status(status):
+    status = str(status).strip().lower()
+
+    if status == "success":
+        return "Success"         # green
+    elif status == "running":
+        return "Running"         # cyan
+    elif "failed" in status:
+        return "Failed"          # red
     else:
-        return "Other"
+        return "Other"           # orange
 
-# Apply categorization for each metric
-df["Color Category WSEL"] = [
-    categorize_error(val, status, 5) for val, status in zip(df["Max WSEL Err"], df["Status"])
-]
-df["Color Category VolAF"] = [
-    categorize_error(val, status, 50000) for val, status in zip(df["Vol Error (AF)"], df["Status"])
-]
-df["Color Category VolPct"] = [
-    categorize_error(val, status, 1.0) for val, status in zip(df["Vol Error (%)"], df["Status"])
-]
+# Apply to each metric
+df["Color Category WSEL"]  = df["Status"].apply(categorize_by_status)
+df["Color Category VolAF"] = df["Status"].apply(categorize_by_status)
+df["Color Category VolPct"] = df["Status"].apply(categorize_by_status)
 
-# Define color mapping
+# Color map (simple)
 color_map = {
-    "Error > Threshold": "red",
     "Success": "green",
+    "Running": "cyan",
+    "Failed": "red",
     "Other": "orange"
 }
+
+
+df_sorted = df.sort_values(by='Directory')
+
+
+
 
 #------------------------------
 # Plot for Max WSEL Err
 #------------------------------
+
 fig_max_wsel_er = px.bar(
-    df,
+    df_sorted,
     x="Directory",
     y="Max WSEL Err",
     title="Max WSEL Error",
     color="Color Category WSEL",
     color_discrete_map=color_map
 )
-fig_max_wsel_er.update_yaxes(range=[0, 5])  # Limit to 5 ft
-#st.subheader("Max WSEL Error")
-st.plotly_chart(fig_max_wsel_er, use_container_width=True)
+fig_max_wsel_er.update_yaxes(range=[0, 5])
+st.plotly_chart(fig_max_wsel_er, config={"responsive": True})
+
 
 #------------------------------
 # Plot for Vol Error (AF)
 #------------------------------
+
 fig_vol_af = px.bar(
-    df,
+    df_sorted,
     x="Directory",
     y="Vol Error (AF)",
     title="Volume Error (AF)",
     color="Color Category VolAF",
     color_discrete_map=color_map
 )
-fig_vol_af.update_yaxes(range=[0, 100000])  # Adjust range as needed
-#st.subheader("Volume Error (AF)")
-st.plotly_chart(fig_vol_af, use_container_width=True)
+fig_vol_af.update_yaxes(range=[0, 100000])
+st.plotly_chart(fig_vol_af, config={"responsive": True})
+
 
 #------------------------------
 # Plot for Vol Error (%)
 #------------------------------
+
 fig_vol_pct = px.bar(
-    df,
+    df_sorted,
     x="Directory",
     y="Vol Error (%)",
     title="Volume Error (%)",
     color="Color Category VolPct",
     color_discrete_map=color_map
 )
-fig_vol_pct.update_yaxes(range=[0, 2])  # Adjust range as needed
-#st.subheader("Volume Error (%)")
-st.plotly_chart(fig_vol_pct, use_container_width=True)
+fig_vol_pct.update_yaxes(range=[0, 2])
+st.plotly_chart(fig_vol_pct, config={"responsive": True})
 
 
 
-#------------------------------
+# =============================================================================
 # Status Table
-#------------------------------
-
-del df['Max Velocity']
-del df['Max Cumm Prcp']
-del df['Color Category WSEL']
-del df['Color Category VolAF']
-del df['Color Category VolPct']
+# =============================================================================
+for cols in ['Color Category WSEL', 'Color Category VolAF','Color Category VolPct', 'Max Cum PRCP (inc)']:
+    if cols in df.columns:
+        del df[cols]
 
 
-if 'Max Cumulative Precipitation Depth' in df.columns:
-    del df['Max Cumulative Precipitation Depth']
-
-
-@st.cache_data(ttl=60)   # refresh every 60 seconds
-def load_data2(path):
-    return pd.read_csv(path)
-
-df2= load_data2(rf'{root_dirr}/{csv_file2}')
-
-#print(df2)
-
-df['Max WSE']=df2['max_wse']
-df['Max Depth']=df2['max_depth']
-df['Max Volume']=df2['max_volume']
-df['Max Flow Balance']=df2['max_flow_balance']
-df['Max Stage BC']=df2['max_bc_stage']
-df['Max Inflow BC']=df2['max_bc_flow']
-df['Max Cum PRCP (in)']=df2['max_cum_prcp']
 
 
 
@@ -393,7 +431,7 @@ df['Max Cum PRCP (in)']=df2['max_cum_prcp']
 styled_df = df.style.apply(highlight_status, axis=1)
 
 st.subheader("Status Table")
-st.dataframe(styled_df, use_container_width=True)
+st.dataframe(styled_df)
 
 #------------------------------
 # Available Plan to Review
@@ -413,30 +451,27 @@ download_url = "https://raw.githubusercontent.com/akhalid-twi/COJ-production/a6f
 st.subheader("Hydrodynamic Model Outputs and Forcings")
 
 # Convert relevant columns to numeric
-for col in column_renames.values():
-    if col in df.columns:
+for col in df.columns:
+    if col not in ['Directory','Status','Failure Reason','Start Time','End Time']:
         df[col] = pd.to_numeric(df[col], errors='coerce')
 
 # Plot each metric with units in y-axis label
 metrics_with_units = {
-#    "Max WSE": "Maximum Water Surface Elevation (ft)",
-    "Max Depth": "Maximum Flood Depth (ft)",
+#    "Max WSE (ft)": "Maximum Water Surface Elevation (ft)",
+    "Max Depth (ft)": "Maximum Flood Depth (ft)",
 #    "Max Velocity": "Maximum Velocity (ft/s)",
-    "Max Volume": "Maximum Volume (ft³)",
-    "Max Flow Balance": "Maximum Flow Balance (ft³/s)",
-    "Max Stage BC": "Maximum Downstream Boundary Condition (ft)",
-    "Max Inflow BC": "Maximum Inflow Boundary Condition (ft)",
+    "Max Volume (ft^3)": "Maximum Volume (ft³)",
+    "Max Flow Balance (ft^3/s)": "Maximum Flow Balance (ft³/s)",
+    "Max Stage BC (ft)": "Maximum Downstream Boundary Condition (ft)",
+    "Max Inflow BC (cfs)": "Maximum Inflow Boundary Condition (ft)",
     "Max Cum PRCP (in)": "Maximum Cumulative PRCP Depth (inc)",
 
 }
 
-#for col, title in metrics_with_units.items():
-#    if col in df.columns:
-#        fig = px.bar(df, x="Directory", y=col, title=title, labels={col: title})
-#        st.plotly_chart(fig, use_container_width=True)
 
 for col, title in metrics_with_units.items():
     if col in df.columns:
+        #print(title)
         #mean_val = df[col].mean()
         mean_val  = round(df[col].quantile(0.95), 2)
 
@@ -478,7 +513,7 @@ for col, title in metrics_with_units.items():
         ymax = mean_val * 1.1
         fig.update_yaxes(range=[0, ymax])
 
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig)
 
 
 
@@ -489,18 +524,20 @@ for col, title in metrics_with_units.items():
 success_df = df[df["Status"] == "SUCCESS"].copy()
 
 success_df_clean = success_df.copy()
-for cols in ['SUs','Max WSE','Failure Info','Failure Reason']:
-     del success_df_clean[cols]
+for cols in ['SUs','Max WSE (ft)','Failure Info','Failure Reason']:
+    if cols in success_df_clean.columns:
+        del success_df_clean[cols]
 
 st.subheader("Correlation Metrics")
 #print(success_df_clean.columns)
 
 
 # rearrange columns
-success_df_clean = success_df_clean[['Vol Error (%)','Vol Error (AF)','Max Depth','Max Volume','Max Flow Balance', 'Max Stage BC', 'Max Inflow BC']]
-#success_df_clean = success_df_clean.dropna()
-#print(success_df_clean.head())
-#print(success_df_clean.iloc[0])
+success_df_clean = success_df_clean[['Vol Error (%)','Vol Error (AF)','Max Depth (ft)',
+                                     'Max Volume (ft^3)',
+                                     'Max Flow Balance (ft^3/s)', 'Max Stage BC (ft)',
+                                     'Max Inflow BC (cfs)', 'Max Cum PRCP (in)']]
+
 
 corr_matrix = success_df_clean.select_dtypes(include='number').corr()
 fig_corr = go.Figure(data=go.Heatmap(
@@ -509,5 +546,5 @@ fig_corr = go.Figure(data=go.Heatmap(
      y=corr_matrix.columns,
      colorscale='Viridis'
  ))
-st.plotly_chart(fig_corr, use_container_width=True)
+st.plotly_chart(fig_corr)
 
