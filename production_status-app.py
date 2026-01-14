@@ -25,11 +25,12 @@ scenario_title = "ERDC BASELINE"
 scenario = "a_optimal_sample_base"
 scenario_title = "Optimal Sample BASE"
 
-root_dirr = r'https://raw.githubusercontent.com/akhalid-twi/COJ-production/refs/heads/main'
+root_dirr = r'https://raw.githubusercontent.com/akhalid-twi/COJ-production/refs/heads/main/assets'
+
 # Load the CSV file
 #csv_file = "updated_erdc_baseline_simulation_summary_full.csv"
 csv_file = "a_optimal_sample_base_simulation_basic_summary.csv"
-
+csv_file2 = "a_optimal_sample_base_simulation_HDF_summary.csv"
 
 @st.cache_data(ttl=60)   # refresh every 60 seconds
 def load_data(path):
@@ -365,10 +366,6 @@ del df['Color Category WSEL']
 del df['Color Category VolAF']
 del df['Color Category VolPct']
 
-
-#csv_file2 = csv_file
-
-csv_file2 = "run_optimal_sample_base_conditions_HDF_summary.csv"
 
 if 'Max Cumulative Precipitation Depth' in df.columns:
     del df['Max Cumulative Precipitation Depth']
