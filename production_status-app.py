@@ -274,6 +274,8 @@ st.plotly_chart(fig_su, use_container_width=True)
 # Error plots for key metrics
 #------------------------------
 
+st.subheader("Error plots for key metrics")
+
 # Convert columns to numeric
 df["Vol Error (AF)"] = pd.to_numeric(df["Vol Error (AF)"], errors='coerce')
 df["Vol Error (%)"] = pd.to_numeric(df["Vol Error (%)"], errors='coerce')
@@ -318,7 +320,7 @@ fig_max_wsel_er = px.bar(
     color_discrete_map=color_map
 )
 fig_max_wsel_er.update_yaxes(range=[0, 5])  # Limit to 5 ft
-st.subheader("Max WSEL Error")
+#st.subheader("Max WSEL Error")
 st.plotly_chart(fig_max_wsel_er, use_container_width=True)
 
 #------------------------------
@@ -333,7 +335,7 @@ fig_vol_af = px.bar(
     color_discrete_map=color_map
 )
 fig_vol_af.update_yaxes(range=[0, 100000])  # Adjust range as needed
-st.subheader("Volume Error (AF)")
+#st.subheader("Volume Error (AF)")
 st.plotly_chart(fig_vol_af, use_container_width=True)
 
 #------------------------------
@@ -348,13 +350,8 @@ fig_vol_pct = px.bar(
     color_discrete_map=color_map
 )
 fig_vol_pct.update_yaxes(range=[0, 2])  # Adjust range as needed
-st.subheader("Volume Error (%)")
+#st.subheader("Volume Error (%)")
 st.plotly_chart(fig_vol_pct, use_container_width=True)
-
-
-
-
-
 
 
 
@@ -376,6 +373,8 @@ def load_data2(path):
 
 df2= load_data2(rf'{root_dirr}/{csv_file2}')
 
+#print(df2)
+
 df['Max WSE']=df2['max_wse']
 df['Max Depth']=df2['max_depth']
 df['Max Volume']=df2['max_volume']
@@ -385,24 +384,9 @@ df['Max Inflow BC']=df2['max_bc_flow']
 df['Max Cum PRCP (in)']=df2['max_cum_prcp']
 
 
-''''
-# Rename columns to remove units for internal use, but keep units for display
-column_renames = {
-    "Max WSE (ft)": "Max WSE",
-    "Max Depth (ft)": "Max Depth",
-    "Max Velocity (ft/s)": "Max Velocity",
-    "Max Volume (ft^3)": "Max Volume",
-    "Max Flow Balance (ft^3/s)": "Max Flow Balance",
-    "Max Inflow BC (cfs)": "Max Inflow BC",
-    "Max Stage BC (ft)": "Max Stage BC",
-    "Max Cum PRCP (inc)": "Max Cumulative Precipitation Depth"
-}
-
-df2.rename(columns=column_renames, inplace=True)
-'''
 
 # Status table
-styled_df = df2.style.apply(highlight_status, axis=1)
+styled_df = df.style.apply(highlight_status, axis=1)
 st.subheader("Status Table")
 st.dataframe(styled_df, use_container_width=True)
 
