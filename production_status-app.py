@@ -440,7 +440,9 @@ metrics_with_units = {
 
 for col, title in metrics_with_units.items():
     if col in df.columns:
-        mean_val = df[col].mean()
+        #mean_val = df[col].mean()
+        mean_val  = round(df[col].max().quantile(0.95), 2)
+
         colors = ['crimson' if val > mean_val else 'steelblue' for val in df[col]]
         fig = go.Figure()
         fig.add_trace(go.Bar(
@@ -486,10 +488,11 @@ for col, title in metrics_with_units.items():
 success_df = df[df["Status"] == "Success"].copy()
 
 success_df_clean = success_df.copy()
-for cols in ['SUs','Max WSE','Failure Info','Failure Reason','Max Stage BC','Max Inflow BC']:
+for cols in ['SUs','Max WSE','Failure Info','Failure Reason']:
      del success_df_clean[cols]
 
 st.subheader("Correlation Metrics")
+print(success_df_clean.columns)
 
 # rearrange columns
 success_df_clean = success_df_clean[['Vol Error (%)','Vol Error (AF)','Max Depth','Max Velocity','Max Volume','Max Flow Balance','Max Cumulative Precipitation Depth']]
