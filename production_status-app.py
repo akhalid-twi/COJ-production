@@ -219,7 +219,7 @@ fig_status.update_layout(
     xaxis_title="Status",
     yaxis_title="Count",
     showlegend=False,
-    height=600
+    height=500
 )
 
 st.plotly_chart(fig_status, use_container_width=True)
