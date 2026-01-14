@@ -441,7 +441,7 @@ metrics_with_units = {
 for col, title in metrics_with_units.items():
     if col in df.columns:
         #mean_val = df[col].mean()
-        mean_val  = round(df[col].max().quantile(0.95), 2)
+        mean_val  = round(df[col].quantile(0.95), 2)
 
         colors = ['crimson' if val > mean_val else 'steelblue' for val in df[col]]
         fig = go.Figure()
