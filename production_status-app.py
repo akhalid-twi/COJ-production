@@ -500,8 +500,10 @@ st.subheader("Correlation Metrics")
 
 
 # rearrange columns
-success_df_clean = success_df_clean[['Vol Error (%)','Vol Error (AF)','Max Depth','Max Volume','Max Flow Balance','Max Cum PRCP (in)', 'Max Stage BC', 'Max Inflow BC']]
-success_df_clean = success_df_clean.dropna()
+success_df_clean = success_df_clean[['Vol Error (%)','Vol Error (AF)','Max Depth','Max Volume','Max Flow Balance', 'Max Stage BC', 'Max Inflow BC']]
+#success_df_clean = success_df_clean.dropna()
+print(success_df_clean.head())
+print(success_df_clean.iloc[0])
 
 corr_matrix = success_df_clean.select_dtypes(include='number').corr()
 fig_corr = go.Figure(data=go.Heatmap(
