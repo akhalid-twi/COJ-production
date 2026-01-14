@@ -477,6 +477,10 @@ for col, title in metrics_with_units.items():
             yaxis_title=title,
             showlegend=True
         )
+
+        ymax = mean_val * 1.1
+        fig.update_yaxes(range=[0, ymax])
+
         st.plotly_chart(fig, use_container_width=True)
 
 
