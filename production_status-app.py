@@ -379,7 +379,7 @@ fig_max_wsel_er = px.bar(
     color="Color Category WSEL",
     color_discrete_map=color_map
 )
-fig_max_wsel_er.update_yaxes(range=[0, 5])
+fig_max_wsel_er.update_yaxes(range=[0, 20])
 st.plotly_chart(fig_max_wsel_er, config={"responsive": True})
 
 
@@ -463,7 +463,7 @@ metrics_with_units = {
     "Max Volume (ft^3)": "Maximum Volume (ft³)",
     "Max Flow Balance (ft^3/s)": "Maximum Flow Balance (ft³/s)",
     "Max Stage BC (ft)": "Maximum Downstream Boundary Condition (ft)",
-    "Max Inflow BC (cfs)": "Maximum Inflow Boundary Condition (ft)",
+    "Max Inflow BC (cfs)": "Maximum Inflow Boundary Condition (cfs)",
     "Max Cum PRCP (in)": "Maximum Cumulative PRCP Depth (inc)",
 
 }
@@ -471,11 +471,11 @@ metrics_with_units = {
 
 for col, title in metrics_with_units.items():
     if col in df.columns:
-        #print(title)
+        #print(col)
         #mean_val = df[col].mean()
         mean_val  = round(df[col].quantile(0.95), 2)
 
-        colors = ['crimson' if val > mean_val else 'steelblue' for val in df[col]]
+        colors = ['orange' if val > mean_val else 'steelblue' for val in df[col]]
         fig = go.Figure()
         fig.add_trace(go.Bar(
             x=df["Directory"],
@@ -488,7 +488,7 @@ for col, title in metrics_with_units.items():
             y=[mean_val] * len(df),
             mode='lines',
             line=dict(color='black', dash='dash'),
-            name='Mean'
+            name='95%'
         ))
         # Dummy traces for legend
         fig.add_trace(go.Bar(
@@ -510,8 +510,15 @@ for col, title in metrics_with_units.items():
             showlegend=True
         )
 
-        ymax = mean_val * 1.1
+        ymax = mean_val * 1.5
         fig.update_yaxes(range=[0, ymax])
+        
+        if col == 'Max Cum PRCP (in)':
+            fig.update_yaxes(range=[0, 100])
+        elif col == 'Max Stage BC (ft)':
+            fig.update_yaxes(range=[0, 15])
+            
+             
 
         st.plotly_chart(fig)
 
