@@ -475,7 +475,7 @@ for col, title in metrics_with_units.items():
         #mean_val = df[col].mean()
         mean_val  = round(df[col].quantile(0.95), 2)
 
-        colors = ['orange' if val > mean_val else 'steelblue' for val in df[col]]
+        colors = ['purple' if val > mean_val else 'steelblue' for val in df[col]]
         fig = go.Figure()
         fig.add_trace(go.Bar(
             x=df["Directory"],
@@ -494,7 +494,7 @@ for col, title in metrics_with_units.items():
         fig.add_trace(go.Bar(
             x=[None],
             y=[None],
-            marker_color='crimson',
+            marker_color='purple',
             name='Above 95%'
         ))
         fig.add_trace(go.Bar(
