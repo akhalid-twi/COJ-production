@@ -359,6 +359,13 @@ st.plotly_chart(fig_vol_pct, use_container_width=True)
 # Status Table
 #------------------------------
 
+del df['Max Velocity']
+del df['Max Cumm Prcp']
+del df['Color Category WSEL']
+del df['Color Category VolAF']
+del df['Color Category VolPct']
+
+
 #csv_file2 = csv_file
 
 csv_file2 = "run_optimal_sample_base_conditions_HDF_summary.csv"
@@ -387,13 +394,6 @@ df['Max Cum PRCP (in)']=df2['max_cum_prcp']
 
 # Status table
 styled_df = df.style.apply(highlight_status, axis=1)
-
-del styled_df['Max Velocity']
-del styled_df['Max Cumm Prcp']
-del styled_df['Color Category WSEL']
-del styled_df['Color Category VolAF']
-del styled_df['Color Category VolPct']
-
 
 st.subheader("Status Table")
 st.dataframe(styled_df, use_container_width=True)
