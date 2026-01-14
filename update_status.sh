@@ -19,3 +19,9 @@ datetime=$(date +"%m/%d @ %I:%M%p")
 git add .
 git commit -m "updated production log $datetime"
 git push
+
+
+git add .
+git commit -m "updated structure"
+git push
+
