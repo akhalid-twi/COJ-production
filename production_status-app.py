@@ -219,7 +219,8 @@ fig_status.update_layout(
     xaxis_title="Status",
     yaxis_title="Count",
     showlegend=False,
-    height=500
+    height=500,
+    yaxis=dict(range=[0, 10000])  # Set y-axis range
 )
 
 st.plotly_chart(fig_status, use_container_width=True)
