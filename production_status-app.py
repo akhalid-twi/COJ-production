@@ -387,6 +387,14 @@ df['Max Cum PRCP (in)']=df2['max_cum_prcp']
 
 # Status table
 styled_df = df.style.apply(highlight_status, axis=1)
+
+del styled_df['Max Velocity']
+del styled_df['Max Cumm Prcp']
+del styled_df['Color Category WSEL']
+del styled_df['Color Category VolAF']
+del styled_df['Color Category VolPct']
+
+
 st.subheader("Status Table")
 st.dataframe(styled_df, use_container_width=True)
 
@@ -409,8 +417,8 @@ st.subheader("Hydrodynamic Model Outputs and Forcings")
 
 # Convert relevant columns to numeric
 for col in column_renames.values():
-    if col in df2.columns:
-        df2[col] = pd.to_numeric(df2[col], errors='coerce')
+    if col in df.columns:
+        df[col] = pd.to_numeric(df[col], errors='coerce')
 
 # Plot each metric with units in y-axis label
 metrics_with_units = {
@@ -421,7 +429,7 @@ metrics_with_units = {
     "Max Flow Balance": "Maximum Flow Balance (ft³/s)",
     "Max Stage BC": "Maximum Downstream Boundary Condition (ft)",
     "Max Inflow BC": "Maximum Inflow Boundary Condition (ft)",
-    "Max Cumm Prcp": "Maximum Cumulative PRCP Depth (inc)",
+    "Max Cum PRCP (in)": "Maximum Cumulative PRCP Depth (inc)",
 
 }
 
@@ -431,19 +439,19 @@ metrics_with_units = {
 #        st.plotly_chart(fig, use_container_width=True)
 
 for col, title in metrics_with_units.items():
-    if col in df2.columns:
-        mean_val = df2[col].mean()
-        colors = ['crimson' if val > mean_val else 'steelblue' for val in df2[col]]
+    if col in df.columns:
+        mean_val = df[col].mean()
+        colors = ['crimson' if val > mean_val else 'steelblue' for val in df[col]]
         fig = go.Figure()
         fig.add_trace(go.Bar(
-            x=df2["Directory"],
-            y=df2[col],
+            x=df["Directory"],
+            y=df[col],
             marker_color=colors,
             name=col
         ))
         fig.add_trace(go.Scatter(
-            x=df2["Directory"],
-            y=[mean_val] * len(df2),
+            x=df["Directory"],
+            y=[mean_val] * len(df),
             mode='lines',
             line=dict(color='black', dash='dash'),
             name='Mean'
@@ -475,7 +483,7 @@ for col, title in metrics_with_units.items():
 # correlation metrics
 #--------------------------
 
-success_df = df2[df2["Status"] == "Success"].copy()
+success_df = df[df["Status"] == "Success"].copy()
 
 success_df_clean = success_df.copy()
 for cols in ['SUs','Max WSE','Failure Info','Failure Reason','Max Stage BC','Max Inflow BC']:
