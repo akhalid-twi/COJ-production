@@ -489,7 +489,7 @@ for col, title in metrics_with_units.items():
 # correlation metrics
 #--------------------------
 
-success_df = df[df["Status"] == "Success"].copy()
+success_df = df[df["Status"] == "SUCCESS"].copy()
 
 success_df_clean = success_df.copy()
 for cols in ['SUs','Max WSE','Failure Info','Failure Reason']:
