@@ -179,6 +179,53 @@ fig_completion.update_layout(
 
 st.plotly_chart(fig_completion, use_container_width=True)
 
+
+#------------------------------
+# Bar chart of status categories
+#------------------------------
+st.subheader("Simulation Status Distribution")
+
+# Get value counts
+status_counts = df["Status"].value_counts().reset_index()
+status_counts.columns = ["Status", "Count"]
+
+# Define custom colors for each status
+color_map = {
+    "SUCCESS": "green",
+    "Running": "cyan",
+    "UNSTABLE-FAILED": "red",
+    "SLURM_TIMEOUT-FAILED": "orange",
+    "DISK-FAILED": "orange",
+    "HDF-FAILED": "orange"
+}
+
+status_counts["Color"] = status_counts["Status"].map(color_map).fillna("orange")
+
+# Create Plotly bar chart
+fig_status = go.Figure()
+
+for _, row in status_counts.iterrows():
+    fig_status.add_trace(go.Bar(
+        x=[row["Status"]],
+        y=[row["Count"]],
+        name=row["Status"],
+        marker_color=row["Color"],
+        text=row["Count"],
+        textposition="outside"
+    ))
+
+fig_status.update_layout(
+    title="Simulation Status Counts",
+    xaxis_title="Status",
+    yaxis_title="Count",
+    showlegend=False,
+    height=400
+)
+
+st.plotly_chart(fig_status, use_container_width=True)
+
+
+
 #------------------------------
 # Pie chart of success vs failure
 #------------------------------
