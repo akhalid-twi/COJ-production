@@ -191,12 +191,12 @@ status_counts.columns = ["Status", "Count"]
 
 # Define custom colors for each status
 color_map = {
-    "SUCCESS": "green",
-    "Running": "cyan",
-    "UNSTABLE-FAILED": "red",
-    "SLURM_TIMEOUT-FAILED": "orange",
-    "DISK-FAILED": "orange",
-    "HDF-FAILED": "orange"
+    "SUCCESS": "#90EE90",
+    "Running": "skyblue",
+    "UNSTABLE-FAILED": "#FF7F7F",
+    "SLURM_TIMEOUT-FAILED": "#FFD700",
+    "DISK-FAILED": "#FFD700",
+    "HDF-FAILED": "#FFD700"
 }
 
 status_counts["Color"] = status_counts["Status"].map(color_map).fillna("orange")
@@ -215,7 +215,7 @@ for _, row in status_counts.iterrows():
     ))
 
 fig_status.update_layout(
-    title="Simulation Status Counts",
+    title="Status Type Counts",
     xaxis_title="Status",
     yaxis_title="Count",
     showlegend=False,
