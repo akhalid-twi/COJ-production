@@ -219,7 +219,7 @@ fig_status.update_layout(
     xaxis_title="Status",
     yaxis_title="Count",
     showlegend=False,
-    height=400
+    height=600
 )
 
 st.plotly_chart(fig_status, use_container_width=True)
@@ -250,7 +250,7 @@ fig_pie = px.pie(
     color="Status",
     color_discrete_map=color_map
 )
-st.subheader("Simulation Status Distribution")
+#st.subheader("Simulation Status Distribution")
 st.plotly_chart(fig_pie, use_container_width=True)
 
 
