@@ -492,7 +492,7 @@ for cols in ['SUs','Max WSE','Failure Info','Failure Reason']:
      del success_df_clean[cols]
 
 st.subheader("Correlation Metrics")
-print(success_df_clean.columns)
+#print(success_df_clean.columns)
 
 
 # rearrange columns
