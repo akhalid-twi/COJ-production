@@ -368,11 +368,11 @@ for col in column_renames.values():
 metrics_with_units = {
 #    "Max WSE": "Maximum Water Surface Elevation (ft)",
     "Max Depth": "Maximum Flood Depth (ft)",
-    "Max Velocity": "Maximum Velocity (ft/s)",
+#    "Max Velocity": "Maximum Velocity (ft/s)",
     "Max Volume": "Maximum Volume (ft³)",
     "Max Flow Balance": "Maximum Flow Balance (ft³/s)",
-#    "Max Stage BC": "Maximum Downstream Boundary Condition (ft)",
-#    "Max Inflow BC": "Maximum Inflow Boundary Condition (ft)",
+    "Max Stage BC": "Maximum Downstream Boundary Condition (ft)",
+    "Max Inflow BC": "Maximum Inflow Boundary Condition (ft)",
     "Max Cumm Prcp": "Maximum Cumulative PRCP Depth (inc)",
 
 }
