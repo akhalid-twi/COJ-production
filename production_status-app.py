@@ -117,11 +117,6 @@ else:
         "COJ-production",
         f"assets/{csv_file}"
     )
- 
-    # Normalize to UTC if naive
-    if modified_datetime.tzinfo is None:
-        modified_datetime = modified_datetime.replace(tzinfo=timezone.utc)
-
 
 #print(modified_datetime)
 
