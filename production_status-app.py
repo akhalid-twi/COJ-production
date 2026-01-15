@@ -166,7 +166,13 @@ days = remaining_time.days
 hours, remainder = divmod(remaining_time.seconds, 3600)
 minutes, seconds = divmod(remainder, 60)
 
-st.info(f"Time Remaining: {days} days, {hours} hrs")
+# Check if we are past the completion date
+if remaining_time.total_seconds() >= 0:
+    st.info(f"Time Remaining: {days} days, {hours} hrs, {minutes} min")
+elif remaining_time.total_seconds() < 0 and progress_percent < 99.5:
+    st.warning(f"Time Remaining: {days} days, {hours} hrs, {minutes} min")
+else:
+    st.info(f"Completed {abs(days)} days ago")
 
 # =============================================================================
 # Status Count
