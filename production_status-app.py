@@ -123,12 +123,12 @@ else:
         modified_datetime = modified_datetime.replace(tzinfo=timezone.utc)
 
 
-print(modified_datetime)
+#print(modified_datetime)
 
 
 
-current_datetime = datetime.now(timezone.utc)
-file_age = current_datetime - modified_datetime
+#current_datetime = datetime.now(timezone.utc)
+#file_age = current_datetime - modified_datetime
 
 # =============================================================================
 # Streamlit app title
@@ -136,7 +136,15 @@ file_age = current_datetime - modified_datetime
 
 st.title("COJ Production Dashboard")
 st.subheader(f" Scenario: {scenario_title} Conditions")
-st.markdown(f"Last updated: {str(modified_datetime)[:-6]}")
+#st.markdown(f"Last updated: {str(modified_datetime)[:-6]}")
+
+if modified_datetime:
+    file_age = datetime.now(timezone.utc) - modified_datetime
+    st.markdown(f"Last updated: {modified_datetime.strftime('%Y-%m-%d %H:%M UTC')}")
+#else:
+#    st.markdown("Last updated: Unknown (GitHub API limit or network issue)")
+
+
 
 total_simulations = 10000
 completed_simulations = len(df)
