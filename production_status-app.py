@@ -100,11 +100,9 @@ df = df.reset_index(drop=True)
 # # check last file modification
 # =============================================================================
 
-if 'githubusercontent' not in root_dirr:
+if "githubusercontent" not in root_dirr:
 
-    modified_timestamp = os.path.getmtime(f'{root_dirr}/{csv_file}')
-
-    # MAKE TZ-AWARE
+    modified_timestamp = os.path.getmtime(f"{root_dirr}/{csv_file}")
     modified_datetime = datetime.fromtimestamp(modified_timestamp, tz=timezone.utc)
 
 else:
@@ -114,8 +112,14 @@ else:
         f"assets/{csv_file}"
     )
 
-    # Ensure GitHub datetime is timezone-aware
-    if modified_datetime.tzinfo is None:
+    # Handle missing GitHub timestamp
+    if modified_datetime is None:
+        st.error("Could not retrieve last modified timestamp from GitHub.")
+        # Prevent downstream errors
+        modified_datetime = datetime.now(timezone.utc)
+
+    # Normalize to UTC if naive
+    elif modified_datetime.tzinfo is None:
         modified_datetime = modified_datetime.replace(tzinfo=timezone.utc)
 
 print(modified_datetime)
