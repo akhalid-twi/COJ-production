@@ -20,16 +20,22 @@ from datetime import datetime, timezone
 # Helper functions
 # =============================================================================
 
-def get_last_modified(repo_owner, repo_name, file_path):
-    url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/commits"
-    params = {"path": file_path, "page": 1, "per_page": 1}
-    r = requests.get(url, params=params)
 
-    if r.status_code == 200:
-        commit = r.json()[0]
-        timestamp = commit["commit"]["committer"]["date"]
-        return datetime.fromisoformat(timestamp.replace("Z", "+00:00"))
-    return None
+def get_last_modified(owner, repo, path):
+    url = f"https://api.github.com/repos/{owner}/{repo}/commits"
+    params = {"path": path, "page": 1, "per_page": 1}
+
+    r = requests.get(url, params=params)
+    if r.status_code != 200:
+        return None
+
+    data = r.json()
+    if not data:
+        return None
+
+    timestamp = data[0]["commit"]["committer"]["date"]
+    dt = datetime.fromisoformat(timestamp.replace("Z", "+00:00"))
+    return dt
 
 # Define a function to apply row-wise styling
 def highlight_status(row):
