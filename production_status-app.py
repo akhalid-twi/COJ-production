@@ -102,7 +102,7 @@ df = df.reset_index(drop=True)
 if 'githubusercontent' not in root_dirr:   
     modified_timestamp = os.path.getmtime(rf'{root_dirr}/{csv_file}')
     modified_datetime = datetime.fromtimestamp(modified_timestamp)
-elif 'githubusercontent' not in root_dirr:
+elif 'githubusercontent' in root_dirr:
     modified_datetime = get_last_modified(
         "akhalid-twi",
         "COJ-production",
