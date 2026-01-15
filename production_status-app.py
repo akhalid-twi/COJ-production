@@ -119,7 +119,7 @@ else:
     )
  
     # Normalize to UTC if naive
-    elif modified_datetime.tzinfo is None:
+    if modified_datetime.tzinfo is None:
         modified_datetime = modified_datetime.replace(tzinfo=timezone.utc)
 
 
