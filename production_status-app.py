@@ -117,16 +117,11 @@ else:
         "COJ-production",
         f"assets/{csv_file}"
     )
-
-    # Handle missing GitHub timestamp
-    if modified_datetime is None:
-        st.error("Could not retrieve last modified timestamp from GitHub.")
-        # Prevent downstream errors
-        modified_datetime = datetime.now(timezone.utc)
-
+ 
     # Normalize to UTC if naive
     elif modified_datetime.tzinfo is None:
         modified_datetime = modified_datetime.replace(tzinfo=timezone.utc)
+
 
 print(modified_datetime)
 
