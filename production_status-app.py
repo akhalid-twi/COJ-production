@@ -109,6 +109,8 @@ elif 'githubusercontent' in root_dirr:
         f"assets/{csv_file}"
     )
 
+print(modified_datetime)
+
 current_datetime = datetime.now(timezone.utc)
 file_age = current_datetime - modified_datetime
 
