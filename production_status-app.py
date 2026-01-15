@@ -99,17 +99,28 @@ df = df.reset_index(drop=True)
 # =============================================================================
 # # check last file modification
 # =============================================================================
-if 'githubusercontent' not in root_dirr:   
-    modified_timestamp = os.path.getmtime(rf'{root_dirr}/{csv_file}')
-    modified_datetime = datetime.fromtimestamp(modified_timestamp)
-elif 'githubusercontent' in root_dirr:
+
+if 'githubusercontent' not in root_dirr:
+
+    modified_timestamp = os.path.getmtime(f'{root_dirr}/{csv_file}')
+
+    # MAKE TZ-AWARE
+    modified_datetime = datetime.fromtimestamp(modified_timestamp, tz=timezone.utc)
+
+else:
     modified_datetime = get_last_modified(
         "akhalid-twi",
         "COJ-production",
         f"assets/{csv_file}"
     )
 
+    # Ensure GitHub datetime is timezone-aware
+    if modified_datetime.tzinfo is None:
+        modified_datetime = modified_datetime.replace(tzinfo=timezone.utc)
+
 print(modified_datetime)
+
+
 
 current_datetime = datetime.now(timezone.utc)
 file_age = current_datetime - modified_datetime
@@ -143,7 +154,7 @@ elif progress_percent < 75:
 elif progress_percent > 75 and progress_percent < 99.5:
     st.warning("🔄 Almost there...")    
 else:
-    st.success("✅ Completed!")
+    st.error("✅ Completed!")
 
 #------------------------------
 # Show tentative completion
@@ -169,11 +180,20 @@ hours, remainder = divmod(remaining_time.seconds, 3600)
 minutes, seconds = divmod(remainder, 60)
 
 # Check if we are past the completion date
-if remaining_time.total_seconds() >= 0:
+
+# Check timeline status
+remaining_seconds = remaining_time.total_seconds()
+
+if remaining_seconds >= 0:
+    # Countdown still active
     st.info(f"Time Remaining: {days} days, {hours} hrs, {minutes} min")
-elif remaining_time.total_seconds() < 0 and progress_percent < 99.5:
-    st.warning(f"Time Remaining: {days} days, {hours} hrs, {minutes} min")
-else:
+
+elif remaining_seconds < 0 and progress_percent < 99.5:
+    # Project overdue but not yet technically complete
+    st.error(f"Project overdue: {days} days, {hours} hrs, {minutes} min")
+
+elif remaining_seconds < 0 and progress_percent >= 99.5:
+    # Completed beyond target date
     st.info(f"Completed {abs(days)} days ago")
 
 # =============================================================================
