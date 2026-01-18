@@ -162,7 +162,7 @@ elif progress_percent < 75:
 elif progress_percent > 75 and progress_percent < 99.5:
     st.warning("🔄 Almost there...")    
 else:
-    st.error("✅ Completed!")
+    st.success("✅ Completed!")
 
 #------------------------------
 # Show tentative completion
