@@ -149,7 +149,7 @@ st.subheader(f"Simulation Count: {completed_simulations}/{total_simulations}")
 #------------------------------
 # Progress tag
 #------------------------------
-progress_percent = int((completed_simulations / total_simulations) * 100)
+progress_percent = min(int((completed_simulations / total_simulations) * 100), 100)
 progress_text = f"Processing simulations... {progress_percent}% complete"
 my_bar = st.progress(progress_percent, text=progress_text)
 
