@@ -59,6 +59,9 @@ scenario_title = "ERDC BASELINE"
 scenario = "a_optimal_sample_base"
 scenario_title = "Optimal Sample BASE"
 
+scenario = "optimal_sample_SLR4"
+scenario_title = "Optimal Sample - SLR- IntHigh 2070"
+
 root_dirr = r'https://raw.githubusercontent.com/akhalid-twi/COJ-production/refs/heads/main/assets'
 
 # =============================================================================
