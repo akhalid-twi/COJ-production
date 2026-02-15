@@ -97,13 +97,22 @@ df['Max WSE (ft)']=df2['max_wse']
 df['Max Depth (ft)']=df2['max_depth']
 df['Max Volume (ft^3)']=df2['max_volume']
 df['Max Flow Balance (ft^3/s)']=df2['max_flow_balance']
-df['Max Stage BC (ft)']=df2['max_bc_stage']
-df['Max Inflow BC (cfs)']=df2['max_bc_flow']
+
+if 'max_bc_stage' in df2.columns:  
+    df['Max Stage BC (ft)']=df2['max_bc_stage']
+elif 'max_bc_stage_EventCond' in df2.columns:  
+    df['Max Stage BC (ft)']=df2['max_bc_stage_EventCond']
+
+if 'max_bc_flow' in df2.columns:  
+    df['Max Inflow BC (cfs)']=df2['max_bc_flow']
+elif 'max_bc_flow_EventCond' in df2.columns:  
+    df['Max Inflow BC (cfs)']=df2['max_bc_flow_EventCond']
+
+
 df['Max Cum PRCP (in)']=df2['max_cum_prcp']
 
 df = df.sort_values(by='Directory')
 df = df.reset_index(drop=True)
-
 
 # =============================================================================
 # # check last file modification
@@ -173,6 +182,9 @@ else:
 # Tentative dates
 start_date = datetime(2026, 1, 1)
 completion_date = datetime(2026, 1, 15)
+
+start_date = datetime(2026, 2, 6)
+completion_date = datetime(2026, 2, 21)
 
 # Current time
 now = datetime.now()
