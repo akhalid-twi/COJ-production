@@ -184,7 +184,7 @@ start_date = datetime(2026, 1, 1)
 completion_date = datetime(2026, 1, 15)
 
 start_date = datetime(2026, 2, 6)
-completion_date = datetime(2026, 2, 21)
+completion_date = datetime(2026, 2, 25)
 
 # Current time
 now = datetime.now()
