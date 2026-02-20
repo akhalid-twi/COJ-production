@@ -109,7 +109,7 @@ elif 'max_bc_flow_EventCond' in df2.columns:
     df['Max Inflow BC (cfs)']=df2['max_bc_flow_EventCond']
 
 
-df['Max Cum PRCP (in)']=df2['max_cum_prcp']
+df['Max Cum PRCP (in)']=df2['max_prcp_EventCond']
 
 df = df.sort_values(by='Directory')
 df = df.reset_index(drop=True)
