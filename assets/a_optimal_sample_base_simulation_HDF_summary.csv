@@ -1,4 +1,4 @@
-folder,status,duration,su,failure_reason,vol_error_af,vol_error_pct,max_wsel_err,start_time,end_time,clean_failure_info,max_wse,max_depth,max_velocity,max_volume,max_flow_balance,max_wind,max_bc_flow,max_bc_stage,max_cum_prcp
+folder,status,duration,su,failure_reason,vol_error_af,vol_error_pct,max_wsel_err,start_time,end_time,clean_failure_info,max_wse,max_depth,max_velocity,max_volume,max_flow_balance,max_wind,max_bc_flow,max_bc_stage,max_prcp_EventCond
 SS0114_PP041_SM4_BF1_Base,N/A,N/A,N/A,N/A,43093.46484375,0.6672474145889282,0.0,03Jul2000 11:00:00,17Jul2000 00:00:00,N/A,327.6592712402344,28.06,N/A,571679744.0,134505.453125,N/A,10000.0,5.16232442855835,11.982452392578125
 SS0114_PP096_SM3_BF1_Base,N/A,N/A,N/A,N/A,42634.05859375,0.687359094619751,0.0,03Jul2000 11:00:00,17Jul2000 00:00:00,N/A,327.6592712402344,10.44,N/A,571679744.0,134252.15625,N/A,5860.0,5.16232442855835,6.316978454589844
 SS0114_PP082_SM2_BF1_Base,N/A,N/A,N/A,N/A,42539.49609375,0.6829145550727844,0.0,03Jul2000 11:00:00,17Jul2000 00:00:00,N/A,327.6592712402344,14.95,N/A,571679744.0,137472.015625,N/A,6910.0,5.16232442855835,6.266094207763672
