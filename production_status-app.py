@@ -60,7 +60,7 @@ def highlight_status(row):
 
 
 # =============================================================================
-# Scenario configuration
+# Scenario configuration;
 # =============================================================================
 
 # Centralized scenario registry
