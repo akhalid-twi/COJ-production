@@ -60,7 +60,7 @@ def highlight_status(row):
 
 
 # =============================================================================
-# Scenario configuration;
+# Scenario configuration
 # =============================================================================
 
 # Centralized scenario registry
@@ -311,7 +311,7 @@ def _get_last_updated_safe(_scenario_key: str):
 # Otherwise we render from cache quickly without spinner
 force_spinner = st.session_state.scenario_changed
 
-spinner_msg = f"Loading '{scenario_cfg.get('title', scenario_key)}' � fetching data and rendering�"
+spinner_msg = f"Loading '{scenario_cfg.get('title', scenario_key)}' — fetching data and rendering…"
 context_manager = st.spinner(spinner_msg) if force_spinner else st.empty()
 
 with context_manager:
@@ -354,13 +354,13 @@ with context_manager:
     
     # Status message
     if progress_percent < 25:
-        st.info("?? Just getting started...")
+        st.info("🚧 Just getting started...")
     elif progress_percent < 75:
-        st.warning("?? In progress...")
+        st.warning("🔄 In progress...")
     elif progress_percent < 99.5:
-        st.warning("?? Almost there...")
+        st.warning("🔄 Almost there...")
     else:
-        st.success("? Completed!")
+        st.success("✅ Completed!")
     
     # Timeline (scenario-specific)
     start_date = scenario_cfg["start_date"]
@@ -677,8 +677,8 @@ st.dataframe(styled_df)
 notebook_url = "https://github.com/akhalid-twi/COJ-production/blob/a6fc0713035084895f43efde2e3915ecd67960e5/example_qc/results_S0155_notebook.ipynb"
 download_url = "https://raw.githubusercontent.com/akhalid-twi/COJ-production/a6fc0713035084895f43efde2e3915ecd67960e5/example_qc/results_S0155_notebook.html"
 
-#st.markdown(f'<a href="{notebook_url}" target="_blank">?? View Notebook for S0155 (code blocks are not hidden)</a>', unsafe_allow_html=True)
-#st.markdown(f'<a href="{download_url}" download target="_blank">?? Download HTML Report for S0155</a>', unsafe_allow_html=True)
+#st.markdown(f'<a href="{notebook_url}" target="_blank">🔗 View Notebook for S0155 (code blocks are not hidden)</a>', unsafe_allow_html=True)
+#st.markdown(f'<a href="{download_url}" download target="_blank">⬇️ Download HTML Report for S0155</a>', unsafe_allow_html=True)
 
 
 #------------------------------
@@ -696,8 +696,8 @@ metrics_with_units = {
 #    "Max WSE (ft)": "Maximum Water Surface Elevation (ft)",
     "Max Depth (ft)": "Maximum Flood Depth (ft)",
 #    "Max Velocity": "Maximum Velocity (ft/s)",
-    "Max Volume (ft^3)": "Maximum Volume (ft�)",
-    "Max Flow Balance (ft^3/s)": "Maximum Flow Balance (ft�/s)",
+    "Max Volume (ft^3)": "Maximum Volume (ft³)",
+    "Max Flow Balance (ft^3/s)": "Maximum Flow Balance (ft³/s)",
     "Max Stage BC (ft)": "Maximum Downstream Boundary Condition (ft)",
     "Max Inflow BC (cfs)": "Maximum Inflow Boundary Condition (cfs)",
     "Max Cum PRCP (in)": "Maximum Cumulative PRCP Depth (inc)",
@@ -791,5 +791,5 @@ fig_corr = go.Figure(data=go.Heatmap(
  ))
 st.plotly_chart(fig_corr)
 
-# We reached here without exception; clear the change flag so spinner doesn�t reappear
+# We reached here without exception; clear the change flag so spinner doesn’t reappear
 st.session_state.scenario_changed = False
