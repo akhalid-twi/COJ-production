@@ -80,7 +80,7 @@ SCENARIOS = {
     "optimal_sample_SLR4": {
         "title": "Optimal Sample - SLR - IntHigh 2070",
         "start_date": datetime(2026, 2, 6),
-        "completion_date": datetime(2026, 2, 27),
+        "completion_date": datetime(2026, 3, 3),
         "total_simulations": 10000,
     },
 }
