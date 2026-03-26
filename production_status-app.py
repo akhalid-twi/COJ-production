@@ -65,12 +65,12 @@ def highlight_status(row):
 
 # Centralized scenario registry
 SCENARIOS = {
-    # "erdc_baseline": {
-    #     "title": "ERDC BASELINE",
-    #     "start_date": datetime(2026, 1, 1),
-    #     "completion_date": datetime(2026, 1, 15),
-    #     "total_simulations": 10000,
-    # },
+    "erdc_baseline_reruns": {
+         "title": "ERDC BASELINE",
+         "start_date": datetime(2026, 1, 1),
+         "completion_date": datetime(2026, 1, 15),
+         "total_simulations": 10000,
+     },
     "a_optimal_sample_base": {
         "title": "Optimal Sample BASE",
         "start_date": datetime(2026, 1, 1),
