@@ -340,6 +340,8 @@ with context_manager:
     # --- Derived metrics (your processing) ---
 
     df_not_running = df[df.Status!='Running']
+    running_on_psc = int(len(df[df.Status=='Running']))
+
     total_simulations = int(scenario_cfg.get("total_simulations", 10_000))
 
     completed_simulations = int(len(df_not_running) if df_not_running is not None else 0)
@@ -348,10 +350,12 @@ with context_manager:
     # --- Plotting (keep your plotting inside spinner so it covers render time) ---
     # Example placeholders below; swap with your actual visualization code.
     st.subheader("Simulation Count")
-    col1, col2  = st.columns([1, 1], gap="medium")
+    col1, col2, col3  = st.columns(3, gap="medium")
     with col1:
         st.metric("Completed", f"{completed_simulations:,}")
     with col2:
+        st.metric("Running", f"{running_on_psc:,}")
+    with col3:
         st.metric("Total", f"{total_simulations:,}")
 
     progress_text = f"Processing simulations... {progress_percent}% complete"
