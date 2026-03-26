@@ -69,7 +69,7 @@ SCENARIOS = {
          "title": "ERDC BASELINE",
          "start_date": datetime(2026, 1, 1),
          "completion_date": datetime(2026, 1, 15),
-         "total_simulations": 10000,
+         "total_simulations": 505,
      },
     "a_optimal_sample_base": {
         "title": "Optimal Sample BASE",
@@ -340,10 +340,7 @@ with context_manager:
     # --- Derived metrics (your processing) ---
 
     df_not_running = df[df.Status!='Running']
-    if scenario_key == 'erdc_baseline_reruns':
-      total_simulations = int(scenario_cfg.get("total_simulations", 505))
-    else:
-      total_simulations = int(scenario_cfg.get("total_simulations", 10_000))
+    total_simulations = int(scenario_cfg.get("total_simulations", 10_000))
 
     completed_simulations = int(len(df_not_running) if df_not_running is not None else 0)
     progress_percent = min(int((completed_simulations / total_simulations) * 100), 100)
