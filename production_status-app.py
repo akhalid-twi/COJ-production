@@ -72,7 +72,7 @@ SCENARIOS = {
          "total_simulations": 505,
      },
     "a_optimal_sample_base": {
-        "title": "Optimal Sample BASE",
+        "title": "Optimal Sample - BASE - NO SLR",
         "start_date": datetime(2026, 1, 1),
         "completion_date": datetime(2026, 1, 15),
         "total_simulations": 10000,
