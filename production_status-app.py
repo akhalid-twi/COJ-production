@@ -68,25 +68,29 @@ SCENARIOS = {
     "erdc_baseline_reruns": {
          "title": "ERDC BASELINE",
          "start_date": datetime(2026, 1, 1),
-         "completion_date": datetime(2026, 1, 15),
+         "completion_date_projected": datetime(2026, 1, 15),
+         "completion_date_actual": datetime(2026, 1, 15),       
          "total_simulations": 505,
      },
     "a_optimal_sample_base": {
         "title": "Optimal Sample - BASE - NO SLR",
         "start_date": datetime(2026, 1, 1),
-        "completion_date": datetime(2026, 1, 15),
+        "completion_date_projected": datetime(2026, 1, 15),
+        "completion_date_actual": datetime(2026, 1, 25),        
         "total_simulations": 10000,
     },
     "optimal_sample_SLR4": {
         "title": "Optimal Sample - SLR - IntHigh 2070",
         "start_date": datetime(2026, 2, 6),
-        "completion_date": datetime(2026, 3, 3),
+        "completion_date_projected": datetime(2026, 2, 24),
+        "completion_date_actual": datetime(2026, 3, 3),
         "total_simulations": 10000,
     },
     "optimal_sample_SLR1": {
         "title": "Optimal Sample - SLR - IntLow 2040",
         "start_date": datetime(2026, 3, 23),
-        "completion_date": datetime(2026, 4, 23),
+        "completion_date_projected": datetime(2026, 4, 10),
+        "completion_date_actual": datetime(2026, 4, 23),
         "total_simulations": 10000,
     },
 
@@ -378,16 +382,17 @@ with context_manager:
     
     # Timeline (scenario-specific)
     start_date = scenario_cfg["start_date"]
-    completion_date = scenario_cfg["completion_date"]
+    completion_date_prj = scenario_cfg["completion_date_projected"]
+    completion_date_act = scenario_cfg["completion_date_actual"]
     now = datetime.now()
     
     st.subheader("Timeline")
     st.write(f"Production Started: {start_date.strftime('%d %b %Y')}")
-    st.write(f"Production Completion (projected): {completion_date.strftime('%d %b %Y')}")
-    
+    st.write(f"Production Completion (projected): {completion_date_prj.strftime('%d %b %Y')}")
+    st.write(f"Production Completion (actual): {completion_date_act.strftime('%d %b %Y')}")   
     
     # Optional: remaining time
-    remaining_time = completion_date - now
+    remaining_time = completion_date_act - now
     
     
     # Countdown timer
