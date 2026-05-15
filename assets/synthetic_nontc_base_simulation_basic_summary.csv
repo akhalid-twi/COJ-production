@@ -93,7 +93,7 @@ syn_event_105_H-L-L_2013-02-10_21-00-00_SM3_BF1_Base,SUCCESS,10.456388888888888,
 syn_event_105_L-H-H_1998-02-15_20-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 14:00,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
 syn_event_105_L-H-L_2022-12-13_11-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 14:01,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
 syn_event_1060_L-H-L_1997-05-28_10-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 14:00,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
-syn_event_1061_L-H-L_2022-05-10_23-00-00_SM3_BF1_Base,Incomplete Model run,N/A,0,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
+syn_event_1061_L-H-L_2022-05-10_23-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 14:10,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
 syn_event_1062_L-H-L_2017-10-17_14-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 14:00,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
 syn_event_1064_L-H-L_2019-04-02_02-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 13:59,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
 syn_event_1065_L-H-L_1993-02-10_08-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 13:59,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
@@ -1379,7 +1379,7 @@ syn_event_67_H-H-L_2021-03-20_06-00-00_SM3_BF1_Base,SUCCESS,9.382777777777779,40
 syn_event_67_H-L-H_2002-09-25_01-00-00_SM3_BF1_Base,SUCCESS,9.435833333333333,40,,35444.,0.8362,1.12,May 14 17:39,May 15 03:05,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
 syn_event_67_H-L-L_2001-01-23_12-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 14:05,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
 syn_event_67_L-H-H_1986-01-10_08-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 14:00,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
-syn_event_680_H-L-L_2020-08-10_02-00-00_SM3_BF1_Base,Incomplete Model run,N/A,0,,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
+syn_event_680_H-L-L_2020-08-10_02-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 14:09,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
 syn_event_681_H-L-L_2004-12-15_12-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 14:00,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
 syn_event_682_H-L-L_2023-03-03_21-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 14:07,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
 syn_event_683_H-L-L_2021-05-14_17-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 14:00,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
