@@ -1,5 +1,5 @@
 Directory,Status,Duration,SUs,Failure Reason,Vol Error (AF),Vol Error (%),Max WSEL Err,Start Time,End Time,Failure Info,Max WSE (ft),Max Depth (ft),Max Velocity (ft/s),Max Volume (ft^3),Max Flow Balance (ft^3/s),Max Stage BC (ft),Max Inflow BC (cfs),Max Cum PRCP (inc),Max Cum PRCP (in)
-syn_event_0_H-H-H_2001-11-14_20-00-00_SM3_BF1_Base,SUCCESS,11.594166666666668,48,,43762.,1.021,0.54,May 14 15:55,May 15 03:31,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
+syn_event_0_H-H-H_2001-11-14_20-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 18:35,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
 syn_event_0_H-H-L_2019-11-13_05-00-00_SM3_BF1_Base,SUCCESS,11.264722222222222,48,,33353.,0.8252,0.93,May 14 16:19,May 15 03:35,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
 syn_event_0_H-L-H_2008-03-07_19-00-00_SM3_BF1_Base,SUCCESS,8.085555555555556,36,,47086.,1.078,1.08,May 14 17:23,May 15 01:28,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
 syn_event_0_H-L-L_2006-12-08_12-00-00_SM3_BF1_Base,SUCCESS,7.325277777777777,32,,16735.,0.3712,2.04,May 14 17:42,May 15 01:02,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
@@ -1546,7 +1546,7 @@ syn_event_792_H-L-L_2024-04-11_14-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,
 syn_event_793_H-L-L_2021-11-19_18-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 13:58,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
 syn_event_794_H-L-L_2018-04-20_13-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 13:58,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
 syn_event_795_H-L-L_1995-01-14_12-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 13:57,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
-syn_event_796_H-L-L_2023-02-04_15-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 13:57,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
+syn_event_796_H-L-L_2023-02-04_15-00-00_SM3_BF1_Base,Failed,N/A,0,,****************,78.52,0.36,May 15 14:00,May 15 15:36,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
 syn_event_797_H-L-L_2022-01-16_12-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 13:58,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
 syn_event_798_H-L-L_2022-01-16_12-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 13:58,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
 syn_event_799_H-L-L_2023-12-14_17-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 13:57,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
@@ -1821,4 +1821,4 @@ syn_event_9_H-H-L_1981-10-13_14-00-00_SM3_BF1_Base,SUCCESS,8.404166666666667,36,
 syn_event_9_H-L-H_2002-09-25_01-00-00_SM3_BF1_Base,SUCCESS,8.625555555555556,36,,32399.,0.7662,0.62,May 14 17:42,May 15 02:20,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
 syn_event_9_H-L-L_2012-03-06_18-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 14:00,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
 syn_event_9_L-H-H_2019-12-23_09-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 14:01,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
-syn_event_9_L-L-H_2003-04-26_08-00-00_SM3_BF1_Base,SUCCESS,9.620000000000001,40,,39813.,0.8520,0.38,May 14 15:55,May 15 01:33,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
+syn_event_9_L-L-H_2003-04-26_08-00-00_SM3_BF1_Base,Running,N/A,0,,N/A,N/A,N/A,May 15 17:02,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A
