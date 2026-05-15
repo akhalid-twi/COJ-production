@@ -105,7 +105,7 @@ SCENARIOS = {
 }
 
 # Default scenario key (as requested)
-DEFAULT_SCENARIO_KEY = "optimal_sample_SLR1"
+DEFAULT_SCENARIO_KEY = "synthetic_nontc_base"
 
 # Data root
 ROOT_DIR = r"https://raw.githubusercontent.com/akhalid-twi/COJ-production/refs/heads/main/assets"
