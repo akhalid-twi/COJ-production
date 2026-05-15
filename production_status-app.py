@@ -729,12 +729,11 @@ for cols in ['Color Category WSEL', 'Color Category VolAF','Color Category VolPc
     if cols in df.columns:
         del df[cols]
 
-
 df = df.rename(columns={
-    'Duration': 'RunTime (hrs)',
-    'Max WSEL Err': 'Max WSEL Err (ft)',
-    'Start Time': 'Clock Start Time',
-    'End Time': 'Clock End Time'
+    'Duration': 'CPU Runtime (hrs)',
+    'Max WSEL Err': 'WSEL Error Max (ft)',
+    'Start Time': 'CPU Start Time',
+    'End Time': 'CPU End Time'
 })
 
 
