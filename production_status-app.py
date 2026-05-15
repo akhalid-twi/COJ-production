@@ -93,6 +93,14 @@ SCENARIOS = {
         "completion_date_actual": datetime(2026, 4, 23),
         "total_simulations": 10000,
     },
+    "synthetic_nontc_base": {
+        "title": "Synthetic Non-TC - BASE - NO SLR",
+        "start_date": datetime(2026, 5, 14),
+        "completion_date_projected": datetime(2026, 5, 19),
+        "completion_date_actual": datetime(2026, 5, 19),
+        "total_simulations": 3648,
+    },
+
 
 }
 
