@@ -627,6 +627,9 @@ color_map = {
 
 df_sorted = df.sort_values(by='Directory')
 
+# Create numeric index for x-axis labels
+df_sorted = df_sorted.reset_index(drop=True)
+df_sorted["Storm Index"] = df_sorted.index + 1
 
 
 
@@ -636,13 +639,18 @@ df_sorted = df.sort_values(by='Directory')
 
 fig_max_wsel_er = px.bar(
     df_sorted,
-    x="Directory",
+    x="Storm Index", #    x="Directory",
     y="Max WSEL Err",
     title="Max WSEL Error",
     color="Color Category WSEL",
-    color_discrete_map=color_map
+    color_discrete_map=color_map,
+    hover_data={
+        "Directory": True,          # show full storm/scenario name on hover
+        "Storm Index": False        # don't repeat index in hover
+    }
 )
 fig_max_wsel_er.update_yaxes(range=[0, 20])
+
 st.plotly_chart(fig_max_wsel_er, config={"responsive": True})
 
 
@@ -652,11 +660,16 @@ st.plotly_chart(fig_max_wsel_er, config={"responsive": True})
 
 fig_vol_af = px.bar(
     df_sorted,
-    x="Directory",
+    x="Storm Index", #    x="Directory",
     y="Vol Error (AF)",
     title="Volume Error (AF)",
     color="Color Category VolAF",
-    color_discrete_map=color_map
+    color_discrete_map=color_map,
+    hover_data={
+        "Directory": True,          # show full storm/scenario name on hover
+        "Storm Index": False        # don't repeat index in hover
+    }
+
 )
 fig_vol_af.update_yaxes(range=[0, 100000])
 st.plotly_chart(fig_vol_af, config={"responsive": True})
@@ -668,11 +681,16 @@ st.plotly_chart(fig_vol_af, config={"responsive": True})
 
 fig_vol_pct = px.bar(
     df_sorted,
-    x="Directory",
+    x="Storm Index", #    x="Directory",
     y="Vol Error (%)",
     title="Volume Error (%)",
     color="Color Category VolPct",
-    color_discrete_map=color_map
+    color_discrete_map=color_map,
+    hover_data={
+        "Directory": True,          # show full storm/scenario name on hover
+        "Storm Index": False        # don't repeat index in hover
+    }
+
 )
 fig_vol_pct.update_yaxes(range=[0, 2])
 st.plotly_chart(fig_vol_pct, config={"responsive": True})
@@ -741,13 +759,13 @@ for col, title in metrics_with_units.items():
         colors = ['purple' if val > mean_val else 'steelblue' for val in df[col]]
         fig = go.Figure()
         fig.add_trace(go.Bar(
-            x=df["Directory"],
+            x=df.index, #df["Directory"],
             y=df[col],
             marker_color=colors,
             name=col
         ))
         fig.add_trace(go.Scatter(
-            x=df["Directory"],
+            x=df.index, #df["Directory"],
             y=[mean_val] * len(df),
             mode='lines',
             line=dict(color='black', dash='dash'),
