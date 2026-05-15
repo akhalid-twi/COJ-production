@@ -580,12 +580,37 @@ st.plotly_chart(fig_pie)
 success_df["SUs"] = pd.to_numeric(success_df["SUs"], errors='coerce')
 total_sus = success_df["SUs"].sum()
 
+# Create numeric storm numbering
+success_df = success_df.reset_index(drop=True)
+success_df["Storm Number"] = success_df.index + 1
+
 # SU usage plot
 st.subheader("Service Units (SUs) Used per Successful Simulation")
 st.markdown(f"**Total SUs Used:** {total_sus:,}")
-fig_su = px.bar(success_df, x="Directory", y="SUs", color="SUs", title="SUs per Successful Run")
-st.plotly_chart(fig_su)
 
+fig_su = px.bar(
+    success_df,
+    x="Storm Number",
+    y="SUs",
+    color="SUs",
+    title="SUs per Successful Run",
+    hover_data={
+        "Directory": True,
+        "Storm Number": False
+    }
+)
+
+fig_su.update_traces(
+    hovertemplate=
+    "<b>Storm:</b> %{customdata[0]}<br>" +
+    "<b>SUs:</b> %{y:,.0f}<extra></extra>"
+)
+
+fig_su.update_layout(
+    xaxis_title="Storm Number"
+)
+
+st.plotly_chart(fig_su, config={"responsive": True})
 
 # =============================================================================
 # Error plots for key metrics
@@ -706,7 +731,7 @@ for cols in ['Color Category WSEL', 'Color Category VolAF','Color Category VolPc
 
 
 
-
+df = df.rename(columns={'Duration': 'RunTime (hrs)'})
 
 # Status table
 styled_df = df.style.apply(highlight_status, axis=1)
@@ -853,5 +878,5 @@ fig_corr = go.Figure(data=go.Heatmap(
  ))
 st.plotly_chart(fig_corr)
 
-# We reached here without exception; clear the change flag so spinner doesn’t reappear
+# We reached here without exception; clear the change flag so spinner doesnot reappear
 st.session_state.scenario_changed = False
