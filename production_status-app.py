@@ -730,11 +730,12 @@ for cols in ['Color Category WSEL', 'Color Category VolAF','Color Category VolPc
         del df[cols]
 
 
-
-df = df.rename(columns={'Duration': 'RunTime (hrs)'})
-df = df.rename(columns={'Max WSEL Err': 'Max WSEL Err (ft)'})
-df = df.rename(columns={'Start Time: 'Clock Start Time'})
-df = df.rename(columns={'End Time: 'Clock End Time'})
+df = df.rename(columns={
+    'Duration': 'RunTime (hrs)',
+    'Max WSEL Err': 'Max WSEL Err (ft)',
+    'Start Time': 'Clock Start Time',
+    'End Time': 'Clock End Time'
+})
 
 
 # Status table
