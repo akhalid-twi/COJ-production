@@ -629,7 +629,7 @@ df_sorted = df.sort_values(by='Directory')
 
 # Create numeric index for x-axis labels
 df_sorted = df_sorted.reset_index(drop=True)
-df_sorted["Storm Index"] = df_sorted.index + 1
+df_sorted["Storm Number"] = df_sorted.index + 1
 
 
 
@@ -639,14 +639,14 @@ df_sorted["Storm Index"] = df_sorted.index + 1
 
 fig_max_wsel_er = px.bar(
     df_sorted,
-    x="Storm Index", #    x="Directory",
+    x="Storm Number", #    x="Directory",
     y="Max WSEL Err",
     title="Max WSEL Error",
     color="Color Category WSEL",
     color_discrete_map=color_map,
     hover_data={
         "Directory": True,          # show full storm/scenario name on hover
-        "Storm Index": False        # don't repeat index in hover
+        "Storm Number": False        # don't repeat index in hover
     }
 )
 fig_max_wsel_er.update_yaxes(range=[0, 20])
@@ -660,14 +660,14 @@ st.plotly_chart(fig_max_wsel_er, config={"responsive": True})
 
 fig_vol_af = px.bar(
     df_sorted,
-    x="Storm Index", #    x="Directory",
+    x="Storm Number", #    x="Directory",
     y="Vol Error (AF)",
     title="Volume Error (AF)",
     color="Color Category VolAF",
     color_discrete_map=color_map,
     hover_data={
         "Directory": True,          # show full storm/scenario name on hover
-        "Storm Index": False        # don't repeat index in hover
+        "Storm Number": False        # don't repeat index in hover
     }
 
 )
@@ -681,14 +681,14 @@ st.plotly_chart(fig_vol_af, config={"responsive": True})
 
 fig_vol_pct = px.bar(
     df_sorted,
-    x="Storm Index", #    x="Directory",
+    x="Storm Number", #    x="Directory",
     y="Vol Error (%)",
     title="Volume Error (%)",
     color="Color Category VolPct",
     color_discrete_map=color_map,
     hover_data={
         "Directory": True,          # show full storm/scenario name on hover
-        "Storm Index": False        # don't repeat index in hover
+        "Storm Number": False        # don't repeat index in hover
     }
 
 )
@@ -750,27 +750,44 @@ metrics_with_units = {
 }
 
 
-for col, title in metrics_with_units.items():
-    if col in df.columns:
-        #print(col)
-        #mean_val = df[col].mean()
-        mean_val  = round(df[col].quantile(0.95), 2)
+# Create numeric index for plotting
+df = df.reset_index(drop=True)
+df["Storm Number"] = df.index + 1
 
-        colors = ['purple' if val > mean_val else 'steelblue' for val in df[col]]
+for col, title in metrics_with_units.items():
+
+    if col in df.columns:
+
+        mean_val = round(df[col].quantile(0.95), 2)
+
+        colors = [
+            'purple' if val > mean_val else 'steelblue'
+            for val in df[col]
+        ]
+
         fig = go.Figure()
+
+        # Main bars
         fig.add_trace(go.Bar(
-            x=df.index, #df["Directory"],
+            x=df["Storm Number"],
             y=df[col],
             marker_color=colors,
-            name=col
+            name=col,
+            customdata=df[["Directory"]],
+            hovertemplate=
+                "<b>Storm:</b> %{customdata[0]}<br>" +
+                f"<b>{title}:</b> %{{y}}<extra></extra>"
         ))
+
+        # 95% threshold line
         fig.add_trace(go.Scatter(
-            x=df.index, #df["Directory"],
+            x=df["Storm Number"],
             y=[mean_val] * len(df),
             mode='lines',
             line=dict(color='black', dash='dash'),
             name='95%'
         ))
+
         # Dummy traces for legend
         fig.add_trace(go.Bar(
             x=[None],
@@ -778,31 +795,31 @@ for col, title in metrics_with_units.items():
             marker_color='purple',
             name='Above 95%'
         ))
+
         fig.add_trace(go.Bar(
             x=[None],
             y=[None],
             marker_color='steelblue',
             name='Below 95%'
         ))
+
         fig.update_layout(
             title=title,
-            xaxis_title="Directory",
+            xaxis_title="Storm Number",
             yaxis_title=title,
             showlegend=True
         )
 
         ymax = mean_val * 1.5
         fig.update_yaxes(range=[0, ymax])
-        
+
         if col == 'Max Cum PRCP (in)':
             fig.update_yaxes(range=[0, 100])
+
         elif col == 'Max Stage BC (ft)':
             fig.update_yaxes(range=[0, 15])
-            
-             
 
-        st.plotly_chart(fig)
-
+        st.plotly_chart(fig, config={"responsive": True})
 
 
 #--------------------------
