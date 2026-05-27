@@ -104,7 +104,14 @@ SCENARIOS = {
         "title": "Synthetic Non-TC - SLR - IntLow 2040",
         "start_date": datetime(2026, 5, 23),
         "completion_date_projected": datetime(2026, 5, 28),
-        "completion_date_actual": datetime(2026, 5, 27),
+        "completion_date_actual": datetime(2026, 5, 26),
+        "total_simulations": 3648,
+    },
+    "synthetic_nontc_slr4": {
+        "title": "Synthetic Non-TC - SLR - IntHigh 2070",
+        "start_date": datetime(2026, 5, 27),
+        "completion_date_projected": datetime(2026, 5, 31),
+        "completion_date_actual": datetime(2026, 5, 31),
         "total_simulations": 3648,
     },
 
@@ -112,7 +119,7 @@ SCENARIOS = {
 }
 
 # Default scenario key (as requested)
-DEFAULT_SCENARIO_KEY = "synthetic_nontc_slr1"
+DEFAULT_SCENARIO_KEY = "synthetic_nontc_slr4"
 
 # Data root
 ROOT_DIR = r"https://raw.githubusercontent.com/akhalid-twi/COJ-production/refs/heads/main/assets"
