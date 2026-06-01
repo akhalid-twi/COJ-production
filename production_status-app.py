@@ -251,149 +251,8 @@ def get_last_updated_dt(scenario_key: str):
 # App UI
 # =============================================================================
 
-# # ---------------------------------------------------------------------
-# # Page setup
-# # ---------------------------------------------------------------------
-
-# st.title("COJ Production Dashboard")
-
-# # ---------------------------------------------------------------------
-# # Session state init
-# # ---------------------------------------------------------------------
-# if "scenario_prev" not in st.session_state:
-#     st.session_state.scenario_prev = None
-# if "scenario_changed" not in st.session_state:
-#     st.session_state.scenario_changed = True  # True on first render to load once
-# if "scenario_current" not in st.session_state:
-#     st.session_state.scenario_current = None
-
-# # ---------------------------------------------------------------------
-# # Validate SCENARIOS structure (expects dict[key] -> {"title": str, ...})
-# # ---------------------------------------------------------------------
-# if "SCENARIOS" not in globals() or not isinstance(SCENARIOS, dict) or len(SCENARIOS) == 0:
-#     st.error("No scenarios found. Please define SCENARIOS as a non-empty dict.")
-#     st.stop()
-
-# # Ensure every scenario has a title; fallback to the key if missing
-# scenario_names = {
-#     key: (cfg.get("title") if isinstance(cfg, dict) else str(cfg)) or str(key)
-#     for key, cfg in SCENARIOS.items()
-# }
-
-# # Build display list and reverse map
-# display_to_key = {title: key for key, title in scenario_names.items()}
-# display_list = list(display_to_key.keys())
-
-# # Default handling
-# default_key = (
-#     DEFAULT_SCENARIO_KEY
-#     if "DEFAULT_SCENARIO_KEY" in globals() and DEFAULT_SCENARIO_KEY in SCENARIOS
-#     else next(iter(SCENARIOS))
-# )
-# default_display = scenario_names.get(default_key, str(default_key))
-# default_index = display_list.index(default_display) if default_display in display_list else 0
-
-# # ---------------------------------------------------------------------
-# # Callback: when user changes scenario
-# # ---------------------------------------------------------------------
-# def _on_scenario_change():
-#     # Mark change and clear relevant caches to force fresh load
-#     st.session_state.scenario_changed = True
-#     st.session_state.scenario_prev = st.session_state.scenario_current
-
-#     # If you use cache_data for data loading, clear it to ensure new scenario reloads
-#     try:
-#         _load_df_cached.clear()  # type: ignore[name-defined]
-#     except Exception:
-#         pass
-
-# # ---------------------------------------------------------------------
-# # Scenario Picker (segmented/selectbox with on_change)
-# # ---------------------------------------------------------------------
-# st.subheader("Scenario")
-
-# categories = list(GROUPED_SCENARIOS.keys())
-# tabs = st.tabs(categories)
-
-# # Store selections per category
-# for category in categories:
-#     state_key = f"selected_{category}"
-#     if state_key not in st.session_state:
-#         # set default scenario in that category
-#         scenarios_dict = GROUPED_SCENARIOS[category]
-#         default_key = (
-#             DEFAULT_SCENARIO_KEY
-#             if DEFAULT_SCENARIO_KEY in scenarios_dict
-#             else list(scenarios_dict.keys())[0]
-#         )
-#         st.session_state[state_key] = default_key
-
-
-# # Build UI
-# for tab, category in zip(tabs, categories):
-#     scenarios_dict = GROUPED_SCENARIOS[category]
-
-#     with tab:
-#         scenario_names = {
-#             key: cfg.get("title", key)
-#             for key, cfg in scenarios_dict.items()
-#         }
-
-#         display_to_key = {v: k for k, v in scenario_names.items()}
-#         display_list = list(display_to_key.keys())
-
-#         current_key = st.session_state[f"selected_{category}"]
-#         current_display = scenario_names[current_key]
-
-#         selected_display = st.radio(
-#             f"{category} Scenarios",
-#             options=display_list,
-#             index=display_list.index(current_display),
-#             key=f"radio_{category}",
-#         )
-
-#         # Save selection
-#         st.session_state[f"selected_{category}"] = display_to_key[selected_display]
-
-
-
-# # Use last interacted category automatically
-# # (Streamlit doesn't expose active tab → we infer)
-
-# chosen_key = None
-
-# # Find the most recently changed selection
-# for category in categories:
-#     key = st.session_state[f"selected_{category}"]
-#     if key:
-#         chosen_key = key
-
-# # fallback
-# if chosen_key is None:
-#     chosen_key = DEFAULT_SCENARIO_KEY
-
-# scenario_key = chosen_key
-# scenario_cfg = SCENARIOS[scenario_key]
-
-# if st.session_state.scenario_current != scenario_key:
-#     st.session_state.scenario_changed = True
-#     st.session_state.scenario_prev = st.session_state.scenario_current
-
-#     try:
-#         _load_df_cached.clear()
-#     except:
-#         pass
-
-# st.session_state.scenario_current = scenario_key
-
-
-# st.caption(f"Selected Scenario: {scenario_cfg['title']} ({scenario_cfg['category']})")
-
-# =============================================================================
-# App UI
-# =============================================================================
-
 st.title("COJ Production Dashboard")
+st.markdown("---")
 
 # 1. Initialize global states cleanly
 if "scenario_current" not in st.session_state:
@@ -486,9 +345,9 @@ with context_manager:
     # --- Last Updated ---
     modified_datetime = _get_last_updated_safe(scenario_key)
     if modified_datetime:
-        st.markdown(f"**Last updated:** {modified_datetime.strftime('%Y-%m-%d %H:%M UTC')}")
+        st.caption(f"Last updated: {modified_datetime.strftime('%Y-%m-%d %H:%M UTC')}")
     else:
-        st.markdown("**Last updated:** Unknown (GitHub API limit or network issue)")
+        st.caption("Last updated: Unknown (GitHub API limit or network issue)")
 
     # --- Data Loading (cached, no inner spinner to avoid double spinner) ---
     try:
@@ -510,6 +369,8 @@ with context_manager:
 
     # --- Plotting (keep your plotting inside spinner so it covers render time) ---
     # Example placeholders below; swap with your actual visualization code.
+
+    st.markdown("---")
     st.subheader("Simulation Count")
     col1, col2, col3  = st.columns(3, gap="medium")
     with col1:
