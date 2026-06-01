@@ -14,10 +14,15 @@ from datetime import datetime, timezone
 from time import sleep
 from stqdm import stqdm
 import requests
+from collections import defaultdict
+
 
 # =============================================================================
 # Helper functions
 # =============================================================================
+
+
+
 
 def get_last_modified(owner: str, repo: str, path: str):
     """
@@ -67,6 +72,7 @@ def highlight_status(row):
 SCENARIOS = {
     "erdc_baseline_reruns": {
          "title": "ERDC BASELINE",
+         "category": "Base",
          "start_date": datetime(2026, 1, 1),
          "completion_date_projected": datetime(2026, 1, 15),
          "completion_date_actual": datetime(2026, 1, 15),       
@@ -74,6 +80,7 @@ SCENARIOS = {
      },
     "a_optimal_sample_base": {
         "title": "Optimal Sample - BASE - NO SLR",
+        "category": "Tropical Cyclones",
         "start_date": datetime(2026, 1, 1),
         "completion_date_projected": datetime(2026, 1, 15),
         "completion_date_actual": datetime(2026, 1, 25),        
@@ -81,6 +88,7 @@ SCENARIOS = {
     },
     "optimal_sample_SLR4": {
         "title": "Optimal Sample - SLR - IntHigh 2070",
+        "category": "Tropical Cyclones",
         "start_date": datetime(2026, 2, 6),
         "completion_date_projected": datetime(2026, 2, 24),
         "completion_date_actual": datetime(2026, 3, 3),
@@ -88,6 +96,7 @@ SCENARIOS = {
     },
     "optimal_sample_SLR1": {
         "title": "Optimal Sample - SLR - IntLow 2040",
+        "category": "Tropical Cyclones",
         "start_date": datetime(2026, 3, 23),
         "completion_date_projected": datetime(2026, 4, 10),
         "completion_date_actual": datetime(2026, 4, 23),
@@ -95,6 +104,7 @@ SCENARIOS = {
     },
     "synthetic_nontc_base": {
         "title": "Synthetic Non-TC - BASE - NO SLR",
+        "category": "Non-Tropical Cyclones",
         "start_date": datetime(2026, 5, 14),
         "completion_date_projected": datetime(2026, 5, 20),
         "completion_date_actual": datetime(2026, 5, 20),
@@ -102,6 +112,7 @@ SCENARIOS = {
     },
     "synthetic_nontc_slr1": {
         "title": "Synthetic Non-TC - SLR - IntLow 2040",
+        "category": "Non-Tropical Cyclones",
         "start_date": datetime(2026, 5, 23),
         "completion_date_projected": datetime(2026, 5, 28),
         "completion_date_actual": datetime(2026, 5, 26),
@@ -109,6 +120,7 @@ SCENARIOS = {
     },
     "synthetic_nontc_slr4": {
         "title": "Synthetic Non-TC - SLR - IntHigh 2070",
+        "category": "Non-Tropical Cyclones",
         "start_date": datetime(2026, 5, 27),
         "completion_date_projected": datetime(2026, 5, 31),
         "completion_date_actual": datetime(2026, 5, 31),
@@ -117,6 +129,16 @@ SCENARIOS = {
 
 
 }
+
+def group_scenarios(scenarios):
+    grouped = defaultdict(dict)
+    for key, cfg in scenarios.items():
+        category = cfg.get("category", "Other")
+        grouped[category][key] = cfg
+    return grouped
+GROUPED_SCENARIOS = group_scenarios(SCENARIOS)
+
+
 
 # Default scenario key (as requested)
 DEFAULT_SCENARIO_KEY = "synthetic_nontc_slr4"
@@ -290,34 +312,52 @@ def _on_scenario_change():
 # ---------------------------------------------------------------------
 st.subheader("Scenario")
 
-if hasattr(st, "segmented_control"):
-    # Newer Streamlit API
-    chosen_display = st.segmented_control(
-        "Choose a scenario",
-        options=display_list,
-        default=default_display,
-        help="Pick a scenario to load the corresponding metrics and timeline.",
-        key="scenario_segmented",
-        on_change=_on_scenario_change,
-        label_visibility ="hidden"
-    )
-else:
-    chosen_display = st.selectbox(
-        "Choose a scenario",
-        options=display_list,
-        index=default_index,
-        help="Pick a scenario to load the corresponding metrics and timeline.",
-        key="scenario_select",
-        on_change=_on_scenario_change,
-    )
+tabs = st.tabs(list(GROUPED_SCENARIOS.keys()))
+chosen_key = None
 
-# Map chosen display label back to the scenario key/config
-chosen_key = display_to_key[chosen_display]
-chosen_config = SCENARIOS[chosen_key]
+for tab, (category, scenarios_dict) in zip(tabs, GROUPED_SCENARIOS.items()):
+    with tab:
+        scenario_names = {
+            key: cfg.get("title", key)
+            for key, cfg in scenarios_dict.items()
+        }
+
+        display_to_key = {v: k for k, v in scenario_names.items()}
+        display_list = list(display_to_key.keys())
+
+        default_key = (
+            DEFAULT_SCENARIO_KEY
+            if DEFAULT_SCENARIO_KEY in scenarios_dict
+            else list(scenarios_dict.keys())[0]
+        )
+
+        selected_display = st.radio(
+            f"{category} Scenarios",
+            options=display_list,
+            index=display_list.index(scenario_names[default_key]),
+            key=f"radio_{category}",
+        )
+
+        if selected_display:
+            chosen_key = display_to_key[selected_display]
+
+# Fallback
+if chosen_key is None:
+    chosen_key = DEFAULT_SCENARIO_KEY
+
 scenario_key = chosen_key
-scenario_cfg = chosen_config if isinstance(chosen_config, dict) else {"title": chosen_display}
+scenario_cfg = SCENARIOS[scenario_key]
 
-# Update current selection in state so we can detect change
+# Detect change
+if st.session_state.scenario_current != scenario_key:
+    st.session_state.scenario_changed = True
+    st.session_state.scenario_prev = st.session_state.scenario_current
+
+    try:
+        _load_df_cached.clear()
+    except:
+        pass
+
 st.session_state.scenario_current = scenario_key
 
 # ---------------------------------------------------------------------
