@@ -405,9 +405,11 @@ if "scenario_changed" not in st.session_state:
 # ---------------------------------------------------------------------
 # Callback: Triggers when ANY radio button selection changes
 # ---------------------------------------------------------------------
-def handle_scenario_change(category_key):
-    # Grab what the user just clicked inside this specific category tab
-    new_selection = st.session_state[category_key]
+def handle_scenario_change(widget_key, display_to_key_map):
+    # Grab the friendly display string selected by the user
+    selected_display = st.session_state[widget_key]
+    # Map it back to the technical scenario key (e.g., 'synthetic_nontc_slr4')
+    new_selection = display_to_key_map[selected_display]
     
     # Check if it's an actual change from the global selection
     if st.session_state.scenario_current != new_selection:
@@ -436,31 +438,28 @@ for tab, category in zip(tabs, categories):
     display_to_key = {v: k for k, v in scenario_names.items()}
     display_list = list(display_to_key.keys())
     
-    # Form unique widget & state keys per category
+    # Form unique widget keys per category tab
     widget_key = f"radio_widget_{category}"
     
+    # To prevent Streamlit from throwing a Value/Index mismatch error when a tab
+    # is rendered but its radio doesn't contain the globally active scenario,
+    # we enforce a safe default index.
+    if st.session_state.scenario_current in scenarios_dict:
+        current_display = scenario_names[st.session_state.scenario_current]
+        default_idx = display_list.index(current_display)
+    else:
+        default_idx = 0
+        
     with tab:
-        # Determine index: If current global scenario belongs to this tab, focus it. 
-        # Otherwise, default to the first item in this tab.
-        if st.session_state.scenario_current in scenarios_dict:
-            current_display = scenario_names[st.session_state.scenario_current]
-            default_idx = display_list.index(current_display)
-        else:
-            default_idx = 0
-            
-        # Display the selector
-        selected_display = st.radio(
+        st.radio(
             f"{category} Scenarios",
             options=display_list,
             index=default_idx,
             key=widget_key,
-            # args passes the widget_key into our callback function automatically
             on_change=handle_scenario_change,
-            args=(widget_key,)
+            # Pass the unique key and the mapping dictionary into the callback
+            args=(widget_key, display_to_key)
         )
-        
-        # Keep internal track of what this tab's radio state currently evaluates to
-        st.session_state[widget_key] = display_to_key[selected_display]
 
 # Finalize active configuration details
 scenario_key = st.session_state.scenario_current
