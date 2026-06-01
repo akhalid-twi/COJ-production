@@ -312,10 +312,27 @@ def _on_scenario_change():
 # ---------------------------------------------------------------------
 st.subheader("Scenario")
 
-tabs = st.tabs(list(GROUPED_SCENARIOS.keys()))
-chosen_key = None
+categories = list(GROUPED_SCENARIOS.keys())
+tabs = st.tabs(categories)
 
-for tab, (category, scenarios_dict) in zip(tabs, GROUPED_SCENARIOS.items()):
+# Store selections per category
+for category in categories:
+    state_key = f"selected_{category}"
+    if state_key not in st.session_state:
+        # set default scenario in that category
+        scenarios_dict = GROUPED_SCENARIOS[category]
+        default_key = (
+            DEFAULT_SCENARIO_KEY
+            if DEFAULT_SCENARIO_KEY in scenarios_dict
+            else list(scenarios_dict.keys())[0]
+        )
+        st.session_state[state_key] = default_key
+
+
+# Build UI
+for tab, category in zip(tabs, categories):
+    scenarios_dict = GROUPED_SCENARIOS[category]
+
     with tab:
         scenario_names = {
             key: cfg.get("title", key)
@@ -325,30 +342,39 @@ for tab, (category, scenarios_dict) in zip(tabs, GROUPED_SCENARIOS.items()):
         display_to_key = {v: k for k, v in scenario_names.items()}
         display_list = list(display_to_key.keys())
 
-        default_key = (
-            DEFAULT_SCENARIO_KEY
-            if DEFAULT_SCENARIO_KEY in scenarios_dict
-            else list(scenarios_dict.keys())[0]
-        )
+        current_key = st.session_state[f"selected_{category}"]
+        current_display = scenario_names[current_key]
 
         selected_display = st.radio(
             f"{category} Scenarios",
             options=display_list,
-            index=display_list.index(scenario_names[default_key]),
+            index=display_list.index(current_display),
             key=f"radio_{category}",
         )
 
-        if selected_display:
-            chosen_key = display_to_key[selected_display]
+        # Save selection
+        st.session_state[f"selected_{category}"] = display_to_key[selected_display]
 
-# Fallback
+
+
+# Use last interacted category automatically
+# (Streamlit doesn't expose active tab → we infer)
+
+chosen_key = None
+
+# Find the most recently changed selection
+for category in categories:
+    key = st.session_state[f"selected_{category}"]
+    if key:
+        chosen_key = key
+
+# fallback
 if chosen_key is None:
     chosen_key = DEFAULT_SCENARIO_KEY
 
 scenario_key = chosen_key
 scenario_cfg = SCENARIOS[scenario_key]
 
-# Detect change
 if st.session_state.scenario_current != scenario_key:
     st.session_state.scenario_changed = True
     st.session_state.scenario_prev = st.session_state.scenario_current
@@ -359,6 +385,9 @@ if st.session_state.scenario_current != scenario_key:
         pass
 
 st.session_state.scenario_current = scenario_key
+
+
+st.caption(f"Selected Scenario: {scenario_cfg['title']} ({scenario_cfg['category']})")
 
 # ---------------------------------------------------------------------
 # Helpers: Last updated + cached loader
