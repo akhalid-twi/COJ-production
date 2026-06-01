@@ -310,84 +310,83 @@ def _on_scenario_change():
 # ---------------------------------------------------------------------
 # Scenario Picker (segmented/selectbox with on_change)
 # ---------------------------------------------------------------------
+# =============================================================================
+# App UI
+# =============================================================================
+
+st.title("COJ Production Dashboard")
+
+# Initialize session states cleanly
+if "scenario_current" not in st.session_state:
+    st.session_state.scenario_current = DEFAULT_SCENARIO_KEY
+if "scenario_changed" not in st.session_state:
+    st.session_state.scenario_changed = True
+
+# ---------------------------------------------------------------------
+# Callback: Triggers when ANY radio button selection changes
+# ---------------------------------------------------------------------
+def handle_scenario_change(category_key):
+    # Grab what the user just clicked inside this specific category tab
+    new_selection = st.session_state[category_key]
+    
+    # Check if it's an actual change from the global selection
+    if st.session_state.scenario_current != new_selection:
+        st.session_state.scenario_current = new_selection
+        st.session_state.scenario_changed = True
+        
+        # Clear data caches dynamically
+        try:
+            _load_df_cached.clear()
+        except Exception:
+            pass
+
+# ---------------------------------------------------------------------
+# Scenario Picker Layout
+# ---------------------------------------------------------------------
 st.subheader("Scenario")
 
 categories = list(GROUPED_SCENARIOS.keys())
 tabs = st.tabs(categories)
 
-# Store selections per category
-for category in categories:
-    state_key = f"selected_{category}"
-    if state_key not in st.session_state:
-        # set default scenario in that category
-        scenarios_dict = GROUPED_SCENARIOS[category]
-        default_key = (
-            DEFAULT_SCENARIO_KEY
-            if DEFAULT_SCENARIO_KEY in scenarios_dict
-            else list(scenarios_dict.keys())[0]
-        )
-        st.session_state[state_key] = default_key
-
-
-# Build UI
 for tab, category in zip(tabs, categories):
     scenarios_dict = GROUPED_SCENARIOS[category]
-
+    
+    # Map friendly titles to technical configuration keys
+    scenario_names = {key: cfg.get("title", key) for key, cfg in scenarios_dict.items()}
+    display_to_key = {v: k for k, v in scenario_names.items()}
+    display_list = list(display_to_key.keys())
+    
+    # Form unique widget & state keys per category
+    widget_key = f"radio_widget_{category}"
+    
     with tab:
-        scenario_names = {
-            key: cfg.get("title", key)
-            for key, cfg in scenarios_dict.items()
-        }
-
-        display_to_key = {v: k for k, v in scenario_names.items()}
-        display_list = list(display_to_key.keys())
-
-        current_key = st.session_state[f"selected_{category}"]
-        current_display = scenario_names[current_key]
-
+        # Determine index: If current global scenario belongs to this tab, focus it. 
+        # Otherwise, default to the first item in this tab.
+        if st.session_state.scenario_current in scenarios_dict:
+            current_display = scenario_names[st.session_state.scenario_current]
+            default_idx = display_list.index(current_display)
+        else:
+            default_idx = 0
+            
+        # Display the selector
         selected_display = st.radio(
             f"{category} Scenarios",
             options=display_list,
-            index=display_list.index(current_display),
-            key=f"radio_{category}",
+            index=default_idx,
+            key=widget_key,
+            # args passes the widget_key into our callback function automatically
+            on_change=handle_scenario_change,
+            args=(widget_key,)
         )
+        
+        # Keep internal track of what this tab's radio state currently evaluates to
+        st.session_state[widget_key] = display_to_key[selected_display]
 
-        # Save selection
-        st.session_state[f"selected_{category}"] = display_to_key[selected_display]
-
-
-
-# Use last interacted category automatically
-# (Streamlit doesn't expose active tab → we infer)
-
-chosen_key = None
-
-# Find the most recently changed selection
-for category in categories:
-    key = st.session_state[f"selected_{category}"]
-    if key:
-        chosen_key = key
-
-# fallback
-if chosen_key is None:
-    chosen_key = DEFAULT_SCENARIO_KEY
-
-scenario_key = chosen_key
+# Finalize active configuration details
+scenario_key = st.session_state.scenario_current
 scenario_cfg = SCENARIOS[scenario_key]
 
-if st.session_state.scenario_current != scenario_key:
-    st.session_state.scenario_changed = True
-    st.session_state.scenario_prev = st.session_state.scenario_current
-
-    try:
-        _load_df_cached.clear()
-    except:
-        pass
-
-st.session_state.scenario_current = scenario_key
-
-
-st.caption(f"Selected Scenario: {scenario_cfg['title']} ({scenario_cfg['category']})")
+st.caption(f"Selected Scenario: **{scenario_cfg['title']}** ({scenario_cfg['category']})")
 
 # ---------------------------------------------------------------------
 # Helpers: Last updated + cached loader
